@@ -1,0 +1,52 @@
+{
+  "name": "DsPlayer 官方插件市场",
+  "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
+  "updatedAt": "2026-09-16",
+  "plugins": [
+    {
+      "id": "mediaProxy",
+      "name": "媒体代理服务",
+      "author": "hjdhnx",
+      "desc": "Go 媒体代理服务（leader-follower 流式分段引擎，秒级起播，支持 Range/拖动）。以子进程方式运行，配置启动参数与环境变量后由宿主拉起。",
+      "version": "1.1.0",
+      "type": "import",
+      "size": 2034197,
+      "url": "packages/mediaProxy-1.1.0.zip",
+      "tags": ["网络", "服务"],
+      "changelog": "线程池 +29% 吞吐；网段探测修正。"
+    },
+    {
+      "id": "nodejs",
+      "name": "Node.js 运行时",
+      "author": "hjdhnx",
+      "desc": "Node.js 24 运行时（arm64 静态链接）。本身不启动服务，作为运行时供「服务」页引用：可同时拉起多个服务实例（如 drpy-node 源服务）。",
+      "version": "1.0.0",
+      "type": "import",
+      "size": 31400000,
+      "url": "packages/nodejs-1.0.0.zip",
+      "tags": ["运行时", "服务"]
+    },
+    {
+      "id": "php",
+      "name": "PHP 运行时",
+      "author": "hjdhnx",
+      "desc": "PHP 8 运行时（含 libs 动态库与 sites2 本地源数据）。本身不启动服务，作为运行时供「服务」页引用（如 sites2 本地源服务）。",
+      "version": "1.0.0",
+      "type": "import",
+      "size": 18000000,
+      "url": "packages/php-1.0.0.zip",
+      "tags": ["运行时", "服务"]
+    },
+    {
+      "id": "py",
+      "name": "Python 爬虫引擎",
+      "author": "hjdhnx",
+      "desc": "本地 Python 爬虫源执行引擎（Chaquopy）：type=3 的 .py 源自动进入点播源列表。运行时组件必须以 APK 形态安装，安装时跳转系统安装器并需「安装未知应用」授权。",
+      "version": "1.0.7",
+      "type": "apk",
+      "size": 17029984,
+      "url": "packages/DsPlayer-Python-plugin-1.0.7-arm64.apk",
+      "tags": ["引擎"]
+    }
+  ]
+}
