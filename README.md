@@ -49,7 +49,7 @@ GitHub 直连不畅时，任选其一（DsPlayer 内「管理市场 → GitHub �
 | `type` | ✓ | `import` = 应用内静默导入；`apk` = APK 直装（系统安装器） |
 | `icon` | | 图标地址（绝对 URL 或相对本索引的路径），未声明回落首字母占位 |
 | `size` / `author` / `desc` / `tags` / `changelog` | | 展示元数据 |
-| `sha256` | | 可选；声明后下载强制校验，不符拒装 |
+| `md5` | | 包校验和（32 位 hex）；**声明即强制校验**，不符拒装防篡改。官方 8 包全量声明，可用 `md5sum packages/<包名>` 复核 |
 | `minApp` | | 可选；要求的最低 DsPlayer 版本，不满足时安装按钮置灰 |
 
 ## 自建市场

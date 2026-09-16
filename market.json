@@ -13,8 +13,12 @@
       "size": 2034197,
       "url": "packages/mediaProxy-1.1.0.zip",
       "icon": "icons/mediaProxy.png",
-      "tags": ["网络", "服务"],
-      "changelog": "线程池 +29% 吞吐；网段探测修正。"
+      "tags": [
+        "网络",
+        "服务"
+      ],
+      "changelog": "线程池 +29% 吞吐；网段探测修正。",
+      "md5": "27766c564d9467d3b06a41db5a53605e"
     },
     {
       "id": "nodejs",
@@ -26,7 +30,11 @@
       "size": 31400000,
       "url": "packages/nodejs-1.0.0.zip",
       "icon": "icons/nodejs.png",
-      "tags": ["运行时", "服务"]
+      "tags": [
+        "运行时",
+        "服务"
+      ],
+      "md5": "8eb71041327f883355a99e5c4a791388"
     },
     {
       "id": "php",
@@ -38,7 +46,11 @@
       "size": 18000000,
       "url": "packages/php-1.0.0.zip",
       "icon": "icons/php.png",
-      "tags": ["运行时", "服务"]
+      "tags": [
+        "运行时",
+        "服务"
+      ],
+      "md5": "2fd74aff1ac7ed4a4607c1afcf33c60a"
     },
     {
       "id": "py",
@@ -50,7 +62,10 @@
       "size": 17029984,
       "url": "packages/DsPlayer-Python-plugin-1.0.7-arm64.apk",
       "icon": "icons/py.png",
-      "tags": ["引擎"]
+      "tags": [
+        "引擎"
+      ],
+      "md5": "5a2c37c1e595d0962e5142f62c5fdb84"
     },
     {
       "id": "mpv",
@@ -62,7 +77,10 @@
       "size": 7500000,
       "url": "packages/mpv-1.0.1.apk",
       "icon": "icons/mpv.png",
-      "tags": ["内核"]
+      "tags": [
+        "内核"
+      ],
+      "md5": "38abc23d025252ac1b0a070f1323b150"
     },
     {
       "id": "qjs",
@@ -74,7 +92,10 @@
       "size": 2200000,
       "url": "packages/qjs-1.0.0.apk",
       "icon": "icons/qjs.png",
-      "tags": ["引擎"]
+      "tags": [
+        "引擎"
+      ],
+      "md5": "ae15d2949b2c45f24803118538bb2f60"
     },
     {
       "id": "fjs",
@@ -86,7 +107,10 @@
       "size": 8600000,
       "url": "packages/fjs-1.0.0.apk",
       "icon": "icons/fjs.png",
-      "tags": ["引擎"]
+      "tags": [
+        "引擎"
+      ],
+      "md5": "c128d47a666f07eef067538efc4f9e4b"
     },
     {
       "id": "agent",
@@ -98,7 +122,11 @@
       "size": 1200000,
       "url": "packages/agent-1.0.0.apk",
       "icon": "icons/agent.png",
-      "tags": ["界面", "AI"]
+      "tags": [
+        "界面",
+        "AI"
+      ],
+      "md5": "1648832c4dfba93c04cc2186bd256c9a"
     }
   ]
 }
