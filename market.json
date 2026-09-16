@@ -1,7 +1,7 @@
 {
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-09-16",
+  "updatedAt": "2026-09-17",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -12,6 +12,7 @@
       "type": "import",
       "size": 2034197,
       "url": "packages/mediaProxy-1.1.0.zip",
+      "icon": "icons/mediaProxy.png",
       "tags": ["网络", "服务"],
       "changelog": "线程池 +29% 吞吐；网段探测修正。"
     },
@@ -24,6 +25,7 @@
       "type": "import",
       "size": 31400000,
       "url": "packages/nodejs-1.0.0.zip",
+      "icon": "icons/nodejs.png",
       "tags": ["运行时", "服务"]
     },
     {
@@ -35,6 +37,7 @@
       "type": "import",
       "size": 18000000,
       "url": "packages/php-1.0.0.zip",
+      "icon": "icons/php.png",
       "tags": ["运行时", "服务"]
     },
     {
@@ -46,7 +49,56 @@
       "type": "apk",
       "size": 17029984,
       "url": "packages/DsPlayer-Python-plugin-1.0.7-arm64.apk",
+      "icon": "icons/py.png",
       "tags": ["引擎"]
+    },
+    {
+      "id": "mpv",
+      "name": "MPV 播放内核",
+      "author": "hjdhnx",
+      "desc": "提供全功能 MPV 内核（v1.2.5）：超分 shader、截图、广协议支持。导入后以应用内组件形态生效，可在「插件」页切换播放内核。",
+      "version": "1.0.1",
+      "type": "import",
+      "size": 7500000,
+      "url": "packages/mpv-1.0.1.apk",
+      "icon": "icons/mpv.png",
+      "tags": ["内核"]
+    },
+    {
+      "id": "qjs",
+      "name": "QJS 爬虫引擎",
+      "author": "hjdhnx",
+      "desc": "本地 JS 爬虫源执行引擎（QuickJS 19.0.0，TVBox/drpy2 源）：type=3 的 .js 源与 sdcard spider/js 本地源自动进入点播源列表。",
+      "version": "1.0.0",
+      "type": "import",
+      "size": 2200000,
+      "url": "packages/qjs-1.0.0.apk",
+      "icon": "icons/qjs.png",
+      "tags": ["引擎"]
+    },
+    {
+      "id": "fjs",
+      "name": "fjs 引擎（drpy3 源）",
+      "author": "hjdhnx",
+      "desc": "drpy3 新源（声明式/wasm 形态）本地执行引擎（quickjs-ng via Rust fjs 3.3.0）：sdcard spider/dr3 本地源自动进入点播源列表。",
+      "version": "1.0.0",
+      "type": "import",
+      "size": 8600000,
+      "url": "packages/fjs-1.0.0.apk",
+      "icon": "icons/fjs.png",
+      "tags": ["引擎"]
+    },
+    {
+      "id": "agent",
+      "name": "AI 助手界面",
+      "author": "hjdhnx",
+      "desc": "AI 助手对话界面（NextChat 静态包）：经本地网关托管，由应用内置 Agent 运行时驱动，支持「写脚本 → 本地执行 → 自检修正」任务闭环。需在设置「AI」页配置模型接口。",
+      "version": "1.0.0",
+      "type": "import",
+      "size": 1200000,
+      "url": "packages/agent-1.0.0.apk",
+      "icon": "icons/agent.png",
+      "tags": ["界面", "AI"]
     }
   ]
 }
