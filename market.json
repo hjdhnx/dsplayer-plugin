@@ -2,24 +2,24 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-09-17",
+  "updatedAt": "2026-09-18T00:07:03",
   "plugins": [
     {
       "id": "mediaProxy",
       "name": "媒体代理服务",
       "author": "hjdhnx",
       "desc": "Go 媒体代理服务（leader-follower 流式分段引擎，秒级起播，支持 Range/拖动）。以子进程方式运行，配置启动参数与环境变量后由宿主拉起。",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "type": "import",
-      "size": 2034197,
-      "url": "packages/mediaProxy-1.1.0.zip",
+      "size": 2034214,
+      "url": "packages/mediaProxy-1.1.1.zip",
       "icon": "icons/mediaProxy.png",
       "tags": [
         "网络",
         "服务"
       ],
-      "changelog": "线程池 +29% 吞吐；网段探测修正。",
-      "md5": "27766c564d9467d3b06a41db5a53605e"
+      "changelog": "默认端口 57574 → 5575（新装生效；已装用户可在插件卡编辑参数改端口，二进制未变）。",
+      "md5": "3428e69c39decc435d0c3c5c212b5bd2"
     },
     {
       "id": "nodejs",
