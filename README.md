@@ -8,14 +8,19 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 |---|---|---|---|---|
 | 媒体代理服务 | `mediaProxy` | 1.1.0 | import（zip） | `packages/mediaProxy-1.1.0.zip` |
 | Node.js 运行时 | `nodejs` | 1.0.0 | import（zip） | `packages/nodejs-1.0.0.zip` |
-| PHP 运行时 | `php` | 1.0.0 | import（zip） | `packages/php-1.0.0.zip` |
-| Python 爬虫引擎 | `py` | 1.0.7 | **apk**（系统安装） | `packages/DsPlayer-Python-plugin-1.0.7-arm64.apk` |
+| PHP 运行时 | `php` | 1.1.0 | import（zip） | `packages/php-1.1.0.zip` |
+| Python 爬虫引擎 | `py` | 1.0.5 | **apk**（系统安装） | `packages/DsPlayer-Python-plugin-1.0.5-arm64.apk` |
 | MPV 播放内核 | `mpv` | 1.0.1 | import（apk 直装包可导入） | `packages/mpv-1.0.1.apk` |
 | QJS 爬虫引擎 | `qjs` | 1.0.0 | import | `packages/qjs-1.0.0.apk` |
 | fjs 引擎（drpy3 源） | `fjs` | 1.0.0 | import | `packages/fjs-1.0.0.apk` |
 | AI 助手界面 | `agent` | 1.0.0 | import | `packages/agent-1.0.0.apk` |
 
 图标在 `icons/`（与条目 `icon` 字段对应）；fjs 暂与 QJS 共用 JS 图标（`icons/fjs.png`），可随时替换。
+
+### 2026-09-17 更新说明
+
+- **Python 爬虫引擎 1.0.5（版本回收重发，versionCode 10）**：修复 v1.0.6 起 fs_guard 安全守卫误伤导致的「大量 py 源不可用」回归——默认改回只记日志放行，import/进程/ctypes 严格层不再恒装。已装 1.0.6/1.0.7 的设备因版本号回收（1.0.5 < 1.0.7）市场不会提示更新，**请手动下载包覆盖安装**（versionCode 更大，可直接覆盖）；1.0.4 及更早用户正常走市场升级。
+- **PHP 运行时 1.1.0**：二进制换 PHP 7 静态单文件（`bin/php`），路径统一 bin/ 布局，sites2 源数据随包内置（配合 DsPlayer 服务页的 drpys / T4-PHP 预置服务）。覆盖安装替换旧 PHP 8 包，二者不共存。已知限制：sites2 源开发基准 PHP 8.x，个别源在 php7 下可能不可用。
 
 ## 使用
 

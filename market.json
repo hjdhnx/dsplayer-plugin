@@ -41,32 +41,34 @@
       "id": "php",
       "name": "PHP 运行时",
       "author": "hjdhnx",
-      "desc": "PHP 8 运行时（含 libs 动态库与 sites2 本地源数据）。本身不启动服务，作为运行时供「服务」页引用（如 sites2 本地源服务）。",
-      "version": "1.0.0",
+      "desc": "PHP 7 运行时（Android arm64 静态单文件，无动态库依赖）+ sites2 本地源数据。供「服务」页引用：drpys 的 php 桥（PHP_PATH）与 T4-PHP 站点服务均引用此包。覆盖安装替换旧 PHP 8 包，二者不共存。",
+      "version": "1.1.0",
       "type": "import",
-      "size": 18000000,
-      "url": "packages/php-1.0.0.zip",
+      "size": 9728394,
+      "url": "packages/php-1.1.0.zip",
       "icon": "icons/php.png",
       "tags": [
         "运行时",
         "服务"
       ],
-      "md5": "2fd74aff1ac7ed4a4607c1afcf33c60a"
+      "md5": "151264d9a4e5afd0aa2c829be9bc18ee",
+      "changelog": "v1.1.0：二进制换 PHP 7 静态单文件（bin/php），路径统一 bin/ 布局；sites2 源数据随包内置（T4-PHP 站点服务示例的 -t 根目录）。已知限制：sites2 源开发基准 PHP 8.x，个别源在 php7 下可能不可用。"
     },
     {
       "id": "py",
       "name": "Python 爬虫引擎",
       "author": "hjdhnx",
       "desc": "本地 Python 爬虫源执行引擎（Chaquopy）：type=3 的 .py 源自动进入点播源列表。运行时组件必须以 APK 形态安装，安装时跳转系统安装器并需「安装未知应用」授权。",
-      "version": "1.0.7",
+      "version": "1.0.5",
       "type": "apk",
-      "size": 17029984,
-      "url": "packages/DsPlayer-Python-plugin-1.0.7-arm64.apk",
+      "size": 17029216,
+      "url": "packages/DsPlayer-Python-plugin-1.0.5-arm64.apk",
       "icon": "icons/py.png",
       "tags": [
         "引擎"
       ],
-      "md5": "5a2c37c1e595d0962e5142f62c5fdb84"
+      "md5": "cdbb76c785030e26f44bb7ed2f1edd0a",
+      "changelog": "v1.0.5（回收重发，versionCode 10）：fs_guard 安全守卫回归修复——默认改回只记日志放行，import/进程/ctypes 严格层不再恒装，v1.0.4 可用的源全部恢复。已装 1.0.6/1.0.7 的设备版本号回收，请手动下载本包覆盖安装。"
     },
     {
       "id": "mpv",
