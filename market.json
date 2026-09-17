@@ -41,18 +41,18 @@
       "id": "php",
       "name": "PHP 运行时",
       "author": "hjdhnx",
-      "desc": "PHP 7 运行时（Android arm64 静态单文件，无动态库依赖）+ sites2 本地源数据。供「服务」页引用：drpys 的 php 桥（PHP_PATH）与 T4-PHP 站点服务均引用此包。覆盖安装替换旧 PHP 8 包，二者不共存。",
-      "version": "1.1.0",
+      "desc": "PHP 7 运行时（Android arm64 静态单文件，无动态库依赖）+ t4_demo 站点源种子（T4-PHP 预置导入时释放到 sdcard/dsplayer/server/php/t4_demo，docroot 指 sdcard 可加改源）。供「服务」页引用：drpys 的 php 桥（PHP_PATH）与 T4-PHP 站点服务均引用此包。覆盖安装替换旧 PHP 8 包，二者不共存。",
+      "version": "1.2.0",
       "type": "import",
-      "size": 9728394,
-      "url": "packages/php-1.1.0.zip",
+      "size": 9728518,
+      "url": "packages/php-1.2.0.zip",
       "icon": "icons/php.png",
       "tags": [
         "运行时",
         "服务"
       ],
-      "md5": "151264d9a4e5afd0aa2c829be9bc18ee",
-      "changelog": "v1.1.0：二进制换 PHP 7 静态单文件（bin/php），路径统一 bin/ 布局；sites2 源数据随包内置（T4-PHP 站点服务示例的 -t 根目录）。已知限制：sites2 源开发基准 PHP 8.x，个别源在 php7 下可能不可用。"
+      "md5": "3cb7bd178f7d82b39d8379e850f7d3a8",
+      "changelog": "v1.2.0：sites2/ 改名 t4_demo/ 转为种子语义——「示例」导入 T4-PHP 预置时释放到 sdcard（已存在不覆盖），docroot 指 sdcard 可直接加改 php 源；修复 php7 静态单文件无 fnmatch 致 config.php 源列表 Fatal。v1.1.0 及更早的已装用户重装本包后重新点一次「示例」补齐种子。"
     },
     {
       "id": "py",
@@ -130,6 +130,23 @@
         "AI"
       ],
       "md5": "1648832c4dfba93c04cc2186bd256c9a"
+    },
+    {
+      "id": "bundle",
+      "name": "插件整合包",
+      "author": "hjdhnx",
+      "desc": "全家桶安装器（有桌面图标，一键安装）：内置 MPV/Python/QJS/fjs/Agent 五插件 APK + mediaProxy/php 运行时 zip。版本预检：设备已装版本 ≥ 内置版本则跳过，仅补缺口/升级落后项，可与单包共存。",
+      "version": "1.0.6",
+      "type": "apk",
+      "size": 56295565,
+      "url": "packages/DsPlayer-Plugin-Bundle-1.0.6-arm64.apk",
+      "icon": "icons/bundle.png",
+      "tags": [
+        "安装器",
+        "整合包"
+      ],
+      "md5": "c80e046315cbef20c0a4b308f48b9c06",
+      "changelog": "v1.0.6（vc7）：新收编 php 运行时 1.2.0（t4_demo 种子 + fnmatch 修复），装整合包即可一键导入 php 运行时。"
     }
   ]
 }
