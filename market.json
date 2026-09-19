@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-09-20T08:00:00",
+  "updatedAt": "2026-09-20T08:30:00",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -180,10 +180,10 @@
       "name": "洛雪同步",
       "author": "XCQ0607",
       "desc": "洛雪音乐同步服务端 v2.1.0（来源 github.com/XCQ0607/lxserver releases，上游 lyswhut/lx-music-sync-server）：歌单/歌词多端同步 + Web 控制台。安装后解压至 sdcard/dsplayer/server/node/ 并自动创建「洛雪同步」服务（需先装 nodejs 运行时插件），启动后浏览器访问 http://<设备IP>:9527 进控制台（默认管理密码 123456，配置在 data/config.js 可改端口/用户）。已为 Android 打补丁：音乐标签写入依赖的桌面预编译库降级为占位实现，不影响同步核心。",
-      "version": "2.1.0",
+      "version": "2.1.1",
       "type": "server",
       "category": "app",
-      "url": "packages/lx-sync-2.1.0.zip",
+      "url": "packages/lx-sync-2.1.1.zip",
       "size": 25286763,
       "md5": "b7c241e73f0fad74c4857cccf905b8f0",
       "changelog": "首个版本：v2.1.0 原包 + Android 兼容补丁（music-tag-native 无预编译平台回退 stub）+ dsplayer-server.json 服务清单（安装即自动建服务配置）。",
