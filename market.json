@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-09-18T00:07:03",
+  "updatedAt": "2026-09-19T00:10:00",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -19,7 +19,8 @@
         "服务"
       ],
       "changelog": "默认端口 57574 → 5575（新装生效；已装用户可在插件卡编辑参数改端口，二进制未变）。",
-      "md5": "3428e69c39decc435d0c3c5c212b5bd2"
+      "md5": "3428e69c39decc435d0c3c5c212b5bd2",
+      "category": "env"
     },
     {
       "id": "nodejs",
@@ -35,7 +36,8 @@
         "运行时",
         "服务"
       ],
-      "md5": "8eb71041327f883355a99e5c4a791388"
+      "md5": "8eb71041327f883355a99e5c4a791388",
+      "category": "env"
     },
     {
       "id": "php",
@@ -52,7 +54,8 @@
         "服务"
       ],
       "md5": "3cb7bd178f7d82b39d8379e850f7d3a8",
-      "changelog": "v1.2.0：sites2/ 改名 t4_demo/ 转为种子语义——「示例」导入 T4-PHP 预置时释放到 sdcard（已存在不覆盖），docroot 指 sdcard 可直接加改 php 源；修复 php7 静态单文件无 fnmatch 致 config.php 源列表 Fatal。v1.1.0 及更早的已装用户重装本包后重新点一次「示例」补齐种子。"
+      "changelog": "v1.2.0：sites2/ 改名 t4_demo/ 转为种子语义——「示例」导入 T4-PHP 预置时释放到 sdcard（已存在不覆盖），docroot 指 sdcard 可直接加改 php 源；修复 php7 静态单文件无 fnmatch 致 config.php 源列表 Fatal。v1.1.0 及更早的已装用户重装本包后重新点一次「示例」补齐种子。",
+      "category": "env"
     },
     {
       "id": "py",
@@ -68,7 +71,8 @@
         "引擎"
       ],
       "md5": "cdbb76c785030e26f44bb7ed2f1edd0a",
-      "changelog": "v1.0.5（回收重发，versionCode 10）：fs_guard 安全守卫回归修复——默认改回只记日志放行，import/进程/ctypes 严格层不再恒装，v1.0.4 可用的源全部恢复。已装 1.0.6/1.0.7 的设备版本号回收，请手动下载本包覆盖安装。"
+      "changelog": "v1.0.5（回收重发，versionCode 10）：fs_guard 安全守卫回归修复——默认改回只记日志放行，import/进程/ctypes 严格层不再恒装，v1.0.4 可用的源全部恢复。已装 1.0.6/1.0.7 的设备版本号回收，请手动下载本包覆盖安装。",
+      "category": "env"
     },
     {
       "id": "mpv",
@@ -83,7 +87,8 @@
       "tags": [
         "内核"
       ],
-      "md5": "38abc23d025252ac1b0a070f1323b150"
+      "md5": "38abc23d025252ac1b0a070f1323b150",
+      "category": "env"
     },
     {
       "id": "qjs",
@@ -98,7 +103,8 @@
       "tags": [
         "引擎"
       ],
-      "md5": "ae15d2949b2c45f24803118538bb2f60"
+      "md5": "ae15d2949b2c45f24803118538bb2f60",
+      "category": "env"
     },
     {
       "id": "fjs",
@@ -113,7 +119,8 @@
       "tags": [
         "引擎"
       ],
-      "md5": "c128d47a666f07eef067538efc4f9e4b"
+      "md5": "c128d47a666f07eef067538efc4f9e4b",
+      "category": "env"
     },
     {
       "id": "agent",
@@ -129,7 +136,8 @@
         "界面",
         "AI"
       ],
-      "md5": "1648832c4dfba93c04cc2186bd256c9a"
+      "md5": "1648832c4dfba93c04cc2186bd256c9a",
+      "category": "env"
     },
     {
       "id": "bundle",
@@ -146,7 +154,8 @@
         "整合包"
       ],
       "md5": "c80e046315cbef20c0a4b308f48b9c06",
-      "changelog": "v1.0.6（vc7）：新收编 php 运行时 1.2.0（t4_demo 种子 + fnmatch 修复），装整合包即可一键导入 php 运行时。"
+      "changelog": "v1.0.6（vc7）：新收编 php 运行时 1.2.0（t4_demo 种子 + fnmatch 修复），装整合包即可一键导入 php 运行时。",
+      "category": "app"
     }
   ]
 }
