@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-09-19T00:40:00",
+  "updatedAt": "2026-09-19T01:05:00",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -44,17 +44,17 @@
       "name": "PHP 运行时",
       "author": "hjdhnx",
       "desc": "PHP 7 运行时（Android arm64 静态单文件，无动态库依赖）+ t4_demo 站点源种子（T4-PHP 预置导入时释放到 sdcard/dsplayer/server/php/t4_demo，docroot 指 sdcard 可加改源）。供「服务」页引用：drpys 的 php 桥（PHP_PATH）与 T4-PHP 站点服务均引用此包。覆盖安装替换旧 PHP 8 包，二者不共存。",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "type": "import",
-      "size": 9728518,
-      "url": "packages/php-1.2.0.zip",
+      "size": 9731438,
+      "url": "packages/php-1.3.0.zip",
       "icon": "icons/php.png",
       "tags": [
         "运行时",
         "服务"
       ],
-      "md5": "3cb7bd178f7d82b39d8379e850f7d3a8",
-      "changelog": "v1.2.0：sites2/ 改名 t4_demo/ 转为种子语义——「示例」导入 T4-PHP 预置时释放到 sdcard（已存在不覆盖），docroot 指 sdcard 可直接加改 php 源；修复 php7 静态单文件无 fnmatch 致 config.php 源列表 Fatal。v1.1.0 及更早的已装用户重装本包后重新点一次「示例」补齐种子。",
+      "md5": "d1363cf0e9f9e27096662c1c2c8b8922",
+      "changelog": "v1.3.0：index.php 探针升级为服务控制台页（状态卡+config.php 入口+一键复制完整地址，?format=json 保留机器可读探针）；新增 t4_demo/php/ 自定义脚本目录与 README，config.php 自动扫描 php/ 子目录入源列表（api 带 /php/ 前缀）。",
       "category": "env"
     },
     {
