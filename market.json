@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-09-19T00:10:00",
+  "updatedAt": "2026-09-19T00:40:00",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -156,6 +156,23 @@
       "md5": "c80e046315cbef20c0a4b308f48b9c06",
       "changelog": "v1.0.6（vc7）：新收编 php 运行时 1.2.0（t4_demo 种子 + fnmatch 修复），装整合包即可一键导入 php 运行时。",
       "category": "app"
+    },
+    {
+      "id": "iptv-ccsh",
+      "name": "IPTV 直播源（CCSH 采集）",
+      "author": "CCSH/IPTV",
+      "desc": "CCSH/IPTV 仓库全自动采集的央卫视+地方台直播源（每日 04:00 更新，含台标）。数据来源：https://github.com/CCSH/IPTV （MIT）。安装后写入直播配置，切到直播页即生效；频道台标随 m3u tvg-logo 自动加载。直连不可达时包内已用 ghfast.top 代理地址，可在源管理编辑。",
+      "version": "1.0.0",
+      "type": "live",
+      "category": "app",
+      "url": "packages/iptv-ccsh.json",
+      "size": 450,
+      "md5": "31a42d86275572fbbcfbed9b5eeb83df",
+      "changelog": "首个版本：全量+精简双订阅（订阅仓库地址，频道源每日随仓库自动更新）",
+      "tags": [
+        "直播",
+        "应用"
+      ]
     }
   ]
 }
