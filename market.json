@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-09-20T07:20:00",
+  "updatedAt": "2026-09-20T07:45:00",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -184,8 +184,8 @@
       "type": "server",
       "category": "app",
       "url": "packages/lx-sync-2.1.0.zip",
-      "size": 25286823,
-      "md5": "698d89007adc91138086e4f8a5942827",
+      "size": 25286781,
+      "md5": "00bf353a02eb9c7ea97ec32e203fa5b3",
       "changelog": "首个版本：v2.1.0 原包 + Android 兼容补丁（music-tag-native 无预编译平台回退 stub）+ dsplayer-server.json 服务清单（安装即自动建服务配置）。",
       "tags": [
         "服务",
