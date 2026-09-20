@@ -14,8 +14,8 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | Node.js 运行时 | `nodejs` | 1.0.0 | import（zip） | `packages/nodejs-1.0.0.zip` |
 | PHP 运行时 | `php` | 1.3.1 | import（zip） | `packages/php-1.3.1.zip` |
 | Python 爬虫引擎 | `py` | 1.0.5 | **apk**（系统安装） | `packages/DsPlayer-Python-plugin-1.0.5-arm64.apk` |
-| MPV 播放内核 | `mpv` | 1.0.1 | import（apk 直装包可导入） | `packages/mpv-1.0.1.apk` |
-| QJS 爬虫引擎 | `qjs` | 1.0.0 | import | `packages/qjs-1.0.0.apk` |
+| MPV 播放内核 | `mpv` | 1.0.2 | import（apk 直装包可导入） | `packages/mpv-1.0.2.apk` |
+| QJS 爬虫引擎 | `qjs` | 1.0.1 | import | `packages/qjs-1.0.1.apk` |
 | fjs 引擎（dr3 源） | `fjs` | 1.0.0 | import | `packages/fjs-1.0.0.apk` |
 | AI 助手界面 | `agent` | 1.0.0 | import | `packages/agent-1.0.0.apk` |
 
@@ -27,6 +27,15 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | IPTV 直播源（CCSH 采集） | `iptv-ccsh` | 1.0.0 | **live**（直播源包） | `packages/iptv-ccsh.json` |
 | 洛雪同步 | `lx-sync` | 2.1.2 | **server**（服务包） | `packages/lx-sync-2.1.2.zip` |
 | 弹幕 API 服务 | `danmu-api` | 1.0.0 | **server**（服务包） | `packages/danmu-1.0.0.zip` |
+
+### 引擎类条目版本要点
+
+| 条目 | 当前版本 | 要点 |
+|---|---|---|
+| `mpv` | 1.0.2 | libmpv 重编入 DASH（MPD）demuxer（上游构建缺 libxml2 致 `ff_dash_demuxer` 未编入，DASH 源此前须降级 Exo）；内核 1.2.5 → 1.2.6 |
+| `qjs` | 1.0.1 | 根治跨 isolate SIGABRT 闪退——so 回调从进程级全局改 per-context 注册 |
+
+各包完整变更说明见 `market.json` 条目的 `changelog` 字段（DsPlayer 详情弹层直接展示）。
 
 图标在 `icons/`（与条目 `icon` 字段对应；fjs 暂与 QJS 共用 JS 图标）。`iptv.png` 为已弃用的旧版图标（被 `iptv2.png` 取代，保留留档）。
 

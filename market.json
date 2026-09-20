@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-09-21T00:48:10",
+  "updatedAt": "2026-09-21T05:43:44",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -88,7 +88,8 @@
         "内核"
       ],
       "md5": "24db35c6c48be264a7561c5b0d8c1695",
-      "category": "env"
+      "category": "env",
+      "changelog": "v1.0.2：libmpv 重编入 DASH（MPD）demuxer —— 上游构建缺 libxml2 致 ff_dash_demuxer 未编入，DASH 源此前须降级 Exo；现 MPV 原生播放，真机首帧 39ms。内核版本 1.2.5 → 1.2.6。"
     },
     {
       "id": "qjs",
