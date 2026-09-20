@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-09-20T08:50:00",
+  "updatedAt": "2026-09-20T09:49:12",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -192,6 +192,24 @@
         "应用"
       ],
       "icon": "icons/lxmusic.png"
+    },
+    {
+      "id": "danmu-api",
+      "name": "弹幕 API 服务",
+      "author": "huangxd-",
+      "desc": "LogVar 弹幕 API 服务端 v1.0.0（来源 github.com/huangxd-/danmu_api commit ea88a15a）：兼容弹弹play 协议的弹幕聚合接口，直连爱优腾芒哔咪等平台取弹幕。安装后自动创建「弹幕 API」服务（需 nodejs 运行时插件），启动后在 设置→播放器 把弹幕接口改为 http://127.0.0.1:9321 即可自动匹配弹幕；浏览器访问 http://<设备IP>:9321 可搜索调试。另监听 5321 代理端口；已裁剪桌面专用依赖（pglite/drizzle 等），配置热重载在 Android 上不可用。",
+      "version": "1.0.0",
+      "type": "server",
+      "category": "app",
+      "url": "packages/danmu-1.0.0.zip",
+      "size": 6639589,
+      "md5": "6b60b7502edcfacf368529d8381ab221",
+      "changelog": "首个版本：基于上游 commit ea88a15a（2026-09-13），精简依赖 + 裁剪桌面专用死重（pglite/drizzle-orm/web-streams ~62MB），Android node24 实测启动/搜索/弹幕获取全链可用。",
+      "tags": [
+        "服务",
+        "应用"
+      ],
+      "icon": "icons/danmu.png"
     }
   ]
 }

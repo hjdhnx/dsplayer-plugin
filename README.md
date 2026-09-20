@@ -2,7 +2,7 @@
 
 DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装入口），`packages/` 存放插件包，`icons/` 存放条目图标。
 
-## 当前收录（11 个条目 = 环境 8 + 应用 3）
+## 当前收录（12 个条目 = 环境 8 + 应用 4）
 
 条目带 `category` 字段（2026-09-20 起）：`env`=环境（引擎/运行时，给壳子供能力，默认归类）；`app`=应用（面向完整使用场景：整合包、直播源包、服务包）。市场内按类别过滤，默认展示「环境」。
 
@@ -26,8 +26,11 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | 插件整合包 | `bundle` | 1.0.6 | **apk**（系统安装） | `packages/DsPlayer-Plugin-Bundle-1.0.6-arm64.apk` |
 | IPTV 直播源（CCSH 采集） | `iptv-ccsh` | 1.0.0 | **live**（直播源包） | `packages/iptv-ccsh.json` |
 | 洛雪同步 | `lx-sync` | 2.1.2 | **server**（服务包） | `packages/lx-sync-2.1.2.zip` |
+| 弹幕 API 服务 | `danmu-api` | 1.0.0 | **server**（服务包） | `packages/danmu-1.0.0.zip` |
 
 图标在 `icons/`（与条目 `icon` 字段对应；fjs 暂与 QJS 共用 JS 图标）。`iptv.png` 为已弃用的旧版图标（被 `iptv2.png` 取代，保留留档）。
+
+弹幕 API 服务配套用法：服务启动后，DsPlayer 设置 → 播放器 → 弹幕接口 填 `http://127.0.0.1:9321`，播放无自带弹幕的影片即自动按标题匹配（兼容弹弹play 协议）。
 
 ## 条目形态（type）与安装语义
 
@@ -36,7 +39,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | `import` | zip / apk | 应用内静默导入（组件落应用内目录） | 引擎/运行时类 |
 | `apk` | apk | 跳系统安装器直装 | py、bundle |
 | `live` | JSON（`{"lives":[{name,url,ua,epg}]}`） | 写入直播配置并启用，切直播页生效；**订阅制**（内容指向外部地址时随源自动更新） | iptv-ccsh |
-| `server` | zip（根部须有 `server.json` manifest：`serviceName/workDir/entry/port/healthType/desc`） | 解压到 `sdcard/dsplayer/server/node/`（覆盖式，数据目录保留）+ **自动创建服务配置**（nodejs 运行时启动；服务 id 约定 `svc-mkt-<条目id>`，已存在跳过） | lx-sync |
+| `server` | zip（根部须有 `server.json` manifest：`serviceName/workDir/entry/port/healthType/desc`） | 解压到 `sdcard/dsplayer/server/node/`（覆盖式，数据目录保留）+ **自动创建服务配置**（nodejs 运行时启动；服务 id 约定 `svc-mkt-<条目id>`，已存在跳过） | lx-sync、danmu-api |
 
 `server` 包要求设备已装 `nodejs` 运行时插件；manifest 字段由 DsPlayer 市场安装器消费（见 DsPlayer 仓库 `MarketManager.installServerPackage`）。
 
@@ -67,13 +70,13 @@ GitHub 直连不畅时，任选其一（DsPlayer 内「管理市场 → GitHub �
 
 | 字段 | 必填 | 说明 |
 |---|---|---|
-| `id` | ✓ | 条目唯一身份：binary/runtime 插件 = 包内 plugin.json 的 `name`；内置引擎 = `mpv/py/qjs/fjs/agent`；应用类自定（iptv-ccsh/lx-sync） |
+| `id` | ✓ | 条目唯一身份：binary/runtime 插件 = 包内 plugin.json 的 `name`；内置引擎 = `mpv/py/qjs/fjs/agent`；应用类自定（iptv-ccsh/lx-sync/danmu-api） |
 | `name` / `version` / `url` | ✓ | 展示名 / 语义化版本 / 包地址（绝对直链或相对本索引的路径） |
 | `type` | ✓ | `import` / `apk` / `live` / `server`（语义见上表） |
 | `category` | | `env`（默认）/ `app`；未声明归 env |
 | `icon` | | 图标地址（绝对 URL 或相对本索引的路径），未声明回落首字母占位 |
 | `size` / `author` / `desc` / `tags` / `changelog` | | 展示元数据 |
-| `md5` | | 包校验和（32 位 hex）；**声明即强制校验**，不符拒装防篡改。官方 11 包全量声明，可用 `md5sum packages/<包名>` 复核 |
+| `md5` | | 包校验和（32 位 hex）；**声明即强制校验**，不符拒装防篡改。官方 12 包全量声明，可用 `md5sum packages/<包名>` 复核 |
 | `minApp` | | 可选；要求的最低 DsPlayer 版本，不满足时安装按钮置灰 |
 
 ## 发布约定（2026-09-20 起执行）
