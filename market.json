@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-09-20T07:35:00",
+  "updatedAt": "2026-09-20T08:50:00",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -44,17 +44,17 @@
       "name": "PHP 运行时",
       "author": "hjdhnx",
       "desc": "PHP 7 运行时（Android arm64 静态单文件，无动态库依赖）+ t4_demo 站点源种子（T4-PHP 预置导入时释放到 sdcard/dsplayer/server/php/t4_demo，docroot 指 sdcard 可加改源）。供「服务」页引用：drpys 的 php 桥（PHP_PATH）与 T4-PHP 站点服务均引用此包。覆盖安装替换旧 PHP 8 包，二者不共存。",
-      "version": "1.3.0",
+      "version": "1.3.1",
       "type": "import",
-      "size": 9731438,
-      "url": "packages/php-1.3.0.zip",
+      "size": 9731838,
+      "url": "packages/php-1.3.1.zip",
       "icon": "icons/php.png",
       "tags": [
         "运行时",
         "服务"
       ],
-      "md5": "d1363cf0e9f9e27096662c1c2c8b8922",
-      "changelog": "v1.3.0：index.php 探针升级为服务控制台页（状态卡+config.php 入口+一键复制完整地址，?format=json 保留机器可读探针）；新增 t4_demo/php/ 自定义脚本目录与 README，config.php 自动扫描 php/ 子目录入源列表（api 带 /php/ 前缀）。",
+      "md5": "85cfbe54c329b9dd7c299aa2b3cda120",
+      "changelog": "v1.3.1：控制台页「已加载扩展」展开显示具体名单；t4_demo/php/ 定位修正——它是 web 服务脚本目录（自定义解析、IPTV 转发等），不再是源：不进 config.php 源列表，改为控制台首页单独列出各脚本服务地址。已装 1.3.0 的用户：服务页点「示例」升级壳文件后重启 T4-PHP 服务生效。",
       "category": "env"
     },
     {
