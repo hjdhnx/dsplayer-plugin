@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-09-20T18:56:17",
+  "updatedAt": "2026-09-21T00:48:10",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -78,16 +78,16 @@
       "id": "mpv",
       "name": "MPV 播放内核",
       "author": "hjdhnx",
-      "desc": "提供全功能 MPV 内核（v1.2.5）：超分 shader、截图、广协议支持。导入后以应用内组件形态生效，可在「插件」页切换播放内核。",
-      "version": "1.0.1",
+      "desc": "提供全功能 MPV 内核（v1.2.6）：新增 DASH（MPD）原生播放支持、超分 shader、截图、广协议支持。导入后以应用内组件形态生效，可在「插件」页切换播放内核。",
+      "version": "1.0.2",
       "type": "import",
-      "size": 7500000,
-      "url": "packages/mpv-1.0.1.apk",
+      "size": 8144995,
+      "url": "packages/mpv-1.0.2.apk",
       "icon": "icons/mpv.png",
       "tags": [
         "内核"
       ],
-      "md5": "38abc23d025252ac1b0a070f1323b150",
+      "md5": "24db35c6c48be264a7561c5b0d8c1695",
       "category": "env"
     },
     {
