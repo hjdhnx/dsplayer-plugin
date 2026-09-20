@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-09-20T09:49:12",
+  "updatedAt": "2026-09-20T18:56:17",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -95,16 +95,17 @@
       "name": "QJS 爬虫引擎",
       "author": "hjdhnx",
       "desc": "本地 JS 爬虫源执行引擎（QuickJS 19.0.0，TVBox/drpy2 源）：type=3 的 .js 源与 sdcard spider/js 本地源自动进入点播源列表。",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "type": "import",
-      "size": 2200000,
-      "url": "packages/qjs-1.0.0.apk",
+      "size": 3105526,
+      "url": "packages/qjs-1.0.1.apk",
       "icon": "icons/qjs.png",
       "tags": [
         "引擎"
       ],
-      "md5": "ae15d2949b2c45f24803118538bb2f60",
-      "category": "env"
+      "md5": "cd4b0d5c8f4c11f1bbcc96f4ba6df725",
+      "category": "env",
+      "changelog": "v1.0.1：根治跨 isolate SIGABRT 闪退——so 的 host/module/normalize 回调从进程级全局改为 per-context 注册（qjs_set_callbacks 增 ctx 首参 + 新增 qjs_clear_callbacks）。修复「切源/播放中切换 dr2 源必崩」以及央视视频源播放闪退。"
     },
     {
       "id": "fjs",
