@@ -1,26 +1,44 @@
 # dsplayer-plugin
 
-DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装入口），`packages/` 存放插件包，`icons/` 存放插件图标。
+DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装入口），`packages/` 存放插件包，`icons/` 存放条目图标。
 
-## 当前收录（8 个插件）
+## 当前收录（11 个条目 = 环境 8 + 应用 3）
 
-| 插件 | id | 版本 | 类型 | 包 |
+条目带 `category` 字段（2026-09-20 起）：`env`=环境（引擎/运行时，给壳子供能力，默认归类）；`app`=应用（面向完整使用场景：整合包、直播源包、服务包）。市场内按类别过滤，默认展示「环境」。
+
+### 环境（env）
+
+| 条目 | id | 版本 | type | 包 |
 |---|---|---|---|---|
-| 媒体代理服务 | `mediaProxy` | 1.1.0 | import（zip） | `packages/mediaProxy-1.1.0.zip` |
+| 媒体代理服务 | `mediaProxy` | 1.1.1 | import（zip） | `packages/mediaProxy-1.1.1.zip` |
 | Node.js 运行时 | `nodejs` | 1.0.0 | import（zip） | `packages/nodejs-1.0.0.zip` |
-| PHP 运行时 | `php` | 1.1.0 | import（zip） | `packages/php-1.1.0.zip` |
+| PHP 运行时 | `php` | 1.3.1 | import（zip） | `packages/php-1.3.1.zip` |
 | Python 爬虫引擎 | `py` | 1.0.5 | **apk**（系统安装） | `packages/DsPlayer-Python-plugin-1.0.5-arm64.apk` |
 | MPV 播放内核 | `mpv` | 1.0.1 | import（apk 直装包可导入） | `packages/mpv-1.0.1.apk` |
 | QJS 爬虫引擎 | `qjs` | 1.0.0 | import | `packages/qjs-1.0.0.apk` |
-| fjs 引擎（drpy3 源） | `fjs` | 1.0.0 | import | `packages/fjs-1.0.0.apk` |
+| fjs 引擎（dr3 源） | `fjs` | 1.0.0 | import | `packages/fjs-1.0.0.apk` |
 | AI 助手界面 | `agent` | 1.0.0 | import | `packages/agent-1.0.0.apk` |
 
-图标在 `icons/`（与条目 `icon` 字段对应）；fjs 暂与 QJS 共用 JS 图标（`icons/fjs.png`），可随时替换。
+### 应用（app）
 
-### 2026-09-17 更新说明
+| 条目 | id | 版本 | type | 包 |
+|---|---|---|---|---|
+| 插件整合包 | `bundle` | 1.0.6 | **apk**（系统安装） | `packages/DsPlayer-Plugin-Bundle-1.0.6-arm64.apk` |
+| IPTV 直播源（CCSH 采集） | `iptv-ccsh` | 1.0.0 | **live**（直播源包） | `packages/iptv-ccsh.json` |
+| 洛雪同步 | `lx-sync` | 2.1.2 | **server**（服务包） | `packages/lx-sync-2.1.2.zip` |
 
-- **Python 爬虫引擎 1.0.5（版本回收重发，versionCode 10）**：修复 v1.0.6 起 fs_guard 安全守卫误伤导致的「大量 py 源不可用」回归——默认改回只记日志放行，import/进程/ctypes 严格层不再恒装。已装 1.0.6/1.0.7 的设备因版本号回收（1.0.5 < 1.0.7）市场不会提示更新，**请手动下载包覆盖安装**（versionCode 更大，可直接覆盖）；1.0.4 及更早用户正常走市场升级。
-- **PHP 运行时 1.1.0**：二进制换 PHP 7 静态单文件（`bin/php`），路径统一 bin/ 布局，sites2 源数据随包内置（配合 DsPlayer 服务页的 drpys / T4-PHP 预置服务）。覆盖安装替换旧 PHP 8 包，二者不共存。已知限制：sites2 源开发基准 PHP 8.x，个别源在 php7 下可能不可用。
+图标在 `icons/`（与条目 `icon` 字段对应；fjs 暂与 QJS 共用 JS 图标）。`iptv.png` 为已弃用的旧版图标（被 `iptv2.png` 取代，保留留档）。
+
+## 条目形态（type）与安装语义
+
+| type | 包体 | 安装动作 | 典型条目 |
+|---|---|---|---|
+| `import` | zip / apk | 应用内静默导入（组件落应用内目录） | 引擎/运行时类 |
+| `apk` | apk | 跳系统安装器直装 | py、bundle |
+| `live` | JSON（`{"lives":[{name,url,ua,epg}]}`） | 写入直播配置并启用，切直播页生效；**订阅制**（内容指向外部地址时随源自动更新） | iptv-ccsh |
+| `server` | zip（根部须有 `server.json` manifest：`serviceName/workDir/entry/port/healthType/desc`） | 解压到 `sdcard/dsplayer/server/node/`（覆盖式，数据目录保留）+ **自动创建服务配置**（nodejs 运行时启动；服务 id 约定 `svc-mkt-<条目id>`，已存在跳过） | lx-sync |
+
+`server` 包要求设备已装 `nodejs` 运行时插件；manifest 字段由 DsPlayer 市场安装器消费（见 DsPlayer 仓库 `MarketManager.installServerPackage`）。
 
 ## 使用
 
@@ -38,7 +56,7 @@ GitHub 直连不畅时，任选其一（DsPlayer 内「管理市场 → GitHub �
   - ⚠️ jsDelivr 对分支引用有 CDN 缓存（索引推送后可能滞后数小时）。索引更新后可主动刷新缓存：
     `https://purge.jsdelivr.net/gh/hjdhnx/dsplayer-plugin@main/market.json`（浏览器访问一次即可）
 - gh-proxy 类前缀代理（实测推荐序，2026-09-17）：
-  1. `https://gh-proxy.com/` —— 最快最稳（zip 完整 ~960KB/s），DsPlayer 内置默认
+  1. `https://gh-proxy.com/` —— 最快最稳，DsPlayer 内置默认
   2. `https://gh-proxy.playdreamer.cn/` —— 稳定
   3. `https://github.catvod.com/` —— 偶发 502/截断，备选
 - 用法：前缀 + 完整原始 URL，如 `https://gh-proxy.com/https://raw.githubusercontent.com/hjdhnx/dsplayer-plugin/main/market.json`
@@ -49,14 +67,22 @@ GitHub 直连不畅时，任选其一（DsPlayer 内「管理市场 → GitHub �
 
 | 字段 | 必填 | 说明 |
 |---|---|---|
-| `id` | ✓ | 插件唯一身份：binary/runtime 插件 = 包内 plugin.json 的 `name`；内置引擎 = `mpv/py/qjs/fjs/agent`；与本地已装判定对齐 |
+| `id` | ✓ | 条目唯一身份：binary/runtime 插件 = 包内 plugin.json 的 `name`；内置引擎 = `mpv/py/qjs/fjs/agent`；应用类自定（iptv-ccsh/lx-sync） |
 | `name` / `version` / `url` | ✓ | 展示名 / 语义化版本 / 包地址（绝对直链或相对本索引的路径） |
-| `type` | ✓ | `import` = 应用内静默导入；`apk` = APK 直装（系统安装器） |
+| `type` | ✓ | `import` / `apk` / `live` / `server`（语义见上表） |
+| `category` | | `env`（默认）/ `app`；未声明归 env |
 | `icon` | | 图标地址（绝对 URL 或相对本索引的路径），未声明回落首字母占位 |
 | `size` / `author` / `desc` / `tags` / `changelog` | | 展示元数据 |
-| `md5` | | 包校验和（32 位 hex）；**声明即强制校验**，不符拒装防篡改。官方 8 包全量声明，可用 `md5sum packages/<包名>` 复核 |
+| `md5` | | 包校验和（32 位 hex）；**声明即强制校验**，不符拒装防篡改。官方 11 包全量声明，可用 `md5sum packages/<包名>` 复核 |
 | `minApp` | | 可选；要求的最低 DsPlayer 版本，不满足时安装按钮置灰 |
+
+## 发布约定（2026-09-20 起执行）
+
+1. **同名包绝不重传**：内容有任何变化一律升版本号并换新文件名（如 `lx-sync-2.1.2.zip`），代理/CDN 层对同名文件的缓存会导致客户端「md5 校验不符」假失败（lx-sync 实锤）。旧版本包删除（git 历史留档）。
+2. `md5` / `size` / `version` / `changelog` 与包严格同步；顶层 `updatedAt` 每次发布刷新。
+3. `server` 条目包内 `server.json` 为安装指令，DsPlayer 安装时跳过落盘；`live` 条目包体即数据。
+4. 图标换图时**换文件名**（如 `iptv.png`→`iptv2.png`），客户端图片磁盘缓存按 URL 键控。
 
 ## 自建市场
 
-任意能放静态文件的地址（GitHub 仓库 / 对象存储 / 本地 sdcard）都可作市场：一份索引 JSON + 包文件即可。第三方条目的 `id` 同样须与包内 `plugin.json` 身份一致，否则已装判定不闭环。
+任意能放静态文件的地址（GitHub 仓库 / 对象存储 / 本地 sdcard）都可作市场：一份索引 JSON + 包文件即可。第三方条目的 `id` 须与包内 `plugin.json` 身份一致（`live`/`server` 条目除外：`live` 无插件身份，`server` 以 manifest 建服务），否则已装判定不闭环。
