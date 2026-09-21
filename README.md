@@ -23,7 +23,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 
 | 条目 | id | 版本 | type | 包 |
 |---|---|---|---|---|
-| 插件整合包 | `bundle` | 1.0.6 | **apk**（系统安装） | `packages/DsPlayer-Plugin-Bundle-1.0.6-arm64.apk` |
+| 插件整合包 | `bundle` | 1.0.7 | **apk**（系统安装） | `packages/DsPlayer-Plugin-Bundle-1.0.7-arm64.apk` |
 | IPTV 直播源（CCSH 采集） | `iptv-ccsh` | 1.0.0 | **live**（直播源包） | `packages/iptv-ccsh.json` |
 | 洛雪同步 | `lx-sync` | 2.1.2 | **server**（服务包） | `packages/lx-sync-2.1.2.zip` |
 | 弹幕 API 服务 | `danmu-api` | 1.0.0 | **server**（服务包） | `packages/danmu-1.0.0.zip` |
@@ -34,6 +34,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 |---|---|---|
 | `mpv` | 1.0.2 | libmpv 重编入 DASH（MPD）demuxer（上游构建缺 libxml2 致 `ff_dash_demuxer` 未编入，DASH 源此前须降级 Exo）；内核 1.2.5 → 1.2.6 |
 | `qjs` | 1.0.1 | 根治跨 isolate SIGABRT 闪退——so 回调从进程级全局改 per-context 注册 |
+| `bundle` | 1.0.7 | 整合包内置子插件刷新：mpv 1.0.2（DASH 原生）/ qjs 1.0.1（根治闪退）/ php 1.3.1 |
 
 各包完整变更说明见 `market.json` 条目的 `changelog` 字段（DsPlayer 详情弹层直接展示）。
 

@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-09-21T05:43:44",
+  "updatedAt": "2026-09-21T11:51:50",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -146,17 +146,17 @@
       "name": "插件整合包",
       "author": "hjdhnx",
       "desc": "全家桶安装器（有桌面图标，一键安装）：内置 MPV/Python/QJS/fjs/Agent 五插件 APK + mediaProxy/php 运行时 zip。版本预检：设备已装版本 ≥ 内置版本则跳过，仅补缺口/升级落后项，可与单包共存。",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "type": "apk",
-      "size": 56295565,
-      "url": "packages/DsPlayer-Plugin-Bundle-1.0.6-arm64.apk",
+      "size": 57492601,
+      "url": "packages/DsPlayer-Plugin-Bundle-1.0.7-arm64.apk",
       "icon": "icons/bundle.png",
       "tags": [
         "安装器",
         "整合包"
       ],
-      "md5": "c80e046315cbef20c0a4b308f48b9c06",
-      "changelog": "v1.0.6（vc7）：新收编 php 运行时 1.2.0（t4_demo 种子 + fnmatch 修复），装整合包即可一键导入 php 运行时。",
+      "md5": "ea92cab8cc30af7dffcc811d1a2e5d1a",
+      "changelog": "v1.0.7（vc8）：内置子插件刷新至最新——MPV 内核 1.0.2（新增 DASH/MPD 原生播放）、QJS 引擎 1.0.1（根治跨 isolate 闪退）、PHP 运行时 1.3.1；python 1.0.5 / fjs 1.0.0 / Agent 1.0.0 / mediaProxy 1.1.1 保持。",
       "category": "app"
     },
     {
