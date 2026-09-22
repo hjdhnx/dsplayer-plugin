@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-09-21T11:51:50",
+  "updatedAt": "2026-09-22 21:24:32",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -62,16 +62,16 @@
       "name": "Python 爬虫引擎",
       "author": "hjdhnx",
       "desc": "本地 Python 爬虫源执行引擎（Chaquopy）：type=3 的 .py 源自动进入点播源列表。运行时组件必须以 APK 形态安装，安装时跳转系统安装器并需「安装未知应用」授权。",
-      "version": "1.0.5",
+      "version": "1.0.8",
       "type": "apk",
-      "size": 17029216,
-      "url": "packages/DsPlayer-Python-plugin-1.0.5-arm64.apk",
+      "size": 17031636,
+      "url": "packages/DsPlayer-Python-plugin-1.0.8-arm64.apk",
       "icon": "icons/py.png",
       "tags": [
         "引擎"
       ],
-      "md5": "cdbb76c785030e26f44bb7ed2f1edd0a",
-      "changelog": "v1.0.5（回收重发，versionCode 10）：fs_guard 安全守卫回归修复——默认改回只记日志放行，import/进程/ctypes 严格层不再恒装，v1.0.4 可用的源全部恢复。已装 1.0.6/1.0.7 的设备版本号回收，请手动下载本包覆盖安装。",
+      "md5": "498ef8f7797ad34fe0d58f39cc9877e2",
+      "changelog": "v1.0.8（versionCode 13）：修引擎对第三方 __init__ 源的 t4_api 注入丢失（漫蛙等图床源 getProxyUrl 恒空致代理图死链）+ localProxy 二进制体 base64 规范化（IPC JSON 通道不支持 bytes，图片解密类源曾全部报错）。",
       "category": "env"
     },
     {
