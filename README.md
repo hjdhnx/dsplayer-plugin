@@ -13,7 +13,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | 媒体代理服务 | `mediaProxy` | 1.1.1 | import（zip） | `packages/mediaProxy-1.1.1.zip` |
 | Node.js 运行时 | `nodejs` | 1.0.0 | import（zip） | `packages/nodejs-1.0.0.zip` |
 | PHP 运行时 | `php` | 1.3.1 | import（zip） | `packages/php-1.3.1.zip` |
-| Python 爬虫引擎 | `py` | 1.0.8 | **apk**（系统安装） | `packages/DsPlayer-Python-plugin-1.0.8-arm64.apk` |
+| Python 爬虫引擎 | `py` | 1.0.9 | **apk**（系统安装） | `packages/DsPlayer-Python-plugin-1.0.9-arm64.apk` |
 | MPV 播放内核 | `mpv` | 1.0.2 | import（apk 直装包可导入） | `packages/mpv-1.0.2.apk` |
 | IJK 播放内核 | `ijk` | 1.0.0 | **apk**（桥接式插件必须系统安装，不支持 zip 导入） | `packages/ijk-1.0.0.apk` |
 | QJS 爬虫引擎 | `qjs` | 1.0.1 | import | `packages/qjs-1.0.1.apk` |

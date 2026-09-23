@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-09-23 08:16:59",
+  "updatedAt": "2026-09-23",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -62,16 +62,16 @@
       "name": "Python 爬虫引擎",
       "author": "hjdhnx",
       "desc": "本地 Python 爬虫源执行引擎（Chaquopy）：type=3 的 .py 源自动进入点播源列表。运行时组件必须以 APK 形态安装，安装时跳转系统安装器并需「安装未知应用」授权。",
-      "version": "1.0.8",
+      "version": "1.0.9",
       "type": "apk",
-      "size": 17031636,
-      "url": "packages/DsPlayer-Python-plugin-1.0.8-arm64.apk",
+      "size": 17032572,
+      "url": "packages/DsPlayer-Python-plugin-1.0.9-arm64.apk",
       "icon": "icons/py.png",
       "tags": [
         "引擎"
       ],
-      "md5": "498ef8f7797ad34fe0d58f39cc9877e2",
-      "changelog": "v1.0.8（versionCode 13）：修引擎对第三方 __init__ 源的 t4_api 注入丢失（漫蛙等图床源 getProxyUrl 恒空致代理图死链）+ localProxy 二进制体 base64 规范化（IPC JSON 通道不支持 bytes，图片解密类源曾全部报错）。",
+      "md5": "d2ff2aa319d89e84598e8722a1aedcef",
+      "changelog": "v1.0.9（versionCode 14）：localProxy 大载荷（≥64KB）槽文件直传——免 base64 双向编解码与跨进程膨胀，网关流式回写（配套本体 v0.5.3+ 的 slotDir 能力协商；旧本体自动回落 base64 兼容）。",
       "category": "env"
     },
     {
