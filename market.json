@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-09-22 21:24:32",
+  "updatedAt": "2026-09-23 08:08:44",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -90,6 +90,23 @@
       "md5": "24db35c6c48be264a7561c5b0d8c1695",
       "category": "env",
       "changelog": "v1.0.2：libmpv 重编入 DASH（MPD）demuxer —— 上游构建缺 libxml2 致 ff_dash_demuxer 未编入，DASH 源此前须降级 Exo；现 MPV 原生播放，真机首帧 39ms。内核版本 1.2.5 → 1.2.6。"
+    },
+    {
+      "id": "ijk",
+      "name": "IJK 播放内核",
+      "author": "hjdhnx",
+      "desc": "IJKPlayer 播放内核插件（CarGuo 修正版 ijkplayer，FFmpeg 全协议 + MediaCodec 硬解 + HTTPS/16K page size）。安装后在设置「播放器内核」或播放器底栏切换 IJK；与 Exo/MPV 三内核任切。桥接式插件（必须 APK 安装，不支持 zip 导入）。",
+      "version": "1.0.0",
+      "type": "apk",
+      "size": 4143072,
+      "url": "packages/ijk-1.0.0.apk",
+      "icon": "icons/ijk.png",
+      "tags": [
+        "内核"
+      ],
+      "md5": "e3475391ce8f57f9dab717aa6fc42336",
+      "category": "env",
+      "changelog": "首个版本：桥接式内核插件（DexClassLoader 同进程桥接，docs/player/BRIDGE-KERNEL-DESIGN.md），真机验证播放/切集/连播/三内核切换全通。"
     },
     {
       "id": "qjs",

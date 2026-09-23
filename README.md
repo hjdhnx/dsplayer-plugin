@@ -15,6 +15,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | PHP 运行时 | `php` | 1.3.1 | import（zip） | `packages/php-1.3.1.zip` |
 | Python 爬虫引擎 | `py` | 1.0.8 | **apk**（系统安装） | `packages/DsPlayer-Python-plugin-1.0.8-arm64.apk` |
 | MPV 播放内核 | `mpv` | 1.0.2 | import（apk 直装包可导入） | `packages/mpv-1.0.2.apk` |
+| IJK 播放内核 | `ijk` | 1.0.0 | **apk**（桥接式插件必须系统安装，不支持 zip 导入） | `packages/ijk-1.0.0.apk` |
 | QJS 爬虫引擎 | `qjs` | 1.0.1 | import | `packages/qjs-1.0.1.apk` |
 | fjs 引擎（dr3 源） | `fjs` | 1.0.0 | import | `packages/fjs-1.0.0.apk` |
 | AI 助手界面 | `agent` | 1.0.0 | import | `packages/agent-1.0.0.apk` |
@@ -35,6 +36,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | `mpv` | 1.0.2 | libmpv 重编入 DASH（MPD）demuxer（上游构建缺 libxml2 致 `ff_dash_demuxer` 未编入，DASH 源此前须降级 Exo）；内核 1.2.5 → 1.2.6 |
 | `qjs` | 1.0.1 | 根治跨 isolate SIGABRT 闪退——so 回调从进程级全局改 per-context 注册 |
 | `bundle` | 1.0.7 | 整合包内置子插件刷新：mpv 1.0.2（DASH 原生）/ qjs 1.0.1（根治闪退）/ php 1.3.1 |
+| `ijk` | 1.0.0 | 桥接式内核插件首个版本（DexClassLoader 同进程桥接，dex+so 载体）：CarGuo 修正版 ijkplayer（HTTPS/16K page size），真机播放/切集/连播/三内核切换全通。**必须 APK 直装**（files zip 导入会丢 dex 致本体探测失效） |
 
 各包完整变更说明见 `market.json` 条目的 `changelog` 字段（DsPlayer 详情弹层直接展示）。
 
@@ -47,7 +49,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | type | 包体 | 安装动作 | 典型条目 |
 |---|---|---|---|
 | `import` | zip / apk | 应用内静默导入（组件落应用内目录） | 引擎/运行时类 |
-| `apk` | apk | 跳系统安装器直装 | py、bundle |
+| `apk` | apk | 跳系统安装器直装 | py、bundle、ijk |
 | `live` | JSON（`{"lives":[{name,url,ua,epg}]}`） | 写入直播配置并启用，切直播页生效；**订阅制**（内容指向外部地址时随源自动更新） | iptv-ccsh |
 | `server` | zip（根部须有 `server.json` manifest：`serviceName/workDir/entry/port/healthType/desc`） | 解压到 `sdcard/dsplayer/server/node/`（覆盖式，数据目录保留）+ **自动创建服务配置**（nodejs 运行时启动；服务 id 约定 `svc-mkt-<条目id>`，已存在跳过） | lx-sync、danmu-api |
 
