@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-09-25T14:31:52",
+  "updatedAt": "2026-09-25T18:00:00",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -180,14 +180,14 @@
       "id": "iptv-ccsh",
       "name": "IPTV 直播源（CCSH 采集）",
       "author": "CCSH/IPTV",
-      "desc": "CCSH/IPTV 仓库全自动采集的央卫视+地方台直播源（每日 04:00 更新，含台标）。数据来源：https://github.com/CCSH/IPTV （MIT）。安装后写入直播配置，切到直播页即生效；频道台标随 m3u tvg-logo 自动加载。直连不可达时包内已用 ghfast.top 代理地址，可在源管理编辑。",
-      "version": "1.0.0",
+      "desc": "CCSH/IPTV 仓库全自动采集的央卫视+地方台直播源（每日 04:00 更新，含台标）。数据来源：https://github.com/CCSH/IPTV （MIT）。安装后写入直播配置，切到直播页即生效；频道台标随 m3u tvg-logo 自动加载。直连不可达时包内已用 gh-proxy.com 代理地址，可在源管理编辑。",
+      "version": "1.1.0",
       "type": "live",
       "category": "app",
-      "url": "packages/iptv-ccsh.json",
-      "size": 450,
-      "md5": "31a42d86275572fbbcfbed9b5eeb83df",
-      "changelog": "首个版本：全量+精简双订阅（订阅仓库地址，频道源每日随仓库自动更新）",
+      "url": "packages/iptv-ccsh-1.1.0.json",
+      "size": 385,
+      "md5": "3d94c518d4797b07bfcb362d17dfe072",
+      "changelog": "v1.1.0：GitHub 加速代理失效修复——ghfast.top 节点已不可用，全量/精简/EPG 三处地址切换为 gh-proxy.com（与客户端默认代理一致）。已装用户在插件市场点更新即可；手动装过旧版的可在源管理自行替换地址。",
       "tags": [
         "直播",
         "应用"

@@ -25,7 +25,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | 条目 | id | 版本 | type | 包 |
 |---|---|---|---|---|
 | 插件整合包 | `bundle` | 1.0.9 | **apk**（系统安装） | `packages/bundle-1.0.9.apk` |
-| IPTV 直播源（CCSH 采集） | `iptv-ccsh` | 1.0.0 | **live**（直播源包） | `packages/iptv-ccsh.json` |
+| IPTV 直播源（CCSH 采集） | `iptv-ccsh` | 1.1.0 | **live**（直播源包） | `packages/iptv-ccsh-1.1.0.json` |
 | 洛雪同步 | `lx-sync` | 2.1.2 | **server**（服务包） | `packages/lx-sync-2.1.2.zip` |
 | 弹幕 API 服务 | `danmu-api` | 1.0.0 | **server**（服务包） | `packages/danmu-1.0.0.zip` |
 
