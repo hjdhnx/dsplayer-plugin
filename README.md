@@ -24,7 +24,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 
 | 条目 | id | 版本 | type | 包 |
 |---|---|---|---|---|
-| 插件整合包 | `bundle` | 1.0.7 | **apk**（系统安装） | `packages/DsPlayer-Plugin-Bundle-1.0.7-arm64.apk` |
+| 插件整合包 | `bundle` | 1.0.9 | **apk**（系统安装） | `packages/bundle-1.0.9.apk` |
 | IPTV 直播源（CCSH 采集） | `iptv-ccsh` | 1.0.0 | **live**（直播源包） | `packages/iptv-ccsh.json` |
 | 洛雪同步 | `lx-sync` | 2.1.2 | **server**（服务包） | `packages/lx-sync-2.1.2.zip` |
 | 弹幕 API 服务 | `danmu-api` | 1.0.0 | **server**（服务包） | `packages/danmu-1.0.0.zip` |
@@ -35,7 +35,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 |---|---|---|
 | `mpv` | 1.0.2 | libmpv 重编入 DASH（MPD）demuxer（上游构建缺 libxml2 致 `ff_dash_demuxer` 未编入，DASH 源此前须降级 Exo）；内核 1.2.5 → 1.2.6 |
 | `qjs` | 1.0.1 | 根治跨 isolate SIGABRT 闪退——so 回调从进程级全局改 per-context 注册 |
-| `bundle` | 1.0.7 | 整合包内置子插件刷新：mpv 1.0.2（DASH 原生）/ qjs 1.0.1（根治闪退）/ php 1.3.1 |
+| `bundle` | 1.0.9 | agent 子插件 1.0.0→1.1.0（NextChat v2.15.8 + injectCompat）；此前 1.0.8 收编 ijk 1.0.0（桥接内核） |
 | `ijk` | 1.0.0 | 桥接式内核插件首个版本（DexClassLoader 同进程桥接，dex+so 载体）：CarGuo 修正版 ijkplayer（HTTPS/16K page size），真机播放/切集/连播/三内核切换全通。**必须 APK 直装**（files zip 导入会丢 dex 致本体探测失效） |
 
 各包完整变更说明见 `market.json` 条目的 `changelog` 字段（DsPlayer 详情弹层直接展示）。
