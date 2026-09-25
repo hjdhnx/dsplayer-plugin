@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-09-23",
+  "updatedAt": "2026-09-25T14:28:30",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -145,17 +145,17 @@
       "id": "agent",
       "name": "AI 助手界面",
       "author": "hjdhnx",
-      "desc": "AI 助手对话界面（NextChat 静态包）：经本地网关托管，由应用内置 Agent 运行时驱动，支持「写脚本 → 本地执行 → 自检修正」任务闭环。需在设置「AI」页配置模型接口。",
-      "version": "1.0.0",
+      "desc": "AI 助手对话界面（NextChat v2.15.8 静态包）：经本地网关托管，支持「写脚本→本地执行→自检修正」闭环与壳子自动化控制（换源/播放/切台等，MCP 同款工具）。1.1.0：升级 NextChat v2.12.4→v2.15.8；新增 injectCompat 注入兼容声明。需在设置「AI」页配置模型接口。",
+      "version": "1.1.0",
       "type": "import",
-      "size": 1200000,
-      "url": "packages/agent-1.0.0.apk",
+      "size": 3893291,
+      "url": "packages/agent-1.1.0.apk",
       "icon": "icons/agent.png",
       "tags": [
         "界面",
         "AI"
       ],
-      "md5": "1648832c4dfba93c04cc2186bd256c9a",
+      "md5": "b64f152c2b1e5ff4e4813555e149bf1f",
       "category": "env"
     },
     {

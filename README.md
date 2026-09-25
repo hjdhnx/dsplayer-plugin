@@ -18,7 +18,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | IJK 播放内核 | `ijk` | 1.0.0 | **apk**（桥接式插件必须系统安装，不支持 zip 导入） | `packages/ijk-1.0.0.apk` |
 | QJS 爬虫引擎 | `qjs` | 1.0.1 | import | `packages/qjs-1.0.1.apk` |
 | fjs 引擎（dr3 源） | `fjs` | 1.0.0 | import | `packages/fjs-1.0.0.apk` |
-| AI 助手界面 | `agent` | 1.0.0 | import | `packages/agent-1.0.0.apk` |
+| AI 助手界面 | `agent` | 1.1.0 | import | `packages/agent-1.1.0.apk` |
 
 ### 应用（app）
 
