@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-09-25T18:00:00",
+  "updatedAt": "2026-09-26T13:50:00",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -96,17 +96,17 @@
       "name": "IJK 播放内核",
       "author": "hjdhnx",
       "desc": "IJKPlayer 播放内核插件（CarGuo 修正版 ijkplayer，FFmpeg 全协议 + MediaCodec 硬解 + HTTPS/16K page size）。安装后在设置「播放器内核」或播放器底栏切换 IJK；与 Exo/MPV 三内核任切。桥接式插件（必须 APK 安装，不支持 zip 导入）。",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "type": "apk",
-      "size": 4143072,
-      "url": "packages/ijk-1.0.0.apk",
+      "size": 4143184,
+      "url": "packages/ijk-1.0.1.apk",
       "icon": "icons/ijk.png",
       "tags": [
         "内核"
       ],
-      "md5": "e3475391ce8f57f9dab717aa6fc42336",
+      "md5": "e5b771ad6a4eb93379bc48d82b747cd8",
       "category": "env",
-      "changelog": "首个版本：桥接式内核插件（DexClassLoader 同进程桥接，docs/player/BRIDGE-KERNEL-DESIGN.md），真机验证播放/切集/连播/三内核切换全通。"
+      "changelog": "UA 透传修复：IJK n4.3 的 headers 字典不生效到 HTTP 请求头（部分 CDN/防盗链源拒默认 UA 报 400），UA 改走 user_agent 协议级 option 直达；真机 mgtv 源三内核验收通过。"
     },
     {
       "id": "qjs",
