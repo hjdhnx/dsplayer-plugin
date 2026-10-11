@@ -37,7 +37,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | IPTV 直播源（CCSH 采集） | `iptv-ccsh` | 1.1.0 | **live**（直播源包；platforms=android+win32） | `packages/iptv-ccsh-1.1.0.json` |
 | 洛雪同步 | `lx-sync` | 2.1.2 | **server**（服务包；platforms=android+win32） | `packages/lx-sync-2.1.2.zip` |
 | 弹幕 API 服务 | `danmu-api` | 1.0.0 | **server**（服务包；platforms=android+win32） | `packages/danmu-1.0.0.zip` |
-| 演示源包 | `demo-sources` | 1.2.0 | **source**（源码包；platforms=android+win32；html/ 含 bilibili 完整源 + Web 源演示——需本体 ≥0.9.7） | `packages/demo-sources-1.2.0.zip` |
+| 演示源包 | `demo-sources` | 1.2.1 | **source**（源码包；platforms=android+win32；html/ 含 bilibili 完整源 + Web 源演示 + 歪比巴卜 booster——需本体 ≥0.9.7） | `packages/demo-sources-1.2.1.zip` |
 | catLib 引擎库包 | `catlib` | 1.0.0 | **source**（源码包；引擎库；platforms=android+win32） | `packages/catlib-1.0.0.zip` |
 | IDM+ 下载器（1DM+） | `idmplus` | 18.2 | **apk**（系统安装；Release 分发；platforms=android） | `idmplus-18.2-CN.apk` |
 | MT管理器 | `mtmanager` | 2.14.5 | **apk**（系统安装；platforms=android） | `packages/mtmanager-2.14.5.apk` |
