@@ -12,7 +12,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 
 | 条目 | id | 版本 | type | 包 |
 |---|---|---|---|---|
-| 媒体代理服务 | `mediaProxy` | 1.2.2 | import（zip；platforms=android） | `packages/mediaProxy-1.2.2.zip` |
+| 媒体代理服务 | `mediaProxy` | 1.2.3 | import（zip；platforms=android） | `packages/mediaProxy-1.2.2.zip` |
 | 媒体代理服务（Windows） | `mediaProxy-win` | 1.0.0 | import（zip；platforms=win32，minApp 0.9.4） | `packages/mediaProxy-win-1.0.0.zip` |
 | Node.js 运行时 | `nodejs` | 1.0.0 | import（zip；platforms=android） | `packages/nodejs-1.0.0.zip` |
 | Node.js 运行时（Windows） | `nodejs-win` | 1.0.0 | import（zip；platforms=win32，minApp 0.9.4） | `packages/nodejs-win-1.0.0.zip` |
@@ -37,7 +37,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | IPTV 直播源（CCSH 采集） | `iptv-ccsh` | 1.1.0 | **live**（直播源包；platforms=android+win32） | `packages/iptv-ccsh-1.1.0.json` |
 | 洛雪同步 | `lx-sync` | 2.1.2 | **server**（服务包；platforms=android+win32） | `packages/lx-sync-2.1.2.zip` |
 | 弹幕 API 服务 | `danmu-api` | 1.0.0 | **server**（服务包；platforms=android+win32） | `packages/danmu-1.0.0.zip` |
-| 演示源包 | `demo-sources` | 1.2.2 | **source**（源码包；platforms=android+win32；html/ 含 bilibili 完整源 + Web 源演示 + 歪比巴卜 booster——需本体 ≥0.9.7） | `packages/demo-sources-1.2.2.zip` |
+| 演示源包 | `demo-sources` | 1.2.3 | **source**（源码包；platforms=android+win32；html/ 含 bilibili 完整源 + Web 源演示 + 歪比巴卜 booster——需本体 ≥0.9.7） | `packages/demo-sources-1.2.3.zip` |
 | catLib 引擎库包 | `catlib` | 1.0.0 | **source**（源码包；引擎库；platforms=android+win32） | `packages/catlib-1.0.0.zip` |
 | IDM+ 下载器（1DM+） | `idmplus` | 18.2 | **apk**（系统安装；Release 分发；platforms=android） | `idmplus-18.2-CN.apk` |
 | MT管理器 | `mtmanager` | 2.14.5 | **apk**（系统安装；platforms=android） | `packages/mtmanager-2.14.5.apk` |
@@ -46,7 +46,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 
 | 条目 | 当前版本 | 要点 |
 |---|---|---|
-| `mediaProxy` | 1.2.2 | **1.2.2 单平台拆包（MARKET-PLATFORM-ADAPT）**：双平台合包按平台拆为两个独立条目——`mediaProxy` 只面向 Android（1.2.2，包内仅 ELF，与 1.2.1 二进制同源同 md5，瘦身约 2.4MB）+ 新条目 `mediaProxy-win`（1.0.0 起独立版本线，包内仅 PE）。已装 1.2.1 合包的 Windows 用户不做自动迁移（已装豁免显示，装新卸旧自定）。此前 1.2.1 纠正 1.2.0 win 二进制误用旧源构建（win/android 同源同引擎 leader-follower 流式分段） |
+| `mediaProxy` | 1.2.3 | **1.2.2 单平台拆包（MARKET-PLATFORM-ADAPT）**：双平台合包按平台拆为两个独立条目——`mediaProxy` 只面向 Android（1.2.2，包内仅 ELF，与 1.2.1 二进制同源同 md5，瘦身约 2.4MB）+ 新条目 `mediaProxy-win`（1.0.0 起独立版本线，包内仅 PE）。已装 1.2.1 合包的 Windows 用户不做自动迁移（已装豁免显示，装新卸旧自定）。此前 1.2.1 纠正 1.2.0 win 二进制误用旧源构建（win/android 同源同引擎 leader-follower 流式分段） |
 | `php` | 1.3.2 | 1.3.2 t4_demo BaseSpider 代理统一：`getProxyUrl()` 拿本源代理基址（php -S 通道 run() 自感知自身脚本 `?do=proxy&` 端点；drpyS 桥通道接服务层 env 注入）+ `localProxy($params)` 钩子与 `do=proxy` 分发（五元组契约直出，空图透明 GIF 兜底）——php 源代理写法与其他引擎统一，配套壳内《源本地代理指南》。已装旧版：服务页「示例」重释放 t4_demo 壳文件后重启 T4-PHP 服务生效（自带 lib/spider.php 改过的不覆盖）。drpyS 侧配套改动在 drpy-node 仓（_bridge.php env 注入 + php.js methodMapping） |
 | `python` | 1.0.2 | CPython 3.12.15（musl）独立进程运行时，对齐 nodejs/php 服务形态。插件卡专属「依赖管理」（pip 装卸/刷新/搜索/二次确认）+「爬虫一键装」九件套。**1.0.2 鸿蒙 4.2 兼容两连修**：TMPDIR/HOME 注入插件内可写目录（部分 ROM 无 HOME 无 /tmp，pip 报 No usable temporary directory）；musl 平台探测 spawn 失败防御（部分 ROM fork/exec 受限报 /lib/ld-musl ENOENT 整包失败，现回落伪造标签照常装 musllinux wheel）。1.0.1 pip 平台标签修复（musllinux wheel 识别，lxml/pycryptodome 等 C 扩展免编译直装）。内置 DNS shim + CA + py.sh wrapper。需 DsPlayer 0.8.5+。fastapi 不可用（pydantic-core 无 musl wheel），Flask/标准库可用 |
 | `mpv` | 1.0.2 | libmpv 重编入 DASH（MPD）demuxer（上游构建缺 libxml2 致 `ff_dash_demuxer` 未编入，DASH 源此前须降级 Exo）；内核 1.2.5 → 1.2.6 |
