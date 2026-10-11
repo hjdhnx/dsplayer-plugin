@@ -410,13 +410,13 @@
          "name": "演示源包",
          "author": "hjdhnx",
          "desc": "本地源码集合包（应用类）：整包按 DsPlayer 目录树解压——源文件落 sdcard/dsplayer/spider/。含 dr2/dr3/hipy/js 四类引擎源、html 三形态 Web 源（bilibili 完整版 / Web源演示教学 / 歪比巴卜页面增强器 booster——wbbb1.web.json+wbbb1.js 成对分发）共 18 个文件。",
-         "version": "1.2.4",
+         "version": "1.2.5",
          "type": "source",
          "category": "app",
-         "url": "packages/demo-sources-1.2.4.zip",
-         "size": 1171937,
-         "md5": "4edf28d113e64fdc1ca61a6a06480351",
-         "changelog": "1.2.4：wbbb1 lazy 解析规则全链移植（歪比 py 源解密链 JS 化）——403 挑战纯算法解算/RC4+MD5 签名解析 API（fm.req 跨域代理）/AES-CBC 动态密钥解密直链；resolver 升级四段式（直链→lazy→页内 fetch→webview:// 嗅探）。真机实证点集 1.2s 直链起播。",
+         "url": "packages/demo-sources-1.2.5.zip",
+         "size": 1172892,
+         "md5": "cff079252d57bb4bbc3eb50ff2c95cef",
+         "changelog": "1.2.5：booster 注入根修（sourceOf Future 永挂机制弃用）+ 假直链防线（无媒体后缀的加密参数不再当直链）+ lazy iframe 挑战兜底 + 嗅探首载头卫生。wbbb1 播放仍受站方CryptoJS 挑战反制（嗅探引擎首载 403 不渲染挑战 JS），浏览/提取/推送正常。",
          "tags": [
             "本地源",
             "应用"
