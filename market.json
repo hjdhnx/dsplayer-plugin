@@ -410,13 +410,13 @@
          "name": "演示源包",
          "author": "hjdhnx",
          "desc": "本地源码集合包（应用类）：整包按 DsPlayer 目录树解压——源文件落 sdcard/dsplayer/spider/。含 dr2/dr3/hipy/js 四类引擎源、html 三形态 Web 源（bilibili 完整版 / Web源演示教学 / 歪比巴卜页面增强器 booster——wbbb1.web.json+wbbb1.js 成对分发）共 18 个文件。",
-         "version": "1.2.3",
+         "version": "1.2.4",
          "type": "source",
          "category": "app",
-         "url": "packages/demo-sources-1.2.3.zip",
-         "size": 1168524,
-         "md5": "71afd81c3b57937018815eb5fa058d62",
-         "changelog": "1.2.3：提取器精修——线路名同块配对 + 非线路 tab 过滤（「排序」下拉不再被当线路名，wbbb1 实证 5 线路全对）+ CMS 元信息提取（简介/主演/导演/地区/年份/类型/评分，wbbb1 实证详情页全上屏）；需本体 ≥今晚提取菜单版本。",
+         "url": "packages/demo-sources-1.2.4.zip",
+         "size": 1171937,
+         "md5": "4edf28d113e64fdc1ca61a6a06480351",
+         "changelog": "1.2.4：wbbb1 lazy 解析规则全链移植（歪比 py 源解密链 JS 化）——403 挑战纯算法解算/RC4+MD5 签名解析 API（fm.req 跨域代理）/AES-CBC 动态密钥解密直链；resolver 升级四段式（直链→lazy→页内 fetch→webview:// 嗅探）。真机实证点集 1.2s 直链起播。",
          "tags": [
             "本地源",
             "应用"
