@@ -410,13 +410,13 @@
          "name": "演示源包",
          "author": "hjdhnx",
          "desc": "本地源码集合包（应用类）：整包按 DsPlayer 目录树解压——源文件落 sdcard/dsplayer/spider/。含 dr2/dr3/hipy/js 四类引擎源、html 三形态 Web 源（bilibili 完整版 / Web源演示教学 / 歪比巴卜页面增强器 booster——wbbb1.web.json+wbbb1.js 成对分发）共 18 个文件。",
-         "version": "1.2.1",
+         "version": "1.2.2",
          "type": "source",
          "category": "app",
-         "url": "packages/demo-sources-1.2.1.zip",
-         "size": 1167363,
-         "md5": "0c90469c3d469d0f7915cf2580414152",
-         "changelog": "1.2.1：新增「歪比巴卜(WEB)」页面增强器源——首个 booster 形态（api=web://站 + ext=注入脚本，.web.json 清单分发）：整站浏览留在网页、详情页注入「用 DsPlayer 播放」按钮、一键提取黑白双线路全选集推送壳子、点集时页内提流（站内 JS cookie 挑战在 WebView 会话内天然通过）。需本体 ≥0.9.7（WebBooster 注入 + lines 多线路拍平）。",
+         "url": "packages/demo-sources-1.2.2.zip",
+         "size": 1167687,
+         "md5": "862ce4c846f40f1d08d2fd56e32eecae",
+         "changelog": "1.2.2：Web 源「提取本页播放」配套——wbbb1 增强器 resolver 升级三段式（直链/页内 fetch/webview:// 壳子嗅探兜底）+ 首页误出按钮修正；需本体含 2026-10-11 晚 Web 更新（提取菜单 + 嗅探前缀接线）。",
          "tags": [
             "本地源",
             "应用"
