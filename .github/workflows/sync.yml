@@ -1,0 +1,20 @@
+name: Sync Fork
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'   # 每6小时整点运行一次（UTC时间）
+  workflow_dispatch:          # 保留手动触发按钮，方便测试
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Sync upstream changes
+        uses: aormsby/Fork-Sync-With-Upstream-action@v3.4
+        with:
+          upstream_sync_repo: https://github.com/hjdhnx/dsplayer-plugin   # 必须改，例如 torvalds/linux
+          upstream_sync_branch: main                  # 上游分支，可能是 main 或 master
+          target_sync_branch: main                    # 你 Fork 里要同步的分支
+          target_repo_token: ${{ secrets.GITHUB_TOKEN }} # 自动生成，无需手动设置
+          test_mode: false
