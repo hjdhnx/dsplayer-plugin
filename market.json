@@ -2,7 +2,7 @@
    "logo": "icons/market.png",
    "name": "DsPlayer 官方插件市场",
    "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-   "updatedAt": "2026-10-22T17:02:00+08:00",
+   "updatedAt": "2026-11-05T02:10:00+08:00",
    "plugins": [
       {
          "id": "mediaProxy",
@@ -310,17 +310,17 @@
          "name": "QJS 爬虫引擎",
          "author": "hjdhnx",
          "desc": "本地 JS 爬虫源执行引擎（自研 QuickJS + C 扩展核心）：drpy2（type=3 的 .js 源与 sdcard spider/js 本地源）与 drpy3 新源（声明式/wasm 形态，sdcard spider/dr3）统一由本插件执行——drpy3 源不再需要单独的 fjs 插件。",
-         "version": "1.0.5",
+         "version": "1.0.6",
          "type": "import",
-         "size": 3109106,
-         "url": "packages/qjs-1.0.5.apk",
+         "size": 3136982,
+         "url": "packages/qjs-1.0.6.apk",
          "icon": "icons/qjs.png",
          "tags": [
             "引擎"
          ],
-         "md5": "3edbcac19014867f501168e4f267284a",
+         "md5": "c9b2f2eb8a58229d67e397c98c89cd69",
          "category": "env",
-         "changelog": "qjs_update_stack_top：isolate 线程迁移假 stack overflow 根治（dr3 引擎 worker 化前提；顺带根治 dr2 偶发假爆栈）。需 DsPlayer 0.7.6+ 配合。",
+         "changelog": "so 升级（qjs_ultra build-20261030-0eac497）：①setTimeout/setInterval 定时器回调与前台等待互锁——async 源里 await 链挂在定时器回调上不再永不 settle（drpy3 异步源实锤）；②cheerio 临时链式对象 UAF 修复（$(...).find(...).attr() 一类即用即弃链式写法随机崩溃/脏值）。ABI 零变化（67 导出闸门过，覆盖升级即得修复）。注：引擎同期新增的 JSON5 全局（官方完整 parse/stringify）为编译期可选模块，本包未启用，后续按需出包。",
          "abis": [
             "arm64-v8a"
          ],
