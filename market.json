@@ -2,7 +2,7 @@
    "logo": "icons/market.png",
    "name": "DsPlayer 官方插件市场",
    "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-   "updatedAt": "2026-11-05T08:50:00+08:00",
+   "updatedAt": "2026-11-06T00:55:00+08:00",
    "plugins": [
       {
          "id": "mediaProxy",
@@ -546,6 +546,26 @@
          "md5": "3090df5f17641ff30d0f35e59fb51a2d",
          "category": "env",
          "changelog": "1.0.2 修复软解画面纯色闪烁（Flutter SurfaceProducer 尺寸协商，需搭配最新本体 debug 包）；1.0.1 补载 libc++_shared.so 修复加载失败；1.0.0 首版。",
+         "platforms": [
+            "android"
+         ]
+      },
+      {
+         "id": "bytevc2",
+         "name": "ByteVC2 软解",
+         "author": "hjdhnx",
+         "desc": "Exo 内核的 ByteVC2（B 站 bv2C 私有编码）视频软解兜底：普通设备 MediaCodec 不识别该编码，播放 B 站 bv2C 封装直链自动软解，其余内容零影响仍走硬解。libbyteVC2dec 0.9.7.1（字节系私有解码库，非开源，分发风险自负）。仅支持 arm64 设备，apk 直装。",
+         "version": "1.0.0",
+         "type": "apk",
+         "size": 923690,
+         "url": "packages/bytevc2-1.0.0.apk",
+         "icon": "icons/bytevc2.png",
+         "tags": [
+            "解码"
+         ],
+         "md5": "7e13c9de8397630fa13cda298cf9237c",
+         "category": "env",
+         "changelog": "1.0.0 首版：bv2C 封装嗅探 Extractor + libbyteVC2dec 软解 renderer（GL YUV 出帧），需本体带 ByteVc2DecoderLoader 的 debug/release 包。",
          "platforms": [
             "android"
          ]
