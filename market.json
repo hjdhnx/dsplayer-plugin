@@ -2,7 +2,7 @@
    "logo": "icons/market.png",
    "name": "DsPlayer 官方插件市场",
    "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-   "updatedAt": "2026-11-06T00:55:00+08:00",
+   "updatedAt": "2026-11-06T01:00:00+08:00",
    "plugins": [
       {
          "id": "mediaProxy",
@@ -830,6 +830,31 @@
          ],
          "md5": "f8abed45dea0077a736226050c275cc4",
          "changelog": "首录 mihomo v1.19.32（MetaCubeX 官方 tag 源码构建，GOOS=android GOARCH=arm64 CGO_ENABLED=0 纯静态交叉编译 + -trimpath/-s -w + UPX，19.3MB）。注入单点适配补丁 dsplayer.go：①home 目录落插件私有目录（cache.db 的 bbolt 写 mmap 在 Android 11+ 的 sdcard FUSE 上会报 function not implemented，同 filebrowser 踩坑）；②配置留 sdcard 可编辑，未授权存储时自动回落私有目录；③内嵌 metacubexd 面板（gh-pages 28a9589f，MIT）启动释放到 <home>/ui；④内嵌 GeoIP/GeoSite（meta-rules-dat）避免首条 GEOIP 规则触发 GitHub 下载失败导致内核 fatal。健康检查走面板 /version（命令行强制覆盖 127.0.0.1:9090，用户换订阅不会打挂探活）。验收：雷电模拟器（x86_64 宿主进程）走完整宿主链路——插件中心导入 installed=1、binplug start 后 status=running port=9090、面板 /ui/ 返回 200、经 7890 真实转发 generate_204 返回 204、出口 IP 生效、停止后进程与端口均释放；同源 Windows 产物冒烟覆盖配置生成/面板解压/API 探活。",
+         "platforms": [
+            "android"
+         ],
+         "abis": [
+            "arm64-v8a"
+         ]
+      },
+      {
+         "id": "docker-vm",
+         "name": "Docker 虚拟机（QEMU/arm64）",
+         "author": "hjdhnx",
+         "desc": "独立的 QEMU arm64 虚拟机，开箱即用完整 Docker（29.9）+ Docker Compose（5.6）：内置 daocloud 镜像加速，SSH(:9922)，端口转发。启动后是一个完整 Alpine Linux VM，可在内嵌终端跑 docker/compose。大体积包（109.8MB）走 GitHub Release 资产分发，客户端经加速代理拉取后跳系统安装器安装。applicationId com.dsplayer.vm。",
+         "version": "1.0.0",
+         "type": "apk",
+         "category": "app",
+         "pkg": "com.dsplayer.vm",
+         "size": 115151910,
+         "url": "https://github.com/hjdhnx/dsplayer-plugin/releases/download/docker-vm-1.0.0/docker-vm-1.0.0.apk",
+         "icon": "icons/docker-vm.png",
+         "tags": [
+            "虚拟机",
+            "容器"
+         ],
+         "md5": "d6a2fc341939ec3244c6cb48d941d2c9",
+         "changelog": "首录：QEMU arm64 虚拟机（独立 APK，applicationId com.dsplayer.vm）。开箱即用 Docker 29.9 + Compose 5.6，内置 daocloud 镜像加速开箱可拉镜像；SSH:9922 与端口转发齐备。包体 109.8MB，走 GitHub Release 资产分发（客户端 GitHub 加速代理兼容待端内验证）。",
          "platforms": [
             "android"
          ],
