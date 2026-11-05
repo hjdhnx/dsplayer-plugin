@@ -20,7 +20,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | Node.js 运行时（Windows） | `nodejs-win` | 1.0.0 | import（zip；platforms=win32，minApp 0.9.4） | `packages/nodejs-win-1.0.0.zip` |
 | Linux 沙盒运行时（PRoot） | `proot` | 1.0.0 | import（zip；binary-runtime；platforms=android，minApp 0.9.10） | `packages/proot-1.0.0.zip` |
 | PHP 运行时 | `php` | 1.3.2 | import（zip；platforms=android） | `packages/php-1.3.2.zip` |
-| PHP 运行时（Windows） | `php-win` | 1.0.1 | import（zip；platforms=win32，minApp 0.9.4） | `packages/php-win-1.0.1.zip` |
+| PHP 运行时（Windows） | `php-win` | 1.0.2 | import（zip；platforms=win32，minApp 0.9.4） | `packages/php-win-1.0.2.zip` |
 | Python 运行时 | `python` | 1.0.3 | import（zip；platforms=android） | `packages/python-1.0.3.zip` |
 | Python 运行时（Windows） | `python-win` | 1.2.1 | import（zip；platforms=win32，minApp 0.9.4） | `packages/python-win-1.2.1.zip` |
 | Python 爬虫引擎 | `py` | 1.2.2 | **apk**（系统安装；platforms=android；**兼容 1.0 公开版与 2.x**） | `packages/DsPlayer-Python-plugin-1.2.2-arm64.apk` |
