@@ -244,17 +244,17 @@
          "name": "MPV 播放内核",
          "author": "hjdhnx",
          "desc": "提供全功能 MPV 内核（v1.2.6）：新增 DASH（MPD）原生播放支持、超分 shader、截图、广协议支持。导入后以应用内组件形态生效，可在「插件」页切换播放内核。",
-         "version": "1.0.3",
+         "version": "1.0.4",
          "type": "import",
-         "size": 16729667,
-         "url": "packages/mpv-1.0.3.apk",
+         "size": 16729627,
+         "url": "packages/mpv-1.0.4.apk",
          "icon": "icons/mpv.png",
          "tags": [
             "内核"
          ],
-         "md5": "2e189729e9ef3ca2d84fadfdc63c5766",
+         "md5": "d839ff4061e0424b2fda17a2c906ecf1",
          "category": "env",
-         "changelog": "1.0.3 libmpv 重编接入 ByteVC2 软解：B 站 bv2C 私有编码（bv2C 封装/hvc1 壳伪装）mpv 内核直接软解播放（仅 arm64；随带 libbyteVC2dec.so，DT_NEEDED 递归加载）；x86_64 维持旧版。需本体 v0.7.0+（mpv 内核）。",
+         "changelog": "1.0.4 修复 1.0.3 的 bytevc2 私有 codec id 两雷：0x21002 撞官方 VNULL（连续枚举自动值）、desc 表按 id 升序 bsearch 下表尾插小值必失配——定稿 0x21004（ANULL 后空位）+ desc 表尾插入；真机 mpv 内核 Selected decoder: bytevc2 全片播放验证。1.0.3 首版接入 ByteVC2 软解。",
          "abis": [
             "arm64-v8a",
             "x86_64"
