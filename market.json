@@ -2,7 +2,7 @@
    "logo": "icons/market.png",
    "name": "DsPlayer 官方插件市场",
    "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-   "updatedAt": "2026-11-06T01:00:00+08:00",
+   "updatedAt": "2026-11-06T03:40:00+08:00",
    "plugins": [
       {
          "id": "mediaProxy",
@@ -842,19 +842,19 @@
          "name": "Docker 虚拟机（QEMU/arm64）",
          "author": "hjdhnx",
          "desc": "独立的 QEMU arm64 虚拟机，开箱即用完整 Docker（29.9）+ Docker Compose（5.6）：内置 daocloud 镜像加速，SSH(:9922)，端口转发。启动后是一个完整 Alpine Linux VM，可在内嵌终端跑 docker/compose。大体积包（109.8MB）走 GitHub Release 资产分发，客户端经加速代理拉取后跳系统安装器安装。applicationId com.dsplayer.vm。",
-         "version": "1.0.0",
+         "version": "1.0.1",
          "type": "apk",
          "category": "app",
          "pkg": "com.dsplayer.vm",
-         "size": 115151910,
+         "size": 115148718,
          "url": "https://github.com/hjdhnx/dsplayer-plugin/releases/download/docker-vm-1.0.0/docker-vm-1.0.0.apk",
          "icon": "icons/docker-vm.png",
          "tags": [
             "虚拟机",
             "容器"
          ],
-         "md5": "d6a2fc341939ec3244c6cb48d941d2c9",
-         "changelog": "首录：QEMU arm64 虚拟机（独立 APK，applicationId com.dsplayer.vm）。开箱即用 Docker 29.9 + Compose 5.6，内置 daocloud 镜像加速开箱可拉镜像；SSH:9922 与端口转发齐备。包体 109.8MB，走 GitHub Release 资产分发（客户端 GitHub 加速代理兼容待端内验证）。",
+         "md5": "cab0e3cf0a2ae34c5a03b42f9b378100",
+         "changelog": "v1.0.1：后台保活修复——新增 WiFi 高能锁（WIFI_MODE_FULL_HIGH_PERF）防止息屏后网络休眠导致 SSH/docker/端口转发从外部连不上；首次启动主动请求忽略电池优化（Doze/App-Standby 豁免）。系统正常退出清理行为不变。",
          "platforms": [
             "android"
          ],

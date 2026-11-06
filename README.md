@@ -57,7 +57,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | FileBrowser 文件管理器 | `filebrowser` | 2.63.25 | import（zip；binary 运行时服务；platforms=android） | `packages/filebrowser-2.63.25.zip` |
 | FileBrowser 文件管理器（32 位设备） | `filebrowser-arm32` | 2.63.25 | import（zip；platforms=android；abis=armeabi-v7a，独立版本线） | `packages/filebrowser-arm32-2.63.25.zip` |
 | Clash Meta 代理内核 | `clash-meta` | 1.19.32 | import（zip；binary 运行时服务；platforms=android） | `packages/clash-meta-1.19.32.zip` |
-| Docker 虚拟机（QEMU/arm64） | `docker-vm` | 1.0.0 | **apk**（系统安装；独立 VM 应用 applicationId `com.dsplayer.vm`；platforms=android，abis=arm64-v8a）**大体积走 GitHub Release 分发** | `docker-vm-1.0.0.apk`（[Release](https://github.com/hjdhnx/dsplayer-plugin/releases/download/docker-vm-1.0.0/docker-vm-1.0.0.apk)） |
+| Docker 虚拟机（QEMU/arm64） | `docker-vm` | 1.0.1 | **apk**（系统安装；独立 VM 应用 applicationId `com.dsplayer.vm`；platforms=android，abis=arm64-v8a）**大体积走 GitHub Release 分发** | `docker-vm-1.0.0.apk`（[Release](https://github.com/hjdhnx/dsplayer-plugin/releases/download/docker-vm-1.0.0/docker-vm-1.0.0.apk)） |
 
 ### 引擎类条目版本要点
 
