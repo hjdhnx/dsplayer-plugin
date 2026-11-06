@@ -1,7 +1,7 @@
 name: sync-docker-vm
 
 # Fetch the latest docker-vm release APK from hjdhnx/Podroid's CI artifact and
-# overwrite the docker-vm-1.0.0 release asset on THIS repo. All server-side
+# overwrite the docker-vm-1.0.1 release asset on THIS repo. All server-side
 # (GitHub-internal), so no slow local download is needed.
 # Requires a PAT with `repo` scope over BOTH hjdhnx/Podroid and this repo,
 # stored as the DS_PAT secret (GITHUB_TOKEN cannot reach the other repo).
@@ -48,12 +48,12 @@ jobs:
           REPO="${{ github.repository }}"   # hjdhnx/dsplayer-plugin
           # Fetch the release id once
           RID=$(curl -s -H "Authorization: Bearer ${{ secrets.DS_PAT }}" \
-            "https://api.github.com/repos/$REPO/releases/tags/docker-vm-1.0.0" | jq -r '.id')
+            "https://api.github.com/repos/$REPO/releases/tags/docker-vm-1.0.1" | jq -r '.id')
           echo "release id: $RID"
           # Delete the existing asset, then upload the new one
           ASSET_ID=$(curl -s -H "Authorization: Bearer ${{ secrets.DS_PAT }}" \
-            "https://api.github.com/repos/$REPO/releases/tags/docker-vm-1.0.0" \
-            | jq -r '.assets[] | select(.name=="docker-vm-1.0.0.apk") | .id')
+            "https://api.github.com/repos/$REPO/releases/tags/docker-vm-1.0.1" \
+            | jq -r '.assets[] | select(.name=="docker-vm-1.0.1.apk") | .id')
           echo "old asset id: $ASSET_ID"
           if [ -n "$ASSET_ID" ] && [ "$ASSET_ID" != "null" ]; then
             curl -s -X DELETE -H "Authorization: Bearer ${{ secrets.DS_PAT }}" \
@@ -63,7 +63,7 @@ jobs:
           # Upload new
           curl -s -X POST -H "Authorization: Bearer ${{ secrets.DS_PAT }}" \
             -H "Content-Type: application/vnd.android.package-archive" \
-            "https://uploads.github.com/repos/$REPO/releases/$RID/assets?name=docker-vm-1.0.0.apk" \
+            "https://uploads.github.com/repos/$REPO/releases/$RID/assets?name=docker-vm-1.0.1.apk" \
             --data-binary "@$APK_PATH" | jq -r '.browser_download_url'
           echo "uploaded new asset"
 

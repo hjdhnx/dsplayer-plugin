@@ -2,7 +2,7 @@
    "logo": "icons/market.png",
    "name": "DsPlayer 官方插件市场",
    "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-   "updatedAt": "2026-11-06T03:40:00+08:00",
+   "updatedAt": "2026-11-06T03:50:00+08:00",
    "plugins": [
       {
          "id": "mediaProxy",
@@ -847,7 +847,7 @@
          "category": "app",
          "pkg": "com.dsplayer.vm",
          "size": 115148718,
-         "url": "https://github.com/hjdhnx/dsplayer-plugin/releases/download/docker-vm-1.0.0/docker-vm-1.0.0.apk",
+         "url": "https://github.com/hjdhnx/dsplayer-plugin/releases/download/docker-vm-1.0.1/docker-vm-1.0.1.apk",
          "icon": "icons/docker-vm.png",
          "tags": [
             "虚拟机",
