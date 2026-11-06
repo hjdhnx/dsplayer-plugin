@@ -1,0 +1,72 @@
+name: sync-docker-vm
+
+# Fetch the latest docker-vm release APK from hjdhnx/Podroid's CI artifact and
+# overwrite the docker-vm-1.0.0 release asset on THIS repo. All server-side
+# (GitHub-internal), so no slow local download is needed.
+# Requires a PAT with `repo` scope over BOTH hjdhnx/Podroid and this repo,
+# stored as the DS_PAT secret (GITHUB_TOKEN cannot reach the other repo).
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch latest docker-vm APK from Podroid CI
+        run: |
+          # Latest dsplayer-vm-release-apk artifact on Podroid
+          ART=$(curl -s -H "Authorization: Bearer ${{ secrets.DS_PAT }}" \
+            "https://api.github.com/repos/hjdhnx/Podroid/actions/artifacts" \
+            | jq -r '[.artifacts[] | select(.name=="dsplayer-vm-release-apk")] | sort_by(.created_at) | last | .id')
+          echo "artifact id: $ART"
+          [ -n "$ART" ] && [ "$ART" != "null" ] || { echo "no artifact found"; exit 1; }
+          curl -sL -H "Authorization: Bearer ${{ secrets.DS_PAT }}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/hjdhnx/Podroid/actions/artifacts/$ART/zip" \
+            -o /tmp/vm.zip
+          # Unzip the apk inside
+          cd /tmp && unzip -o vm.zip
+          ls -la /tmp/*.apk
+          MS=$(ls -la /tmp/*.apk | awk '{print $5}' | head -1)
+          echo "apk bytes: $MS"
+          APK=$(ls /tmp/*.apk | head -1)
+          echo "APK_PATH=$APK" >> $GITHUB_ENV
+          echo "APK_SIZE=$MS" >> $GITHUB_ENV
+
+      - name: Compute md5
+        run: |
+          MD5=$(md5sum "$APK_PATH" | awk '{print $1}')
+          echo "APK_MD5=$MD5" >> $GITHUB_ENV
+
+      - name: Overwrite docker-vm release asset
+        run: |
+          # Delete the existing asset, then upload the new one
+          ASSET_ID=$(curl -s -H "Authorization: Bearer ${{ secrets.DS_PAT }}" \
+            "https://api.github.com/repos/hjdhnx/${{ github.repository_owner }}/dsplayer-plugin/releases/tags/docker-vm-1.0.0" \
+            | jq -r '.assets[] | select(.name=="docker-vm-1.0.0.apk") | .id')
+          echo "old asset id: $ASSET_ID"
+          if [ -n "$ASSET_ID" ] && [ "$ASSET_ID" != "null" ]; then
+            curl -s -X DELETE -H "Authorization: Bearer ${{ secrets.DS_PAT }}" \
+              "https://api.github.com/repos/hjdhnx/${{ github.repository_owner }}/dsplayer-plugin/releases/assets/$ASSET_ID"
+          fi
+          echo "deleted old asset"
+          # Upload new
+          curl -s -X POST -H "Authorization: Bearer ${{ secrets.DS_PAT }}" \
+            -H "Content-Type: application/vnd.android.package-archive" \
+            "https://uploads.github.com/repos/hjdhnx/${{ github.repository_owner }}/dsplayer-plugin/releases/$(curl -s -H 'Authorization: Bearer ${{ secrets.DS_PAT }}' 'https://api.github.com/repos/hjdhnx/${{ github.repository_owner }}/dsplayer-plugin/releases/tags/docker-vm-1.0.0' | jq -r '.id')/assets?name=docker-vm-1.0.0.apk" \
+            --data-binary "@$APK_PATH" | jq -r '.browser_download_url'
+          echo "uploaded new asset"
+
+      - name: Report new sizes
+        run: |
+          echo "New APK size: $APK_SIZE bytes"
+          echo "New APK md5: $APK_MD5"
+          # Store for the market.json update (print for the operator)
+          echo "export APK_SIZE=$APK_SIZE" > /tmp/sizes.txt
+          echo "export APK_MD5=$APK_MD5" >> /tmp/sizes.txt
+          cat /tmp/sizes.txt
