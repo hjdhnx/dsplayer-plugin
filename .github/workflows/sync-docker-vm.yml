@@ -45,20 +45,25 @@ jobs:
 
       - name: Overwrite docker-vm release asset
         run: |
+          REPO="${{ github.repository }}"   # hjdhnx/dsplayer-plugin
+          # Fetch the release id once
+          RID=$(curl -s -H "Authorization: Bearer ${{ secrets.DS_PAT }}" \
+            "https://api.github.com/repos/$REPO/releases/tags/docker-vm-1.0.0" | jq -r '.id')
+          echo "release id: $RID"
           # Delete the existing asset, then upload the new one
           ASSET_ID=$(curl -s -H "Authorization: Bearer ${{ secrets.DS_PAT }}" \
-            "https://api.github.com/repos/hjdhnx/${{ github.repository_owner }}/dsplayer-plugin/releases/tags/docker-vm-1.0.0" \
+            "https://api.github.com/repos/$REPO/releases/tags/docker-vm-1.0.0" \
             | jq -r '.assets[] | select(.name=="docker-vm-1.0.0.apk") | .id')
           echo "old asset id: $ASSET_ID"
           if [ -n "$ASSET_ID" ] && [ "$ASSET_ID" != "null" ]; then
             curl -s -X DELETE -H "Authorization: Bearer ${{ secrets.DS_PAT }}" \
-              "https://api.github.com/repos/hjdhnx/${{ github.repository_owner }}/dsplayer-plugin/releases/assets/$ASSET_ID"
+              "https://api.github.com/repos/$REPO/releases/assets/$ASSET_ID"
           fi
           echo "deleted old asset"
           # Upload new
           curl -s -X POST -H "Authorization: Bearer ${{ secrets.DS_PAT }}" \
             -H "Content-Type: application/vnd.android.package-archive" \
-            "https://uploads.github.com/repos/hjdhnx/${{ github.repository_owner }}/dsplayer-plugin/releases/$(curl -s -H 'Authorization: Bearer ${{ secrets.DS_PAT }}' 'https://api.github.com/repos/hjdhnx/${{ github.repository_owner }}/dsplayer-plugin/releases/tags/docker-vm-1.0.0' | jq -r '.id')/assets?name=docker-vm-1.0.0.apk" \
+            "https://uploads.github.com/repos/$REPO/releases/$RID/assets?name=docker-vm-1.0.0.apk" \
             --data-binary "@$APK_PATH" | jq -r '.browser_download_url'
           echo "uploaded new asset"
 
