@@ -2,7 +2,7 @@
    "logo": "icons/market.png",
    "name": "DsPlayer 官方插件市场",
    "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-   "updatedAt": "2026-11-06T03:50:00+08:00",
+   "updatedAt": "2026-11-08T21:20:00+08:00",
    "plugins": [
       {
          "id": "mediaProxy",
@@ -289,18 +289,18 @@
          "id": "ijk",
          "name": "IJK 播放内核",
          "author": "hjdhnx",
-         "desc": "IJKPlayer 播放内核插件（CarGuo 修正版 ijkplayer，FFmpeg 全协议 + MediaCodec 硬解 + HTTPS/16K page size）。安装后在设置「播放器内核」或播放器底栏切换 IJK；与 Exo/MPV 三内核任切。桥接式插件（必须 APK 安装，不支持 zip 导入）。",
-         "version": "1.0.2",
+         "desc": "IJKPlayer 播放内核插件（CarGuo 修正版 ijkplayer，FFmpeg 全协议 + MediaCodec 硬解 + HTTPS/16K page size + bytevc2 私有编码软解）。安装后在设置「播放器内核」或播放器底栏切换 IJK；与 Exo/MPV 三内核任切。桥接式插件（必须 APK 安装，不支持 zip 导入）。",
+         "version": "1.0.3",
          "type": "apk",
-         "size": 4143300,
-         "url": "packages/ijk-1.0.2.apk",
+         "size": 4231660,
+         "url": "packages/ijk-1.0.3.apk",
          "icon": "icons/ijk.png",
          "tags": [
             "内核"
          ],
-         "md5": "3f257329fbd9de8095963e2fe5a99fdc",
+         "md5": "99bbddbfdc8972399bf1524ebd03626f",
          "category": "env",
-         "changelog": "v1.0.2：直播协议白名单修复——桥 options 透传 FORMAT 类 setOption，protocol_whitelist 注入放行 rtmp/rtmps/rtsp/srt（ffmpeg 编译白名单默认不含，rtmp 频道此前报 Protocol not on whitelist 黑屏；ijkplayer Java 层 setDataSource 对 rtmp 强写默认白名单，注入须在其后覆盖——真机 mediaMTX 彩条流三内核验收通过）。升本体配合：直播 rtmp 频道 Exo 缺省自动切 MPV/IJK。",
+         "changelog": "v1.0.3：双修——①硬解恒软解根修：mediacodec-default_name 判定链首项显式设置 + mediacodec 系 option PLAYER/CODEC 双字典写（此前 720p 软解 CPU 102%，现 64%）；②自编 libijkffmpeg.so 带 bytevc2 软解（B 站 bv2C 私有编码，随包 libbyteVC2dec 0.9.7.1；openssl 静态内嵌直连原始链接）——真机播 bv2C 测试片出帧正常，logcat 铁证 VideoCodec: avcodec, bytevc2。v1.0.2：直播协议白名单修复（rtmp 系放行）。",
          "platforms": [
             "android"
          ]
