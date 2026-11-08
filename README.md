@@ -2,7 +2,7 @@
 
 DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装入口），`packages/` 存放插件包，`icons/` 存放条目图标。
 
-## 当前收录（39 个条目 = 环境 20 + 应用 19）
+## 当前收录（40 个条目 = 环境 21 + 应用 19）
 
 条目带 `category` 字段（2026-09-20 起）：`env`=环境（引擎/运行时，给壳子供能力，默认归类）；`app`=应用（面向完整使用场景：整合包、直播源包、服务包）。市场内按类别过滤，默认展示「环境」。
 
@@ -34,6 +34,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | QJS 爬虫引擎（32 位设备） | `qjs-arm32` | 1.0.0 | import（platforms=android；abis=armeabi-v7a，独立版本线，minApp 0.9.10） | `packages/qjs-arm32-1.0.0.apk` |
 | QJS 爬虫引擎（Windows） | `qjs-win` | 1.0.6 | import（zip；platforms=win32，minApp 0.9.5） | `packages/qjs-win-1.0.6.zip` |
 | AI 助手界面 | `agent` | 1.1.0 | import（platforms=android） | `packages/agent-1.1.0.apk` |
+| 验证码识别服务 | `captcha-bypass` | 1.0.0 | import（zip；binary 运行时服务；platforms=android，abis=arm64-v8a，minApp 1.0.6）**大体积走 GitHub Release 分发** | `captcha-bypass-1.0.0.zip`（[Release](https://github.com/hjdhnx/dsplayer-plugin/releases/download/captcha-bypass-1.0.0/captcha-bypass-1.0.0.zip)） |
 
 ### 应用（app）
 

@@ -2,7 +2,7 @@
    "logo": "icons/market.png",
    "name": "DsPlayer 官方插件市场",
    "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-   "updatedAt": "2026-11-08T21:20:00+08:00",
+   "updatedAt": "2026-11-08T23:58:00+08:00",
    "plugins": [
       {
          "id": "mediaProxy",
@@ -855,6 +855,30 @@
          ],
          "md5": "cab0e3cf0a2ae34c5a03b42f9b378100",
          "changelog": "v1.0.1：后台保活修复——新增 WiFi 高能锁（WIFI_MODE_FULL_HIGH_PERF）防止息屏后网络休眠导致 SSH/docker/端口转发从外部连不上；首次启动主动请求忽略电池优化（Doze/App-Standby 豁免）。系统正常退出清理行为不变。",
+         "platforms": [
+            "android"
+         ],
+         "abis": [
+            "arm64-v8a"
+         ]
+      },
+      {
+         "id": "captcha-bypass",
+         "name": "验证码识别服务",
+         "author": "Hiram-Wong",
+         "desc": "OCR 验证码识别 HTTP 服务（上游 Hiram-Wong/captcha-bypass，Bun 打包 onnx 本地推理）：POST /detect /ocr /rotate /slide 四类验证码接口（内置 OpenAPI 文档），模型随包内置（detect/ocr_pp/ocr_dddd/rotate），默认端口 7788（PORT 环境变量可改）。供源脚本/外部工具识别验证码用。仅 arm64-v8a；包体 210.6MB 走 GitHub Release 资产分发。需本体 ≥1.0.6（bin/ 附属文件随包落位 + abis 安装期门配套）。",
+         "version": "1.0.0",
+         "type": "import",
+         "category": "env",
+         "size": 220810961,
+         "url": "https://github.com/hjdhnx/dsplayer-plugin/releases/download/captcha-bypass-1.0.0/captcha-bypass-1.0.0.zip",
+         "tags": [
+            "OCR",
+            "服务"
+         ],
+         "md5": "fcd643d0cc7aba4d8646b623a0456b20",
+         "minApp": "1.0.6",
+         "changelog": "首录 1.0.0：Bun 打包的 OCR 验证码服务（上游 Hiram-Wong/captcha-bypass），bin/models/ 四 onnx 模型随包落位；需本体 1.0.6 起（binary 插件附属文件随包安装 + abis 安装期校验）。",
          "platforms": [
             "android"
          ],
