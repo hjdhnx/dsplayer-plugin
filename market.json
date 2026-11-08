@@ -169,7 +169,7 @@
             "服务"
          ],
          "md5": "40088e25287afff72f59d08e14ff0044",
-         "changelog": "v1.0.3：DNS shim 提速根修——原实现每次域名解析先走 musl 原版（无 /etc/resolv.conf 时按默认 nameserver 127.0.0.1 黑洞死等 5 秒超时）才回落自查询，独立服务（央视直播代理类等）播放链每步白等 5 秒导致「列表正常、播放全败」；现 IP/hosts 原版直通、真域名直接自查询（毫秒级 + 5 分钟缓存），原版仅作全败兜底。v1.0.2：鸿蒙 4.2 兼容两连修——①TMPDIR/HOME 显式注入到插件内可写目录（部分 ROM app 进程无 HOME 且无 /tmp，pip 下载/解包报 No usable temporary directory）；②musl 平台探测 spawn 失败防御（部分 ROM app 域 fork/exec 受限报 /lib/ld-musl-aarch64.so.1 ENOENT 整包装包失败，现失败一律回落伪造标签照常装 musllinux wheel）。v1.0.1：pip 平台标签修复（musllinux wheel 识别）。v1.0.0 首发。已装 1.0.0/1.0.1 的用户从市场更新后重试「爬虫一键装」即可。",
+         "changelog": "v1.0.4：新增解码器实况上报——桥在 prepared 与首帧解码时点读 IjkMediaInfo 发 decoder 事件，宿主三点面板「解码方式」显示硬解/软解实况（如 硬解播放中（设备解码器名）/ 软解播放中（avcodec(ffmpeg)）），与 Exo/MPV 三内核对齐；需配合新宿主包。v1.0.3：硬解恒软解根修 + bytevc2 软解。",
          "platforms": [
             "android"
          ],
@@ -290,15 +290,15 @@
          "name": "IJK 播放内核",
          "author": "hjdhnx",
          "desc": "IJKPlayer 播放内核插件（CarGuo 修正版 ijkplayer，FFmpeg 全协议 + MediaCodec 硬解 + HTTPS/16K page size + bytevc2 私有编码软解）。安装后在设置「播放器内核」或播放器底栏切换 IJK；与 Exo/MPV 三内核任切。桥接式插件（必须 APK 安装，不支持 zip 导入）。",
-         "version": "1.0.3",
+         "version": "1.0.4",
          "type": "apk",
-         "size": 4231660,
-         "url": "packages/ijk-1.0.3.apk",
+         "size": 4231780,
+         "url": "packages/ijk-1.0.4.apk",
          "icon": "icons/ijk.png",
          "tags": [
             "内核"
          ],
-         "md5": "99bbddbfdc8972399bf1524ebd03626f",
+         "md5": "2c03e3758ef316a9a5116fd0a175a9a5",
          "category": "env",
          "changelog": "v1.0.3：双修——①硬解恒软解根修：mediacodec-default_name 判定链首项显式设置 + mediacodec 系 option PLAYER/CODEC 双字典写（此前 720p 软解 CPU 102%，现 64%）；②自编 libijkffmpeg.so 带 bytevc2 软解（B 站 bv2C 私有编码，随包 libbyteVC2dec 0.9.7.1；openssl 静态内嵌直连原始链接）——真机播 bv2C 测试片出帧正常，logcat 铁证 VideoCodec: avcodec, bytevc2。v1.0.2：直播协议白名单修复（rtmp 系放行）。",
          "platforms": [
