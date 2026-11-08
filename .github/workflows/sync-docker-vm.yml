@@ -1,12 +1,23 @@
 name: sync-docker-vm
 
 # Fetch the latest docker-vm release APK from hjdhnx/Podroid's CI artifact and
-# overwrite the docker-vm-1.0.1 release asset on THIS repo. All server-side
+# upload it as the asset of a release tag on THIS repo. All server-side
 # (GitHub-internal), so no slow local download is needed.
 # Requires a PAT with `repo` scope over BOTH hjdhnx/Podroid and this repo,
 # stored as the DS_PAT secret (GITHUB_TOKEN cannot reach the other repo).
+# Per bump: create the release tag here first (gh release create <tag> --title ... --notes ...),
+# then run this workflow with matching inputs.
 on:
   workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag in THIS repo (e.g. docker-vm-1.1.0)"
+        required: true
+        default: docker-vm-1.1.0
+      asset:
+        description: "Asset file name (e.g. docker-vm-1.1.0.apk)"
+        required: true
+        default: docker-vm-1.1.0.apk
 
 permissions:
   contents: write
@@ -14,6 +25,9 @@ permissions:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    env:
+      TAG: ${{ inputs.tag }}
+      ASSET: ${{ inputs.asset }}
     steps:
       - uses: actions/checkout@v4
 
@@ -43,27 +57,28 @@ jobs:
           MD5=$(md5sum "$APK_PATH" | awk '{print $1}')
           echo "APK_MD5=$MD5" >> $GITHUB_ENV
 
-      - name: Overwrite docker-vm release asset
+      - name: Overwrite release asset
         run: |
           REPO="${{ github.repository }}"   # hjdhnx/dsplayer-plugin
           # Fetch the release id once
           RID=$(curl -s -H "Authorization: Bearer ${{ secrets.DS_PAT }}" \
-            "https://api.github.com/repos/$REPO/releases/tags/docker-vm-1.0.1" | jq -r '.id')
+            "https://api.github.com/repos/$REPO/releases/tags/$TAG" | jq -r '.id')
           echo "release id: $RID"
+          [ -n "$RID" ] && [ "$RID" != "null" ] || { echo "release $TAG not found - create it first"; exit 1; }
           # Delete the existing asset, then upload the new one
           ASSET_ID=$(curl -s -H "Authorization: Bearer ${{ secrets.DS_PAT }}" \
-            "https://api.github.com/repos/$REPO/releases/tags/docker-vm-1.0.1" \
-            | jq -r '.assets[] | select(.name=="docker-vm-1.0.1.apk") | .id')
+            "https://api.github.com/repos/$REPO/releases/tags/$TAG" \
+            | jq -r ".assets[] | select(.name==\"$ASSET\") | .id")
           echo "old asset id: $ASSET_ID"
           if [ -n "$ASSET_ID" ] && [ "$ASSET_ID" != "null" ]; then
             curl -s -X DELETE -H "Authorization: Bearer ${{ secrets.DS_PAT }}" \
               "https://api.github.com/repos/$REPO/releases/assets/$ASSET_ID"
+            echo "deleted old asset"
           fi
-          echo "deleted old asset"
           # Upload new
           curl -s -X POST -H "Authorization: Bearer ${{ secrets.DS_PAT }}" \
             -H "Content-Type: application/vnd.android.package-archive" \
-            "https://uploads.github.com/repos/$REPO/releases/$RID/assets?name=docker-vm-1.0.1.apk" \
+            "https://uploads.github.com/repos/$REPO/releases/$RID/assets?name=$ASSET" \
             --data-binary "@$APK_PATH" | jq -r '.browser_download_url'
           echo "uploaded new asset"
 
