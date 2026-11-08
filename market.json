@@ -841,20 +841,20 @@
          "id": "docker-vm",
          "name": "Docker 虚拟机（QEMU/arm64）",
          "author": "hjdhnx",
-         "desc": "独立的 QEMU arm64 虚拟机，开箱即用完整 Docker（29.9）+ Docker Compose（5.6）：内置 daocloud 镜像加速，SSH(:9922)，端口转发。启动后是一个完整 Alpine Linux VM，可在内嵌终端跑 docker/compose。大体积包（109.8MB）走 GitHub Release 资产分发，客户端经加速代理拉取后跳系统安装器安装。applicationId com.dsplayer.vm。",
-         "version": "1.0.1",
+         "desc": "独立的 QEMU arm64 虚拟机，开箱即用完整 Docker（29.9）+ Docker Compose（5.6）+ Buildx 镜像构建：内置 daocloud 镜像加速，SSH(:9922)，端口转发。启动后是一个完整 Alpine Linux VM，可在内嵌终端跑 docker/compose/docker build。后台保活：VM 运行期间保持前台可见（悬浮圆点），不被 ROM 后台 CPU 限额压速。大体积包（约125MB）走 GitHub Release 资产分发，客户端经加速代理拉取后跳系统安装器安装。applicationId com.dsplayer.vm。",
+         "version": "1.1.0",
          "type": "apk",
          "category": "app",
          "pkg": "com.dsplayer.vm",
-         "size": 115148718,
-         "url": "https://github.com/hjdhnx/dsplayer-plugin/releases/download/docker-vm-1.0.1/docker-vm-1.0.1.apk",
+         "size": 131349294,
+         "url": "https://github.com/hjdhnx/dsplayer-plugin/releases/download/docker-vm-1.1.0/docker-vm-1.1.0.apk",
          "icon": "icons/docker-vm.png",
          "tags": [
             "虚拟机",
             "容器"
          ],
-         "md5": "cab0e3cf0a2ae34c5a03b42f9b378100",
-         "changelog": "v1.0.1：后台保活修复——新增 WiFi 高能锁（WIFI_MODE_FULL_HIGH_PERF）防止息屏后网络休眠导致 SSH/docker/端口转发从外部连不上；首次启动主动请求忽略电池优化（Doze/App-Standby 豁免）。系统正常退出清理行为不变。",
+         "md5": "a576ce55c772577b4c32c3ed5091efac",
+         "changelog": "v1.1.0：①后台 CPU 限额根修——部分 ROM（小米 MIUI/HyperOS 等）把不可见窗口的后台进程压到约 1/20 CPU，即使已豁免电池优化也会让后台 docker/SSH/端口转发不可达；现 VM 运行期间默认在屏幕边缘显示悬浮保活圆点（保持前台可见，从根上不落后台配额档），点按回应用、设置可关，首次启动引导授权。②恢复 docker buildx——修掉 1.0.x 裁剪 buildx 后 docker build 回退 legacy builder 对 BuildKit 语法（--mount/heredoc/syntax）报不兼容的问题。包体积 109.8MB→125.3MB（buildx 回归所致）。v1.0.1：后台保活修复——新增 WiFi 高能锁（WIFI_MODE_FULL_HIGH_PERF）防止息屏后网络休眠导致 SSH/docker/端口转发从外部连不上；首次启动主动请求忽略电池优化（Doze/App-Standby 豁免）。系统正常退出清理行为不变。",
          "platforms": [
             "android"
          ],
