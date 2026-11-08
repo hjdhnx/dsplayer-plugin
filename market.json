@@ -555,17 +555,17 @@
          "name": "ByteVC2 软解",
          "author": "hjdhnx",
          "desc": "Exo 内核的 ByteVC2（B 站 bv2C 私有编码）视频软解兜底：普通设备 MediaCodec 不识别该编码，播放 B 站 bv2C 封装直链自动软解，其余内容零影响仍走硬解。libbyteVC2dec 0.9.7.1（字节系私有解码库，非开源，分发风险自负）。仅支持 arm64 设备，apk 直装。",
-         "version": "1.0.0",
+         "version": "1.0.1",
          "type": "apk",
          "size": 923690,
-         "url": "packages/bytevc2-1.0.0.apk",
+         "url": "packages/bytevc2-1.0.1.apk",
          "icon": "icons/bytevc2.png",
          "tags": [
             "解码"
          ],
-         "md5": "7e13c9de8397630fa13cda298cf9237c",
+         "md5": "f73be2c91c65181d9f4db2446f0624f8",
          "category": "env",
-         "changelog": "1.0.0 首版：bv2C 封装嗅探 Extractor + libbyteVC2dec 软解 renderer（GL YUV 出帧），需本体带 ByteVc2DecoderLoader 的 debug/release 包。",
+         "changelog": "v1.0.1：整合上游 Java 层双修复（随宿主包生效，本包为配套版本元数据；so 经真机定责维持原版）——①快速切集/切清晰度崩溃根修：decode/flush/release 串行化 + flush 后等关键帧重建参考基线（mc_dec reference index abort）；②画面缩小居中四周黑边根修：GL viewport 改用 EGL surface 实际尺寸。需重出宿主包配合。",
          "platforms": [
             "android"
          ]
