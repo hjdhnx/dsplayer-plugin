@@ -2,7 +2,7 @@
    "logo": "icons/market.png",
    "name": "DsPlayer 官方插件市场",
    "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-   "updatedAt": "2026-11-08T23:58:00+08:00",
+   "updatedAt": "2026-11-09T11:33:00+08:00",
    "plugins": [
       {
          "id": "mediaProxy",
@@ -290,17 +290,17 @@
          "name": "IJK 播放内核",
          "author": "hjdhnx",
          "desc": "IJKPlayer 播放内核插件（CarGuo 修正版 ijkplayer，FFmpeg 全协议 + MediaCodec 硬解 + HTTPS/16K page size + bytevc2 私有编码软解）。安装后在设置「播放器内核」或播放器底栏切换 IJK；与 Exo/MPV 三内核任切。桥接式插件（必须 APK 安装，不支持 zip 导入）。",
-         "version": "1.0.5",
+         "version": "1.0.6",
          "type": "apk",
-         "size": 4231688,
-         "url": "packages/ijk-1.0.5.apk",
+         "size": 4231764,
+         "url": "packages/ijk-1.0.6.apk",
          "icon": "icons/ijk.png",
          "tags": [
             "内核"
          ],
-         "md5": "2134f7b3d55318154fbdbc280e5272ac",
+         "md5": "24038a94d1236305094110f515b34856",
          "category": "env",
-         "changelog": "v1.0.3：双修——①硬解恒软解根修：mediacodec-default_name 判定链首项显式设置 + mediacodec 系 option PLAYER/CODEC 双字典写（此前 720p 软解 CPU 102%，现 64%）；②自编 libijkffmpeg.so 带 bytevc2 软解（B 站 bv2C 私有编码，随包 libbyteVC2dec 0.9.7.1；openssl 静态内嵌直连原始链接）——真机播 bv2C 测试片出帧正常，logcat 铁证 VideoCodec: avcodec, bytevc2。v1.0.2：直播协议白名单修复（rtmp 系放行）。",
+         "changelog": "v1.0.6：桥协议扩展——options 新增 extraOptions 保留键（[{category,name,value}] 列表按 category 逐项 setOption），承接接口配置「ijk」选项层与全局附加选项（站点 ijk 层优先；需本体侧配套版本，旧宿主不带此键零影响，向后兼容）。v1.0.5：硬解实况误显示修复——首帧渲染时点复核上报（prepared 早报可能停在未协商初值）。v1.0.4：解码器实况上报——decoder 事件（vdec/vimpl），宿主三点面板「解码方式」显示硬解/软解实况（与 Exo/MPV 对齐）。v1.0.3：双修——①硬解恒软解根修：mediacodec-default_name 判定链首项显式设置 + mediacodec 系 option PLAYER/CODEC 双字典写（此前 720p 软解 CPU 102%，现 64%）；②自编 libijkffmpeg.so 带 bytevc2 软解（B 站 bv2C 私有编码，随包 libbyteVC2dec 0.9.7.1；openssl 静态内嵌直连原始链接）——真机播 bv2C 测试片出帧正常，logcat 铁证 VideoCodec: avcodec, bytevc2。v1.0.2：直播协议白名单修复（rtmp 系放行）。",
          "platforms": [
             "android"
          ]

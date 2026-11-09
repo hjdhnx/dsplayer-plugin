@@ -27,7 +27,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | ~~Python 爬虫引擎（1.2.1 回滚备用）~~ | `py-legacy` | 1.2.1 | **apk**（系统安装；platforms=android）**⚠️ 已下架**（`delisted: true`——仅作回滚备用不对外展示；1.2.2 已兼容 1.0 与 2.x，去掉标记即可恢复上架） | `packages/DsPlayer-Python-plugin-1.2.1-arm64.apk` |
 | MPV 播放内核 | `mpv` | 1.0.4 | import（apk 直装包可导入；platforms=android） | `packages/mpv-1.0.4.apk` |
 | MPV 播放内核（Windows） | `mpv-win` | 1.0.0 | import（zip；platforms=win32，minApp 0.9.5） | `packages/mpv-win-1.0.0.zip` |
-| IJK 播放内核 | `ijk` | 1.0.5 | **apk**（桥接式必须系统安装；platforms=android） | `packages/ijk-1.0.5.apk` |
+| IJK 播放内核 | `ijk` | 1.0.6 | **apk**（桥接式必须系统安装；platforms=android） | `packages/ijk-1.0.6.apk` |
 | FFmpeg 软解 | `ffmpeg` | 1.0.2 | **apk**（系统安装；需本体 v0.6.2+；platforms=android） | `packages/ffmpeg-1.0.2.apk` |
 | ByteVC2 软解 | `bytevc2` | 1.0.1 | **apk**（系统安装；仅 arm64；platforms=android） | `packages/bytevc2-1.0.1.apk` |
 | QJS 爬虫引擎（dr2 + dr3 源） | `qjs` | 1.0.6 | import（platforms=android） | `packages/qjs-1.0.6.apk` |
