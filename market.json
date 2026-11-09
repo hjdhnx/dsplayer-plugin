@@ -169,7 +169,7 @@
             "服务"
          ],
          "md5": "40088e25287afff72f59d08e14ff0044",
-         "changelog": "v1.0.4：新增解码器实况上报——桥在 prepared 与首帧解码时点读 IjkMediaInfo 发 decoder 事件，宿主三点面板「解码方式」显示硬解/软解实况（如 硬解播放中（设备解码器名）/ 软解播放中（avcodec(ffmpeg)）），与 Exo/MPV 三内核对齐；需配合新宿主包。v1.0.3：硬解恒软解根修 + bytevc2 软解。",
+         "changelog": "v1.0.5：修复 1.0.4 的硬解实况误显示——IJK 实际硬解成功但面板显示软解（IjkMediaInfo.mVideoDecoder 硬解值为 \"MediaCodec\" 首字母大写，判等大小写不敏感归一 + 首帧渲染时点复核上报）；同时需新宿主包（宿主侧同步修复）。v1.0.4：解码器实况上报。v1.0.3：硬解根修 + bytevc2 软解。",
          "platforms": [
             "android"
          ],
@@ -290,15 +290,15 @@
          "name": "IJK 播放内核",
          "author": "hjdhnx",
          "desc": "IJKPlayer 播放内核插件（CarGuo 修正版 ijkplayer，FFmpeg 全协议 + MediaCodec 硬解 + HTTPS/16K page size + bytevc2 私有编码软解）。安装后在设置「播放器内核」或播放器底栏切换 IJK；与 Exo/MPV 三内核任切。桥接式插件（必须 APK 安装，不支持 zip 导入）。",
-         "version": "1.0.4",
+         "version": "1.0.5",
          "type": "apk",
-         "size": 4231780,
-         "url": "packages/ijk-1.0.4.apk",
+         "size": 4231688,
+         "url": "packages/ijk-1.0.5.apk",
          "icon": "icons/ijk.png",
          "tags": [
             "内核"
          ],
-         "md5": "2c03e3758ef316a9a5116fd0a175a9a5",
+         "md5": "2134f7b3d55318154fbdbc280e5272ac",
          "category": "env",
          "changelog": "v1.0.3：双修——①硬解恒软解根修：mediacodec-default_name 判定链首项显式设置 + mediacodec 系 option PLAYER/CODEC 双字典写（此前 720p 软解 CPU 102%，现 64%）；②自编 libijkffmpeg.so 带 bytevc2 软解（B 站 bv2C 私有编码，随包 libbyteVC2dec 0.9.7.1；openssl 静态内嵌直连原始链接）——真机播 bv2C 测试片出帧正常，logcat 铁证 VideoCodec: avcodec, bytevc2。v1.0.2：直播协议白名单修复（rtmp 系放行）。",
          "platforms": [
