@@ -472,8 +472,8 @@
       "type": "server",
       "category": "app",
       "url": "packages/danmu-1.0.1.zip",
-      "size": 774058,
-      "md5": "0e311779a068353b2a248dc8097c9e56",
+      "size": 774015,
+      "md5": "e56dfbfce32b4374c17322c5e095a05c",
       "changelog": "同步上游 55 commits（红果全集合并取弹幕修复、AI 空响应识别与自适应重试、远程季映射加固等）+ 单文件 bundle 形态（rolldown minify 2.3MB，esm-shim 在 node24 豁免、chokidar/redis 维持裁剪）：真机启动 3.0~3.6s→~2.0s，zip 6.6MB→0.77MB，零 node_modules。",
       "tags": [
         "服务",
