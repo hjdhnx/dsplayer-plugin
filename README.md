@@ -43,7 +43,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | ~~插件整合包~~ | `bundle` | 1.1.0 | **apk**（系统安装；platforms=android）**⚠️ 已下架**（`delisted: true`——包内子插件版本落后市场单包，qjs 1.0.1/现 1.0.5、ijk 1.0.0/现 1.0.2、mediaProxy 1.1.0/现 1.2.2、php 1.3.1/现 1.3.2，建议直接装各单包；条目与包保留在仓库不删除，去标记即可恢复上架） | `packages/bundle-1.1.0.apk` |
 | ~~IPTV 直播源（CCSH 采集）~~ | `iptv-ccsh` | 1.1.0 | **live**（直播源包；platforms=android+win32）**⚠️ 已下架**（`delisted: true`——源站卡顿体验不佳，推荐沙盒自建 ysp 直播服务；条目与包保留在仓库，去标记即可恢复上架） | `packages/iptv-ccsh-1.1.0.json` |
 | 洛雪同步 | `lx-sync` | 2.1.2 | **server**（服务包；platforms=android+win32） | `packages/lx-sync-2.1.2.zip` |
-| 弹幕 API 服务 | `danmu-api` | 1.0.0 | **server**（服务包；platforms=android+win32） | `packages/danmu-1.0.0.zip` |
+| 弹幕 API 服务 | `danmu-api` | 1.0.1 | **server**（服务包；platforms=android+win32） | `packages/danmu-1.0.1.zip` |
 | EPG 节目单服务 | `epg-tool` | 1.0.0 | **server**（服务包；runtime=php，需先装 php 运行时插件；platforms=android） | `packages/epg-tool-1.0.0.zip` |
 | 演示源包 | `demo-sources` | 1.2.8 | **source**（源码包；platforms=android+win32；html/ 含 bilibili 完整源 + Web 源演示 + 歪比巴卜 booster + fm 桥自验探针（fm-selftest.html / gm-probe.web.json+js）——需本体 ≥0.9.7） | `packages/demo-sources-1.2.8.zip` |
 | catLib 引擎库包 | `catlib` | 1.0.0 | **source**（源码包；引擎库；platforms=android+win32） | `packages/catlib-1.0.0.zip` |

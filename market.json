@@ -1,890 +1,890 @@
 {
-   "logo": "icons/market.png",
-   "name": "DsPlayer 官方插件市场",
-   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-   "updatedAt": "2026-11-09T18:42:06+08:00",
-   "plugins": [
-      {
-         "id": "mediaProxy",
-         "name": "媒体代理服务",
-         "author": "hjdhnx",
-         "desc": "Go 媒体代理服务（leader-follower 流式分段引擎，秒级起播，支持 Range/拖动）。以子进程方式运行，配置启动参数与环境变量后由宿主拉起。",
-         "version": "1.2.2",
-         "type": "import",
-         "size": 2034189,
-         "url": "packages/mediaProxy-1.2.2.zip",
-         "icon": "icons/mediaProxy.png",
-         "tags": [
-            "网络",
-            "服务"
-         ],
-         "changelog": "v1.2.2：单平台拆包——本条目改为只面向 Android，包内仅含 Android 二进制（与 1.2.1 完全相同，同源同 md5），瘦身约 2.4MB；Windows 用户请安装新条目「媒体代理服务（Windows）」（mediaProxy-win）。已装 1.2.1 的 Android 用户常规更新即可，二进制与行为零变化。",
-         "md5": "cd20bd32fb9e7b2c41cb6a82872fce7d",
-         "platforms": [
-            "android"
-         ],
-         "category": "env"
-      },
-      {
-         "id": "mediaProxy-win",
-         "name": "媒体代理服务（Windows）",
-         "author": "hjdhnx",
-         "desc": "Go 媒体代理服务（leader-follower 流式分段引擎，秒级起播，支持 Range/拖动）。以子进程方式运行，配置启动参数与环境变量后由宿主拉起。",
-         "version": "1.0.0",
-         "type": "import",
-         "size": 2384189,
-         "url": "packages/mediaProxy-win-1.0.0.zip",
-         "icon": "icons/mediaProxy.png",
-         "tags": [
-            "网络",
-            "服务"
-         ],
-         "changelog": "首发：从 mediaProxy 1.2.1 合包拆出的 Windows 独立条目——win 二进制与 1.2.1 完全相同（同源同 md5），包内不再携带 Android 二进制。此前在 PC 已装 1.2.1 合包的可继续使用（已装条目豁免显示），换装本条目与否自行决定，不做自动迁移。默认端口 5575（插件卡可改）。",
-         "md5": "ca204b4ae69bb9e66fd84d550a5fdb24",
-         "platforms": [
-            "win32"
-         ],
-         "minApp": "0.9.4",
-         "category": "env"
-      },
-      {
-         "id": "nodejs",
-         "name": "Node.js 运行时",
-         "author": "hjdhnx",
-         "desc": "Node.js 24 运行时（arm64 静态链接）。本身不启动服务，作为运行时供「服务」页引用：可同时拉起多个服务实例（如 drpy-node 源服务）。",
-         "version": "1.0.0",
-         "type": "import",
-         "size": 31400000,
-         "url": "packages/nodejs-1.0.0.zip",
-         "icon": "icons/nodejs.png",
-         "tags": [
-            "运行时",
-            "服务"
-         ],
-         "md5": "8eb71041327f883355a99e5c4a791388",
-         "platforms": [
-            "android"
-         ],
-         "category": "env"
-      },
-      {
-         "id": "proot",
-         "name": "Linux 沙盒运行时（PRoot）",
-         "author": "hjdhnx",
-         "desc": "Termux PRoot 5.1.107.92（arm64 四件套，免 root 用户态 Linux 沙盒）。安装后到「实验室 → Linux 沙盒」安装 Alpine/Ubuntu 完整环境，沙盒内自由装服务（apk add nodejs ffmpeg…）并注册为常驻服务。需本体 ≥ 0.9.10；仅 Android arm64 真机（部分模拟器内核禁 ptrace 不适用）。",
-         "version": "1.0.0",
-         "type": "import",
-         "size": 130666,
-         "url": "packages/proot-1.0.0.zip",
-         "icon": "icons/proot.png",
-         "tags": [
-            "运行时",
-            "沙盒"
-         ],
-         "changelog": "首发：Termux 官方池 pinned 二进制 proot 5.1.107.92（GPL-2.0+，以独立进程执行无许可传染），四件套 libproot_exec/loader + libtalloc/libandroid-shmem；配套本体实验室·Linux 沙盒模块（环境安装器/快速命令/服务注册）。",
-         "md5": "a1703e6d818c87f52bbfa2bd1907c9cc",
-         "platforms": [
-            "android"
-         ],
-         "minApp": "0.9.10",
-         "category": "env"
-      },
-      {
-         "id": "nodejs-win",
-         "name": "Node.js 运行时（Windows）",
-         "author": "hjdhnx",
-         "desc": "Node.js 24 运行时（Windows x64 官方发行版 v24.21.0 LTS，与 Android 侧 node24 同大版本，服务端行为一致）。本身不启动服务，作为运行时供「服务」页引用：drpys（drpyS 源服务）与编程调试 node 通道，可同时拉起多个服务实例。官方构建静态链接 CRT，无需 VC++ 运行库。",
-         "version": "1.0.0",
-         "type": "import",
-         "size": 39350476,
-         "url": "packages/nodejs-win-1.0.0.zip",
-         "icon": "icons/nodejs.png",
-         "tags": [
-            "运行时",
-            "服务"
-         ],
-         "changelog": "首发：Node.js v24.21.0 官方 win-x64 发行版整包（node.exe + npm），sha256 与官方 SHASUMS256.txt 对账一致。需 DsPlayer 0.9.4+（PC 插件中心 + win32 平台键）。",
-         "md5": "61ecd54e0c4780be37ec3530d278ccd0",
-         "platforms": [
-            "win32"
-         ],
-         "minApp": "0.9.4",
-         "category": "env"
-      },
-      {
-         "id": "php",
-         "name": "PHP 运行时",
-         "author": "hjdhnx",
-         "desc": "PHP 7 运行时（Android arm64 静态单文件，无动态库依赖）+ t4_demo 站点源种子（T4-PHP 预置导入时释放到 sdcard/dsplayer/server/php/t4_demo，docroot 指 sdcard 可加改源）。供「服务」页引用：drpys 的 php 桥（PHP_PATH）与 T4-PHP 站点服务均引用此包。1.3.2 起 t4_demo BaseSpider 内置源代理能力（getProxyUrl()/localProxy），php 源写法与其他引擎统一。覆盖安装替换旧 PHP 8 包，二者不共存。",
-         "version": "1.3.2",
-         "type": "import",
-         "size": 9733361,
-         "url": "packages/php-1.3.2.zip",
-         "icon": "icons/php.png",
-         "tags": [
-            "运行时",
-            "服务"
-         ],
-         "md5": "92a4157b9418a4bdf1c5e7bad2c3306b",
-         "changelog": "v1.3.2：t4_demo BaseSpider 代理统一——getProxyUrl() 拿本源代理基址（php -S 通道自感知自身脚本端点 ?do=proxy&，drpyS 桥通道接服务层注入）+ localProxy($params) 钩子与 do=proxy 分发（五元组契约直出，空图透明 GIF 兜底写法见壳内代理指南）。php 源代理写法从此与其他引擎统一。已装旧版的用户：服务页「示例」重释放 t4_demo 壳文件后重启 T4-PHP 服务生效（自身已改过的 lib/spider.php 不覆盖，需手工合并）。",
-         "platforms": [
-            "android"
-         ],
-         "category": "env"
-      },
-      {
-         "id": "php-win",
-         "name": "PHP 运行时（Windows）",
-         "author": "hjdhnx",
-         "desc": "PHP 8.5 运行时（Windows x64 官方 NTS 发行版，php -S 内置服务器场景无需线程安全版）：承载 T4-PHP 站点服务、drpys 的 php 桥（PHP_PATH）与网关 PHP 本地源（/php 路由）。1.0.2 起自带 php.ini 启用 curl/openssl/mbstring——此前无 ini 动态扩展不加载，php 源 fetch() 报 CURLOPT_POST 未定义。依赖 VC++ Redistributable（vs17）——未安装时 php.exe 无法启动，请先装 Microsoft Visual C++ Redistributable。",
-         "version": "1.0.2",
-         "type": "import",
-         "size": 37939635,
-         "url": "packages/php-win-1.0.2.zip",
-         "icon": "icons/php.png",
-         "tags": [
-            "运行时",
-            "服务"
-         ],
-         "changelog": "v1.0.2：补 bin/php.ini 启用 curl/openssl/mbstring 三扩展（按源生态用量最小集）——1.0.0/1.0.1 无 ini，官方包 ext/ 的 DLL 一个不加载，t4_demo 系源 fetch() 报「Undefined constant CURLOPT_POST」即此因；T4-PHP 服务、drpys 桥、网关 /php 本地源三条消费链同时受益。bin/ 其余内容与 1.0.1 逐字节一致（PHP 8.5.11 官方包）。已装旧版用户直接覆盖更新即可。",
-         "md5": "9b515d6bd2dea37288649f8c8cdc019b",
-         "platforms": [
-            "win32"
-         ],
-         "minApp": "0.9.4",
-         "category": "env"
-      },
-      {
-         "id": "python",
-         "name": "Python 运行时",
-         "author": "hjdhnx",
-         "desc": "Python 3.12 运行时（musl 链接，Android arm64 独立进程）：插件卡「依赖管理」支持 pip 安装/卸载，musllinux wheel 的 C 扩展包（lxml/numpy 等）可直接安装免编译；爬虫一键装九件套。「服务」页添加 Python T4 服务（Flask 或任意 pip 可装框架，fastapi 依赖 Rust 扩展无 musl wheel 不可用）。内置 DNS shim（毫秒级直连解析）、CA 证书与可写目录适配。示例源 examples/t4_demo.py。与「Python 爬虫引擎」APK 插件（id: py）互补：本包跑独立进程 HTTP 服务，APK 包做进程内爬虫源。",
-         "version": "1.0.3",
-         "type": "import",
-         "size": 23385608,
-         "url": "packages/python-1.0.3.zip",
-         "icon": "icons/python.png",
-         "tags": [
-            "运行时",
-            "服务"
-         ],
-         "md5": "40088e25287afff72f59d08e14ff0044",
-         "changelog": "v1.0.5：修复 1.0.4 的硬解实况误显示——IJK 实际硬解成功但面板显示软解（IjkMediaInfo.mVideoDecoder 硬解值为 \"MediaCodec\" 首字母大写，判等大小写不敏感归一 + 首帧渲染时点复核上报）；同时需新宿主包（宿主侧同步修复）。v1.0.4：解码器实况上报。v1.0.3：硬解根修 + bytevc2 软解。",
-         "platforms": [
-            "android"
-         ],
-         "category": "env"
-      },
-      {
-         "id": "python-win",
-         "name": "Python 运行时（Windows）",
-         "author": "hjdhnx",
-         "desc": "Python 3.12 运行时（Windows x64 官方 embeddable 发行版 3.12.10 + 预置 pip 与爬虫依赖 requests/lxml/pycryptodome/pyquery/bs4/jsonpath/json5/jinja2/cachetools）：PC 端 hipy/py 源本地执行引擎（常驻 worker 复用移动端同款引擎，init 带缓存），兼作 PyT4 服务、drpys 服务端（PYTHON_PATH）与编程调试通道。插件卡「依赖管理」支持 pip 安装/卸载（走 python -m pip）。",
-         "version": "1.2.1",
-         "type": "import",
-         "size": 27485544,
-         "url": "packages/python-win-1.2.1.zip",
-         "icon": "icons/python.png",
-         "tags": [
-            "运行时",
-            "服务"
-         ],
-         "changelog": "v1.2.1：引擎同步移动端 1.2.1 性能重构——读方法（home/category/search/detail）绕实例锁并发执行（切分类立即响应）；热路径零锁化（每调用 INFO 日志/实例键 sha256/全局锁×3/O(n) LRU 遍历全部消除）；PC 侧独有优化：worker 源文件三次 stat 探测改 dict 缓存、每请求 stdout 日志静音、Dart 端 HTTP keep-alive 连接复用（此前每调用新建 TCP）。v1.1.2：引擎同步 1.1.6——T3 桩代理地址跨源污染根修。v1.1.1：引擎同步 1.1.5——localProxy 槽文件大载荷直传根修；worker /ping 新增 engine_md5 引擎指纹（插件升级后残留旧 worker 不再被收养复用）。v1.1.0：新增 PC 端 py 源本地执行 worker。v1.0.0：首发。需 DsPlayer 0.9.4+（PC 插件中心 + win32 平台键）。",
-         "md5": "5a374fb26d4ad8cce16384c4a11d6c21",
-         "platforms": [
-            "win32"
-         ],
-         "minApp": "0.9.4",
-         "category": "env"
-      },
-      {
-         "id": "py",
-         "name": "Python 爬虫引擎",
-         "author": "hjdhnx",
-         "desc": "本地 Python 爬虫源执行引擎（Chaquopy）：type=3 的 .py 源自动进入点播源列表。运行时组件必须以 APK 形态安装，安装时跳转系统安装器并需「安装未知应用」授权。",
-         "version": "1.2.3",
-         "type": "apk",
-         "size": 17060080,
-         "url": "packages/DsPlayer-Python-plugin-1.2.3-arm64.apk",
-         "icon": "icons/py.png",
-         "tags": [
-            "引擎"
-         ],
-         "md5": "0e9a0f856d209d4729715a7ecccca402",
-         "changelog": "1.2.3 进程自报通道（配套宿主「进程」管理 Tab）：新增 AIDL stats()——插件进程向宿主自报 pid 与内存（VmRSS），补齐独立进程跨包不可见的观测盲区；宿主侧仅在装了进程管理器的新版本里调用，旧宿主不调此接口零影响（AIDL 只追加不改动，兼容 1.0 公开版与 2.x，可直接升级）。1.2.2 绑定方身份准入（2026-10-22 安全加固）：插件服务对外导出的绑定入口新增调用方身份校验——只接受本应用（release/debug 或自编译的同包名本体）连接，第三方应用无法再连上本插件进程执行代码。1.2.1 性能重构（「源忙」根除）：读方法绕实例锁并发执行、热路径零锁化、写敏感方法保持锁串行。1.1.6 T3 桩代理地址跨源污染根修。1.1.5 localProxy 大载荷槽文件直传根修。1.1.4 编程调试 execCode 通道。1.1.3 存储读权限修复。",
-         "category": "env",
-         "platforms": [
-            "android"
-         ]
-      },
-      {
-         "id": "py-legacy",
-         "name": "Python 爬虫引擎（1.2.2 回滚备用）",
-         "author": "hjdhnx",
-         "desc": "上一版 Python 爬虫引擎（ChaQuopy）。仅作为 1.2.3 出问题时的回滚备用而保留，不在市场展示。1.2.3 与 1.0 公开版及 2.x 均兼容（接口未变），正常无需安装本包。",
-         "version": "1.2.2",
-         "type": "apk",
-         "size": 17039096,
-         "url": "packages/DsPlayer-Python-plugin-1.2.2-arm64.apk",
-         "icon": "icons/py.png",
-         "tags": [
-            "引擎"
-         ],
-         "md5": "b9cf13f4d3c97f0842c26dae4c705f59",
-         "changelog": "1.2.2 绑定方身份准入（2026-10-22 安全加固）：插件服务绑定入口新增调用方身份校验，第三方应用无法再连上本插件进程执行代码。保留本包用于回滚——1.2.3 已兼容 1.0 公开版与 2.x，正常无需安装。",
-         "category": "env",
-         "platforms": [
-            "android"
-         ],
-         "delisted": true,
-         "delistedNote": "回滚备用档：仅保留安装包不对外展示。1.2.3 与 1.0 公开版/2.x 均兼容（接口未变、调用方白名单含旧包名），正常升级即可；此包供 1.2.3 万一出问题时临时回退使用，去掉 delisted 标记即可恢复上架。"
-      },
-      {
-         "id": "mpv",
-         "name": "MPV 播放内核",
-         "author": "hjdhnx",
-         "desc": "提供全功能 MPV 内核（v1.2.6）：新增 DASH（MPD）原生播放支持、超分 shader、截图、广协议支持。导入后以应用内组件形态生效，可在「插件」页切换播放内核。",
-         "version": "1.0.4",
-         "type": "import",
-         "size": 16729627,
-         "url": "packages/mpv-1.0.4.apk",
-         "icon": "icons/mpv.png",
-         "tags": [
-            "内核"
-         ],
-         "md5": "d839ff4061e0424b2fda17a2c906ecf1",
-         "category": "env",
-         "changelog": "1.0.4 修复 1.0.3 的 bytevc2 私有 codec id 两雷：0x21002 撞官方 VNULL（连续枚举自动值）、desc 表按 id 升序 bsearch 下表尾插小值必失配——定稿 0x21004（ANULL 后空位）+ desc 表尾插入；真机 mpv 内核 Selected decoder: bytevc2 全片播放验证。1.0.3 首版接入 ByteVC2 软解。",
-         "abis": [
-            "arm64-v8a",
-            "x86_64"
-         ],
-         "platforms": [
-            "android"
-         ]
-      },
-      {
-         "id": "mpv-win",
-         "name": "MPV 内核（Windows）",
-         "author": "hjdhnx",
-         "desc": "libmpv-2.dll（Windows x64，mpv v0.41.0 + ffmpeg N-124868 + libplacebo v7.365）——PC 端 MPV 播放内核。自 0.9.5 起 release 本体不含 libmpv，按需安装本插件；缺省内核为 MDK（内置），MPV 为可选内核（画质增强/高级配置场景）。",
-         "version": "1.0.0",
-         "type": "import",
-         "size": 15497186,
-         "url": "packages/mpv-win-1.0.0.zip",
-         "icon": "icons/mpv.png",
-         "tags": [
-            "引擎",
-            "内核"
-         ],
-         "changelog": "首发：与历史内置 libmpv-2.dll 同源同字节（fork mpv-winbuild-cmake 20260607 构建，含 D3D11/NVDEC/Vulkan 硬解与 DASH/MPD 能力面）。需 DsPlayer 0.9.5+（native-lib 消费模式 + 延迟加载）。",
-         "md5": "f78d8e291750f3cc5b6da81bd95b1304",
-         "platforms": [
-            "win32"
-         ],
-         "minApp": "0.9.5",
-         "category": "env"
-      },
-      {
-         "id": "ijk",
-         "name": "IJK 播放内核",
-         "author": "hjdhnx",
-         "desc": "IJKPlayer 播放内核插件（CarGuo 修正版 ijkplayer，FFmpeg 全协议 + MediaCodec 硬解 + HTTPS/16K page size + bytevc2 私有编码软解）。安装后在设置「播放器内核」或播放器底栏切换 IJK；与 Exo/MPV 三内核任切。桥接式插件（必须 APK 安装，不支持 zip 导入）。",
-         "version": "1.0.6",
-         "type": "apk",
-         "size": 4231764,
-         "url": "packages/ijk-1.0.6.apk",
-         "icon": "icons/ijk.png",
-         "tags": [
-            "内核"
-         ],
-         "md5": "24038a94d1236305094110f515b34856",
-         "category": "env",
-         "changelog": "v1.0.6：桥协议扩展——options 新增 extraOptions 保留键（[{category,name,value}] 列表按 category 逐项 setOption），承接接口配置「ijk」选项层与全局附加选项（站点 ijk 层优先；需本体侧配套版本，旧宿主不带此键零影响，向后兼容）。v1.0.5：硬解实况误显示修复——首帧渲染时点复核上报（prepared 早报可能停在未协商初值）。v1.0.4：解码器实况上报——decoder 事件（vdec/vimpl），宿主三点面板「解码方式」显示硬解/软解实况（与 Exo/MPV 对齐）。v1.0.3：双修——①硬解恒软解根修：mediacodec-default_name 判定链首项显式设置 + mediacodec 系 option PLAYER/CODEC 双字典写（此前 720p 软解 CPU 102%，现 64%）；②自编 libijkffmpeg.so 带 bytevc2 软解（B 站 bv2C 私有编码，随包 libbyteVC2dec 0.9.7.1；openssl 静态内嵌直连原始链接）——真机播 bv2C 测试片出帧正常，logcat 铁证 VideoCodec: avcodec, bytevc2。v1.0.2：直播协议白名单修复（rtmp 系放行）。",
-         "platforms": [
-            "android"
-         ]
-      },
-      {
-         "id": "qjs",
-         "name": "QJS 爬虫引擎",
-         "author": "hjdhnx",
-         "desc": "本地 JS 爬虫源执行引擎（自研 QuickJS + C 扩展核心）：drpy2（type=3 的 .js 源与 sdcard spider/js 本地源）与 drpy3 新源（声明式/wasm 形态，sdcard spider/dr3）统一由本插件执行——drpy3 源不再需要单独的 fjs 插件。",
-         "version": "1.0.6",
-         "type": "import",
-         "size": 3136982,
-         "url": "packages/qjs-1.0.6.apk",
-         "icon": "icons/qjs.png",
-         "tags": [
-            "引擎"
-         ],
-         "md5": "c9b2f2eb8a58229d67e397c98c89cd69",
-         "category": "env",
-         "changelog": "so 升级（qjs_ultra build-20261030-0eac497）：①setTimeout/setInterval 定时器回调与前台等待互锁——async 源里 await 链挂在定时器回调上不再永不 settle（drpy3 异步源实锤）；②cheerio 临时链式对象 UAF 修复（$(...).find(...).attr() 一类即用即弃链式写法随机崩溃/脏值）。ABI 零变化（67 导出闸门过，覆盖升级即得修复）。注：引擎同期新增的 JSON5 全局（官方完整 parse/stringify）为编译期可选模块，本包未启用，后续按需出包。",
-         "abis": [
-            "arm64-v8a"
-         ],
-         "platforms": [
-            "android"
-         ]
-      },
-      {
-         "id": "qjs-arm32",
-         "name": "QJS 爬虫引擎（32 位设备）",
-         "author": "hjdhnx",
-         "desc": "本地 JS 爬虫源执行引擎的 32 位（armeabi-v7a）构建，供 32 位安卓设备/老电视使用——drpy2 与 drpy3 源统一由本插件执行；64 位设备请装「QJS 爬虫引擎」。与 64 位包符号级 ABI 契约一致（67 导出全对齐），宿主侧含 NaN-boxing 值编组兼容。",
-         "version": "1.0.0",
-         "type": "import",
-         "size": 2703741,
-         "url": "packages/qjs-arm32-1.0.0.apk",
-         "icon": "icons/qjs.png",
-         "tags": [
-            "引擎"
-         ],
-         "md5": "6184819e6baea714b781cee8db467353",
-         "category": "env",
-         "changelog": "首版（arm32 架构补位包，版本独立线）：so 取 qjs_ultra CI build-20261010-e2cfa2d 的 armeabi-v7a 产物（sha256 67e520f2…，含 1.0.5 的 qjs_update_stack_top 与随后的后台泵栈基线刷新）。需 DsPlayer 0.9.10（重发版 build 93+，含 32 位壳架构门 + qjs 值编组位宽兼容）。",
-         "abis": [
-            "armeabi-v7a"
-         ],
-         "platforms": [
-            "android"
-         ],
-         "minApp": "0.9.10"
-      },
-      {
-         "id": "qjs-win",
-         "name": "QJS 爬虫引擎（Windows）",
-         "author": "hjdhnx",
-         "desc": "quickjs_bridge.dll（Windows x64）——驱动 drpy2/drpy3/cat 三类 JS 源与编程调试 js 通道。自 0.9.5 起 release 本体不再内置引擎 dll，按需安装本插件；dll 与本体 Dart FFI 紧耦合，加载报符号缺失时请升级本体后重装。",
-         "version": "1.0.6",
-         "type": "import",
-         "size": 2731604,
-         "url": "packages/qjs-win-1.0.6.zip",
-         "icon": "icons/qjs.png",
-         "tags": [
-            "引擎"
-         ],
-         "changelog": "Windows dll WebAssembly 根修（qjs_ultra build-20261010-e2cfa2d）：MinGW LTO 常量传播破坏 wasm3 错误码指针比较，最小 wasm 模块实例化即报 function lookup failed（PC 央视频等 wasm 解密源全灭，Android 正常）；另累计 1.0.3–1.0.5 三轮 so 修复（cheerio 补齐/模块装载 NUL 终结符/isolate 线程迁移假爆栈）。ABI 零变化，已装 1.0.0 直接覆盖升级即得全部修复。",
-         "md5": "bf6892bfdab973823d52494b956bcd4e",
-         "platforms": [
-            "win32"
-         ],
-         "minApp": "0.9.5",
-         "category": "env"
-      },
-      {
-         "id": "agent",
-         "name": "AI 助手界面",
-         "author": "hjdhnx",
-         "desc": "AI 助手对话界面（NextChat v2.15.8 静态包）：经本地网关托管，支持「写脚本→本地执行→自检修正」闭环与壳子自动化控制（换源/播放/切台等，MCP 同款工具）。1.1.0：升级 NextChat v2.12.4→v2.15.8；新增 injectCompat 注入兼容声明。需在设置「AI」页配置模型接口。",
-         "version": "1.1.0",
-         "type": "import",
-         "size": 3893291,
-         "url": "packages/agent-1.1.0.apk",
-         "icon": "icons/agent.png",
-         "tags": [
-            "界面",
-            "AI"
-         ],
-         "md5": "b64f152c2b1e5ff4e4813555e149bf1f",
-         "category": "env",
-         "abis": [],
-         "platforms": [
-            "android"
-         ]
-      },
-      {
-         "id": "bundle",
-         "name": "插件整合包",
-         "author": "hjdhnx",
-         "desc": "全家桶安装器（有桌面图标，一键安装）：内置 MPV/Python/QJS/Agent 四插件 APK + mediaProxy/php 运行时 zip。版本预检：设备已装版本 ≥ 内置版本则跳过，仅补缺口/升级落后项，可与单包共存。",
-         "version": "1.1.0",
-         "type": "apk",
-         "size": 56940233,
-         "url": "packages/bundle-1.1.0.apk",
-         "icon": "icons/bundle.png",
-         "tags": [
-            "安装器",
-            "整合包"
-         ],
-         "md5": "666f8affd6ffe1a156a55715a2a6ecac",
-         "changelog": "移除 fjs 子插件（drpy3 换核 qjs_ultra，qjs 子插件升 1.0.2 承接 drpy3 源）；全家桶现为 MPV/Python/QJS/Agent 四插件。",
-         "category": "app",
-         "platforms": [
-            "android"
-         ],
-         "delisted": true,
-         "delistedNote": "已下架：整合包内置子插件版本已落后市场单包（qjs 1.0.1 / 现 1.0.5、ijk 1.0.0 / 现 1.0.2、mediaProxy 1.1.0 / 现 1.2.2、php 1.3.1 / 现 1.3.2），建议直接从市场安装各插件单包。下架标记仅隐藏市场展示，条目与安装包保留在本仓库不删除（已装用户本地记录不受影响），可随时恢复上架。"
-      },
-      {
-         "id": "iptv-ccsh",
-         "name": "IPTV 直播源（CCSH 采集）",
-         "author": "CCSH/IPTV",
-         "desc": "CCSH/IPTV 仓库全自动采集的央卫视+地方台直播源（每日 04:00 更新，含台标）。数据来源：https://github.com/CCSH/IPTV （MIT）。安装后写入直播配置，切到直播页即生效；频道台标随 m3u tvg-logo 自动加载。直连不可达时包内已用 gh-proxy.com 代理地址，可在源管理编辑。",
-         "version": "1.1.0",
-         "type": "live",
-         "category": "app",
-         "url": "packages/iptv-ccsh-1.1.0.json",
-         "size": 385,
-         "md5": "3d94c518d4797b07bfcb362d17dfe072",
-         "changelog": "v1.1.0：GitHub 加速代理失效修复——ghfast.top 节点已不可用，全量/精简/EPG 三处地址切换为 gh-proxy.com（与客户端默认代理一致）。已装用户在插件市场点更新即可；手动装过旧版的可在源管理自行替换地址。",
-         "tags": [
-            "直播",
-            "应用"
-         ],
-         "icon": "icons/iptv2.png",
-         "platforms": [
-            "android",
-            "win32"
-         ],
-         "delisted": true,
-         "delistedNote": "直播源很卡，用户体验不好；推荐使用沙盒自建 ysp 直播服务（实验室 → Linux 沙盒）。下架标记仅隐藏市场展示，条目与安装包保留在本仓库，可随时恢复上架。"
-      },
-      {
-         "id": "lx-sync",
-         "name": "洛雪同步",
-         "author": "XCQ0607",
-         "desc": "洛雪音乐同步服务端 v2.1.0（来源 github.com/XCQ0607/lxserver releases，上游 lyswhut/lx-music-sync-server）：歌单/歌词多端同步 + Web 控制台。安装后解压至 sdcard/dsplayer/server/node/ 并自动创建「洛雪同步」服务（需先装 nodejs 运行时插件），启动后浏览器访问 http://<设备IP>:9527 进控制台（默认管理密码 123456，配置在 data/config.js 可改端口/用户）。已为 Android 打补丁：音乐标签写入依赖的桌面预编译库降级为占位实现，不影响同步核心。",
-         "version": "2.1.2",
-         "type": "server",
-         "category": "app",
-         "url": "packages/lx-sync-2.1.2.zip",
-         "size": 25286914,
-         "md5": "caaa2aa3c8e13d1bd27f55093d64d61c",
-         "changelog": "v2.1.2：真机启动修复——archiver v8 为 ESM 包，在 node24 require(esm) 链上基类 undefined 致启动崩溃，降级为 CJS stub（WebDAV 备份/文件管理器打包下载不可用，同步核心不受影响）。",
-         "tags": [
-            "服务",
-            "应用"
-         ],
-         "icon": "icons/lxmusic.png",
-         "platforms": [
-            "android",
-            "win32"
-         ]
-      },
-      {
-         "id": "danmu-api",
-         "name": "弹幕 API 服务",
-         "author": "huangxd-",
-         "desc": "LogVar 弹幕 API 服务端 v1.0.0（来源 github.com/huangxd-/danmu_api commit ea88a15a）：兼容弹弹play 协议的弹幕聚合接口，直连爱优腾芒哔咪等平台取弹幕。安装后自动创建「弹幕 API」服务（需 nodejs 运行时插件），启动后在 设置→播放器 把弹幕接口改为 http://127.0.0.1:9321 即可自动匹配弹幕；浏览器访问 http://<设备IP>:9321 可搜索调试。另监听 5321 代理端口；已裁剪桌面专用依赖（pglite/drizzle 等），配置热重载在 Android 上不可用。",
-         "version": "1.0.0",
-         "type": "server",
-         "category": "app",
-         "url": "packages/danmu-1.0.0.zip",
-         "size": 6639589,
-         "md5": "6b60b7502edcfacf368529d8381ab221",
-         "changelog": "首个版本：基于上游 commit ea88a15a（2026-09-13），精简依赖 + 裁剪桌面专用死重（pglite/drizzle-orm/web-streams ~62MB），Android node24 实测启动/搜索/弹幕获取全链可用。",
-         "tags": [
-            "服务",
-            "应用"
-         ],
-         "icon": "icons/danmu.png",
-         "platforms": [
-            "android",
-            "win32"
-         ]
-      },
-      {
-         "id": "epg-tool",
-         "name": "EPG 节目单服务",
-         "author": "taksssss / DsPlayer",
-         "desc": "自建 EPG 节目单服务（来源 github.com/taksssss/iptv-tool 裁剪版，GPL-2.0 原许可随包）：抓取 51zmt 全量节目单入本地 SQLite，提供 DIYP/XMLTV 查询接口（兼容 TVBox 生态 /index.php?ch={name}&date={date} 形态）。安装后自动创建「EPG 节目单服务」（需先装 php 运行时插件）并自动启动，直播页 设置 → EPG 设置 选「本机自建服务」即接入；数据 6 小时自动刷新，首次请求触发后台抓取约 1 分钟出数据。本地缓存不依赖外部站点实时可用性，适合追求稳定 EPG 的用户。Linux 沙盒/iOS 暂不支持。",
-         "version": "1.0.0",
-         "type": "server",
-         "category": "app",
-         "url": "packages/epg-tool-1.0.0.zip",
-         "size": 1460325,
-         "md5": "2bf1438c427dcde9677e377b2df6e33b",
-         "changelog": "首个版本：iptv-tool epg/ 核心裁剪（20MB→1.4MB；裁管理页/tinyfilemanager/phpliteadmin/Parsedown，保留 index/public/update/scraper/proxy/check + opencc），新增 router.php 引导层（建表/短路由/数据新鲜度自愈替代 crond 常驻循环），预置 51zmt 数据源；当贝 MAX1 真机全链验收（安装→服务自启→首抓 97 频道→DIYP 查询 35 档/日→直播页 EPG 显示）。",
-         "tags": [
-            "服务",
-            "直播",
-            "EPG"
-         ],
-         "icon": "icons/epg-tool.png",
-         "platforms": [
-            "android"
-         ],
-         "minApp": "0.9.11"
-      },
-      {
-         "id": "demo-sources",
-         "name": "演示源包",
-         "author": "hjdhnx",
-         "desc": "本地源码集合包（应用类）：整包按 DsPlayer 目录树解压——源文件落 sdcard/dsplayer/spider/。含 dr2/dr3/hipy/js 四类引擎源、html 四形态 Web 源（bilibili 完整版 / Web源演示教学 / 歪比巴卜页面增强器 booster——wbbb1.web.json+wbbb1.js 成对分发 / fm 桥自验探针——fm-selftest.html 与 GM 包装层探针 gm-probe.web.json+gm-probe.js 成对）共 21 个文件。",
-         "version": "1.2.8",
-         "type": "source",
-         "category": "app",
-         "url": "packages/demo-sources-1.2.8.zip",
-         "size": 1183579,
-         "md5": "c7ecce3a2c2f3f6f8c51107cc727a3c8",
-         "changelog": "1.2.8：百忙无果d3 详情页标题恒为「还没有收到任」根修——mgtv 改版后 HTML 选择器失效（.vt-txt 无匹配 → 标题抓空 → 兜底把页面模板文案 p:eq(0) 前 6 字当标题）；detail 改全 JSON 接口（episode/list + video/info）取值，不再依赖页面结构。1.2.7：央视频d3 代理播放提速——TS 段 base64 编码改走 qjs_ultra C 层 Uint8Array.toBase64（三级回退 toBase64→Buffer→纯 JS，逐字符一致），每段 370-520ms → 2-10ms，起播约省 1-2s（续播段数越多省得越多）；作为「源内重活先查宿主 C 能力」典型案例。1.2.6：新增 fm 桥自验探针——fm-selftest.html（打开自动跑 28 项 fm/ds API 自检表，结果打 console/logcat；group B 手点导航/播放类）+ gm-probe.web.json/.js（booster 语境 GM 包装层 8 项探针，与自验页同页合一）。配套本体 v0.9.9+ 的 fm 全量兼容（webhtv WebHome 对标：fm.vod/stat/ctrl/device/site/config/history/pan 降级/GM 包装层）。GM 探针源 api 为 Android 绝对路径 /storage/emulated/0/…（桌面端可按需手改）。",
-         "tags": [
-            "本地源",
-            "应用"
-         ],
-         "icon": "icons/demo-sources.png",
-         "platforms": [
-            "android",
-            "win32"
-         ]
-      },
-      {
-         "id": "ffmpeg",
-         "name": "FFmpeg 软解",
-         "author": "hjdhnx",
-         "desc": "Exo 内核的 FFmpeg 音视频软解兜底（FongMi media3 fork 版 decoder_ffmpeg：libffmpegJNI + FFmpeg 9.0）：AC3/EAC3/DTS 全家/TrueHD/Atmos 音轨、AV1/AVS2/AVS3/Dolby Vision 视频等硬解不支持的格式自动回落软解，硬解支持仍走硬解。安装后播放自动生效，可在插件页停用。需本体 v0.6.2+（media3 切换 fork 版后生效），apk 直装。",
-         "version": "1.0.2",
-         "type": "apk",
-         "size": 13025897,
-         "url": "packages/ffmpeg-1.0.2.apk",
-         "icon": "icons/ffmpeg.png",
-         "tags": [
-            "解码"
-         ],
-         "md5": "3090df5f17641ff30d0f35e59fb51a2d",
-         "category": "env",
-         "changelog": "1.0.2 修复软解画面纯色闪烁（Flutter SurfaceProducer 尺寸协商，需搭配最新本体 debug 包）；1.0.1 补载 libc++_shared.so 修复加载失败；1.0.0 首版。",
-         "platforms": [
-            "android"
-         ]
-      },
-      {
-         "id": "bytevc2",
-         "name": "ByteVC2 软解",
-         "author": "hjdhnx",
-         "desc": "Exo 内核的 ByteVC2（B 站 bv2C 私有编码）视频软解兜底：普通设备 MediaCodec 不识别该编码，播放 B 站 bv2C 封装直链自动软解，其余内容零影响仍走硬解。libbyteVC2dec 0.9.7.1（字节系私有解码库，非开源，分发风险自负）。仅支持 arm64 设备，apk 直装。",
-         "version": "1.0.1",
-         "type": "apk",
-         "size": 923690,
-         "url": "packages/bytevc2-1.0.1.apk",
-         "icon": "icons/bytevc2.png",
-         "tags": [
-            "解码"
-         ],
-         "md5": "f73be2c91c65181d9f4db2446f0624f8",
-         "category": "env",
-         "changelog": "v1.0.1：整合上游 Java 层双修复（随宿主包生效，本包为配套版本元数据；so 经真机定责维持原版）——①快速切集/切清晰度崩溃根修：decode/flush/release 串行化 + flush 后等关键帧重建参考基线（mc_dec reference index abort）；②画面缩小居中四周黑边根修：GL viewport 改用 EGL surface 实际尺寸。需重出宿主包配合。",
-         "platforms": [
-            "android"
-         ]
-      },
-      {
-         "id": "idmplus",
-         "name": "IDM+ 下载器（1DM+）",
-         "author": "inventiv",
-         "desc": "Android 多线程下载管理器（1DM+/IDM+ 18.2 CN 汉化版，独立桌面应用）：多线程分段加速、断点续传、剪贴板/浏览器嗅探抓取媒体直链，适合大文件与视频下载。与 DsPlayer 无进程耦合，纯第三方应用直装（声明 pkg 包名，可感知系统侧卸载）。大体积包走 GitHub Release 资产分发，客户端经加速代理拉取后跳系统安装器安装。",
-         "version": "18.2",
-         "type": "apk",
-         "category": "app",
-         "pkg": "idm.internet.download.manager.plus",
-         "size": 56815021,
-         "url": "https://github.com/hjdhnx/dsplayer-plugin/releases/download/idmplus-18.2/idmplus-18.2-CN.apk",
-         "icon": "icons/idmplus.png",
-         "tags": [
-            "下载",
-            "应用"
-         ],
-         "md5": "eaa6a2e119ffb38acb4ff44e4e92247e",
-         "changelog": "首录：IDM+ 18.2（versionCode 30249）CN 汉化版。包体 54MB，超出 packages/ 常规体量，首个走 GitHub Release 分发的条目（绝对 URL 直链，客户端 GitHub 加速代理兼容已验证）。",
-         "platforms": [
-            "android"
-         ]
-      },
-      {
-         "id": "catlib",
-         "name": "catLib 引擎库包",
-         "author": "hjdhnx",
-         "desc": "qjs 引擎 assets:// 库目录协议的库文件（应用类源码包）：cat 生态源 import 'assets://js/lib/<file>' 的库目录分发（cat.js/cheerio/crypto-js/mod/sortName/similarity/http/spider 共 8 文件，上游 hjdhnx/drpy-node spider/catLib）。安装后落 sdcard/dsplayer/catLib/，qjs 引擎自动识别 assets:// 导入并实时加载，装完即生效无需重启。不打进 APK/插件包（零壳子体积），需新版 DsPlayer 本体（60377e6 起）配合。",
-         "version": "1.0.0",
-         "type": "source",
-         "category": "app",
-         "url": "packages/catlib-1.0.0.zip",
-         "size": 303536,
-         "md5": "56c71207b80b44b675644e04bb88058a",
-         "changelog": "1.0.0：首发——qjs 引擎 assets:// 库目录协议配套库包（cat 生态 catLib 8 文件），源 import assets://js/lib/<file> 由引擎映射到 dsplayer/catLib/<file> 实时加载；bytecode 缓存自动生效。需新版 DsPlayer 本体配合（旧版本体装本包无副作用但引擎不识别 assets://）。",
-         "tags": [
-            "引擎库",
-            "应用"
-         ],
-         "icon": "icons/catlib.png",
-         "platforms": [
-            "android",
-            "win32"
-         ]
-      },
-      {
-         "id": "mtmanager",
-         "name": "MT管理器",
-         "author": "Bin",
-         "desc": "Android 强大的文件管理器 / APK 编辑器（2.14.5 克隆版，独立桌面应用）：文件与压缩包双向操作、APK 反编译编辑与签名、Dex/Arsc 编辑、XML 反编译、字体预览等。与 DsPlayer 无进程耦合，纯第三方应用直装（声明 pkg 包名，可感知系统侧卸载）。包名 bin.mt.plus.canary（克隆版），可与 MT 管理器官方正式版（bin.mt.plus）共存互不干扰。",
-         "version": "2.14.5",
-         "type": "apk",
-         "category": "app",
-         "pkg": "bin.mt.plus.canary",
-         "size": 26548891,
-         "url": "packages/mtmanager-2.14.5.apk",
-         "icon": "icons/mtmanager.png",
-         "tags": [
-            "工具",
-            "应用"
-         ],
-         "md5": "2503056464d8651e15e04ef6c58eabd1",
-         "changelog": "首录：MT 管理器 2.14.5（versionCode 24011893，versionName 2.14.5-clone 克隆版，包名 bin.mt.plus.canary）。全 ABI（arm64-v8a/armeabi-v7a/x86/x86_64），包体 26.5MB 走 packages/ 常规分发。",
-         "platforms": [
-            "android"
-         ],
-         "delisted": true,
-         "delistedNote": "转发专有第三方应用（MT管理器）无再分发授权，下架停止分发。条目与安装包保留在本仓库不删除（已装用户本地记录不受影响），如需恢复仅需去除本条标记。"
-      },
-      {
-         "id": "aigw",
-         "name": "AI 聚合网关",
-         "author": "custom",
-         "desc": "本地 AI 聚合网关（独立桌面应用）：在本机监听端口，把多家 AI 服务聚合成 OpenAI 兼容 API，DsPlayer AI 助手（agent 插件）或局域网内其他应用填入其接口地址即可使用；前台服务保活，锁屏后客户端仍能调用。与 DsPlayer 无进程耦合，纯第三方应用直装（声明 pkg 包名，可感知系统侧卸载）。",
-         "version": "2.2.0",
-         "type": "apk",
-         "category": "app",
-         "pkg": "dev.aigw.app",
-         "size": 1608166,
-         "url": "packages/aigw-2.2.0.apk",
-         "icon": "icons/aigw.png",
-         "tags": [
-            "AI",
-            "应用"
-         ],
-         "md5": "c114127a9c0798fcf313e739f238a5e4",
-         "changelog": "首录：AI 聚合网关 2.2.0（versionCode 121，包名 dev.aigw.app）。本地 OpenAI 兼容聚合网关，SPECIAL_USE FGS 后台保活。全 ABI（arm64-v8a/armeabi-v7a/x86/x86_64），包体 1.6MB 走 packages/ 常规分发。",
-         "platforms": [
-            "android"
-         ]
-      },
-      {
-         "id": "raccoon",
-         "name": "小浣熊",
-         "author": "custom",
-         "desc": "本地 OpenAI 兼容 API 网关（独立桌面应用）：绑定 127.0.0.1 监听端口，把外部 AI 能力以 OpenAI 兼容接口暴露给本机/局域网应用统一接入。与 DsPlayer 无进程耦合，纯第三方应用直装（声明 pkg 包名，可感知系统侧卸载）。",
-         "version": "1.29",
-         "type": "apk",
-         "category": "app",
-         "pkg": "dev.raccoon2api",
-         "size": 733693,
-         "url": "packages/raccoon-1.29.apk",
-         "icon": "icons/raccoon.png",
-         "tags": [
-            "AI",
-            "应用"
-         ],
-         "md5": "c3453ae5be68595913a688db077d67af",
-         "changelog": "首录：小浣熊 1.29（versionCode 30，包名 dev.raccoon2api）。本地 OpenAI 兼容 API 网关（绑定 127.0.0.1），SPECIAL_USE FGS 后台保活。包体 0.7MB 走 packages/ 常规分发。",
-         "platforms": [
-            "android"
-         ]
-      },
-      {
-         "id": "zhipu-gw",
-         "name": "智谱清言网关",
-         "author": "custom",
-         "desc": "智谱清言本地网关（独立桌面应用）：在本机监听端口并转发请求到智谱清言，把智谱清言能力以 OpenAI 兼容 API 暴露给局域网内应用（DsPlayer AI 助手等）。与 DsPlayer 无进程耦合，纯第三方应用直装（声明 pkg 包名，可感知系统侧卸载）。",
-         "version": "1.5.10",
-         "type": "apk",
-         "category": "app",
-         "pkg": "dev.agentmore2api",
-         "size": 190022,
-         "url": "packages/zhipu-gw-1.5.10.apk",
-         "icon": "icons/zhipu-gw.png",
-         "tags": [
-            "AI",
-            "应用"
-         ],
-         "md5": "ee30d8a1ffce5bd87666f4c57dd278be",
-         "changelog": "首录：智谱清言网关 1.5.10（versionCode 17，包名 dev.agentmore2api）。本地 OpenAI 兼容网关：本机监听端口并转发请求到智谱清言。包体 0.2MB 走 packages/ 常规分发。",
-         "platforms": [
-            "android"
-         ]
-      },
-      {
-         "id": "go-music-dl",
-         "name": "Go Music DL 音乐下载",
-         "author": "guohuiyuan",
-         "desc": "音乐搜索、试听和下载服务（Go 单文件二进制，runtime=binary 以子进程方式由宿主拉起）：默认参数 web --port 37777 --no-browser，启动后浏览器访问 http://127.0.0.1:37777 搜索/试听/下载音乐；健康检查 /music/healthz，内置国内 DNS 白名单修复 Android 环境 DNS 解析。上游 github.com/guohuiyuan/go-music-dl。",
-         "version": "1.1.1",
-         "type": "import",
-         "category": "app",
-         "size": 10931895,
-         "url": "packages/go-music-dl-1.1.1.zip",
-         "icon": "icons/go-music-dl.png",
-         "tags": [
-            "音乐",
-            "服务"
-         ],
-         "md5": "c399daf9fdfae6275b2f025699091ced",
-         "changelog": "首录 1.1.1：市场上架重打包——包内 plugin.json 的 binaries.android 由 bin/music-dl-android 修正为纯文件名 music-dl-android（binaries 铁律：本体按 bin/<声明值> 落盘，带 bin/ 前缀拼成 bin/bin/ 死路径），二进制与上游分发包逐字节一致。",
-         "platforms": [
-            "android"
-         ]
-      },
-      {
-         "id": "OpenList",
-         "name": "OpenList 网盘服务",
-         "author": "OpenListTeam",
-         "desc": "OpenList 网盘挂载服务（Go 单文件二进制，runtime=binary 以子进程方式由宿主拉起）：监听 0.0.0.0:5244，数据目录 /storage/emulated/0/dsplayer/server/openlist；默认账号 admin / 密码 123456（首次登录后请及时修改）。启动后浏览器访问 http://<设备IP>:5244 管理与挂载网盘。上游 github.com/OpenListTeam/OpenList，本包内置国内 DNS 白名单修复 Android 环境 Go 程序 DNS 解析异常。",
-         "version": "1.3.0",
-         "type": "import",
-         "category": "app",
-         "size": 48252153,
-         "url": "packages/OpenList-1.3.0.zip",
-         "icon": "icons/openlist.png",
-         "tags": [
-            "网盘",
-            "服务"
-         ],
-         "md5": "6be482dbf1fb48f7a7146410e87d7805",
-         "changelog": "首录 1.3.0（打包版本号，引擎为 OpenList 官方 arm64 发行版）：二进制 144MB（zip 48.2MB，低于 50MB Release 阈值）走 packages/ 常规分发；env 注入 CNB2API_DNS 国内 DNS 白名单修复 Android 环境 Go 程序 DNS 解析异常。默认账号 admin/123456。",
-         "platforms": [
-            "android"
-         ]
-      },
-      {
-         "id": "frp",
-         "name": "frp 内网穿透客户端",
-         "author": "fatedier",
-         "desc": "fatedier/frp 客户端 frpc v0.71.0（Go 单文件二进制，runtime=binary 以子进程方式由宿主拉起）：把本机或局域网服务通过 frps 服务器穿透到公网访问，典型搭配 DsPlayer 内的 OpenList 网盘、洛雪同步等服务。内置 Android DNS 修复（net.DefaultResolver 公共 DNS 直连回退，juku-lite/guoapi 同款真机验证方案）与配置模板自动生成——首次启动在 /sdcard/dsplayer/server/frpc/frpc.toml 生成带注释模板，改完 serverAddr/auth.token 后热重载或重启服务；管理面板 http://127.0.0.1:7400（admin/admin，精简版：重载/状态），/healthz 兼作服务健康检查。上游 github.com/fatedier/frp。",
-         "version": "0.71.0",
-         "type": "import",
-         "category": "app",
-         "size": 3773335,
-         "url": "packages/frp-0.71.0.zip",
-         "icon": "icons/frp.png",
-         "tags": [
-            "网络",
-            "服务"
-         ],
-         "md5": "cfcc8011c112f4623d115c80fda828db",
-         "changelog": "首录 frpc v0.71.0：构建自官方 tag tarball（GOOS=linux/arm64 静态编译 + UPX 压至 3.77MB），注入 Android 适配——公共 DNS 直连修复插件环境系统 resolver 失效；配置文件缺失自动生成带注释 TOML 模板（含 webServer 管理面板与示例代理，健康检查依赖 webServer.port 7400）；管理面板为免 npm 构建的精简 HTML（重载/状态按钮），后端 /healthz 与 /api/* 接口全量可用。",
-         "platforms": [
-            "android"
-         ]
-      },
-      {
-         "id": "filebrowser",
-         "name": "FileBrowser 文件管理器",
-         "author": "filebrowser",
-         "desc": "filebrowser 网页文件管理器（Go 单文件二进制，runtime=binary 以子进程方式由宿主拉起）：启动后浏览器访问 http://<设备IP>:8080 即可浏览/上传/下载/编辑设备文件（根目录 /storage/emulated/0），电视盒子装它就能用电脑/手机管理盒子文件。默认账号 admin / 密码 admin，默认中文界面（构建期注入 quick setup 默认 locale=zh-cn 补丁）；登录后「设置 → 个人资料」可改密码与切换其它语言。数据库随插件目录存放（Android 11+ 的 sdcard 是 FUSE 文件系统，不支持 bbolt 所需的 mmap，实测报 function not implemented）；可在 /storage/emulated/0/dsplayer/server/filebrowser/ 放 .filebrowser.toml 自定义配置。若目录显示为空，请在插件页授予「所有文件访问」存储权限。上游 github.com/filebrowser/filebrowser（项目 2026-09-01 已归档，v2.63.23 为最终版；本包 2.63.25 = 上游末版 + 中文默认补丁 + UPX 体积压缩）。",
-         "version": "2.63.25",
-         "type": "import",
-         "category": "app",
-         "size": 11018779,
-         "url": "packages/filebrowser-2.63.25.zip",
-         "icon": "icons/filebrowser.png",
-         "tags": [
-            "文件",
-            "服务"
-         ],
-         "md5": "c8b6c1410509a95775871a8427be2192",
-         "changelog": "2.63.25 体积优化（本包 10.5MB，上版 13.9MB，省 24%）：构建链补上 UPX --best --lzma 极致压缩（与仓库其它插件统一的三件套 -trimpath + -s -w + UPX），二进制本体 33MB → 10.5MB。功能与上版完全一致（同源码、同中文默认补丁、同 version 标记 2.63.23-dsplayer1），仅体积变化。真机验证：CM311（armeabi-v7a/Android 9）压缩后二进制可直接执行、服务起后 8080 监听正常、/health 返回 200、登录 JWT 中 locale=zh-cn。⚠️ 更新前请先停止插件（运行中覆盖安装报 Text file busy/ETXTBSY）。",
-         "platforms": [
-            "android"
-         ]
-      },
-      {
-         "id": "filebrowser-arm32",
-         "name": "FileBrowser 文件管理器（32 位设备）",
-         "author": "filebrowser",
-         "desc": "filebrowser 网页文件管理器的 32 位（armeabi-v7a）构建，供 32 位安卓设备/老电视盒子使用——64 位设备请装「FileBrowser 文件管理器」。Go 单文件二进制（runtime=binary 以子进程方式由宿主拉起）：启动后浏览器访问 http://<设备IP>:8080 即可浏览/上传/下载/编辑设备文件（根目录 /storage/emulated/0），电视盒子装它就能用电脑/手机管理盒子文件。默认账号 admin / 密码 admin，默认中文界面（构建期注入 quick setup 默认 locale=zh-cn 补丁）；登录后「设置 → 个人资料」可改密码与切换其它语言。配置数据库随插件目录存放（Android 11+ 的 sdcard 是 FUSE 文件系统，不支持 bbolt 所需的 mmap，实测报 function not implemented）；可在 /storage/emulated/0/dsplayer/server/filebrowser/ 放 .filebrowser.toml 自定义配置。若目录显示为空，请在插件页授予「所有文件访问」存储权限。上游 github.com/filebrowser/filebrowser（项目 2026-09-01 已归档，v2.63.23 为最终版；本包 2.63.25 = 上游末版 + 中文默认补丁 + UPX 体积压缩）。",
-         "version": "2.63.25",
-         "type": "import",
-         "category": "app",
-         "size": 10907101,
-         "url": "packages/filebrowser-arm32-2.63.25.zip",
-         "icon": "icons/filebrowser.png",
-         "tags": [
-            "文件",
-            "服务"
-         ],
-         "md5": "146e4db4fda0dd57567e4c634cbc6543",
-         "changelog": "2.63.25 体积优化（本包 10.4MB，上版 14.2MB，省 27%）：与 64 位包同款——构建链补上 UPX --best --lzma（-trimpath + -s -w + UPX 三件套），二进制 35MB → 10.4MB。功能与上版完全一致，仅体积变化。本版在 CM311（armeabi-v7a/Android 9，即该包的目标设备）真机验证：压缩后二进制直接执行成功、服务 8080 监听、health 200、登录 locale=zh-cn。⚠️ 更新前请先停止插件（ETXTBSY）。",
-         "abis": [
-            "armeabi-v7a"
-         ],
-         "platforms": [
-            "android"
-         ]
-      },
-      {
-         "id": "clash-meta",
-         "name": "Clash Meta 代理内核",
-         "author": "MetaCubeX",
-         "desc": "MetaCubeX/mihomo v1.19.32 代理内核（Go 单文件二进制，runtime=binary 以子进程方式由宿主拉起）：提供本地 HTTP/SOCKS 混合代理端口（127.0.0.1:7890）与完整 RESTful 控制接口，支持 VMess / VLESS / Shadowsocks / Trojan / Hysteria / TUIC / Snell 等协议，内置规则分流、DNS 与远程订阅 provider。内置 metacubexd 网页面板（插件启动即解压到插件私有目录，浏览器开 http://127.0.0.1:9090/ui 即可导入订阅、切节点、看连接与日志）；GeoIP / GeoSite 数据已随包内置，首启不联网下载；首次启动在 /storage/emulated/0/dsplayer/server/clash-meta/config.yaml 生成带注释模板，直接编辑该文件后到插件页停止→启动即生效。注意：本插件只提供本地代理端口，DsPlayer 本体的网络请求不会自动走它——需要在支持代理设置的 App / 浏览器里填 127.0.0.1:7890；无 root 设备不使用 TUN 全局模式（该能力需系统安装型 App）。上游 github.com/MetaCubeX/mihomo（GPL-3.0，对应源码与修改说明见包内 SOURCE-NOTICE.txt）。",
-         "version": "1.19.32",
-         "type": "import",
-         "category": "app",
-         "size": 19284186,
-         "url": "packages/clash-meta-1.19.32.zip",
-         "icon": "icons/clash-meta.png",
-         "tags": [
-            "网络",
-            "服务",
-            "代理"
-         ],
-         "md5": "f8abed45dea0077a736226050c275cc4",
-         "changelog": "首录 mihomo v1.19.32（MetaCubeX 官方 tag 源码构建，GOOS=android GOARCH=arm64 CGO_ENABLED=0 纯静态交叉编译 + -trimpath/-s -w + UPX，19.3MB）。注入单点适配补丁 dsplayer.go：①home 目录落插件私有目录（cache.db 的 bbolt 写 mmap 在 Android 11+ 的 sdcard FUSE 上会报 function not implemented，同 filebrowser 踩坑）；②配置留 sdcard 可编辑，未授权存储时自动回落私有目录；③内嵌 metacubexd 面板（gh-pages 28a9589f，MIT）启动释放到 <home>/ui；④内嵌 GeoIP/GeoSite（meta-rules-dat）避免首条 GEOIP 规则触发 GitHub 下载失败导致内核 fatal。健康检查走面板 /version（命令行强制覆盖 127.0.0.1:9090，用户换订阅不会打挂探活）。验收：雷电模拟器（x86_64 宿主进程）走完整宿主链路——插件中心导入 installed=1、binplug start 后 status=running port=9090、面板 /ui/ 返回 200、经 7890 真实转发 generate_204 返回 204、出口 IP 生效、停止后进程与端口均释放；同源 Windows 产物冒烟覆盖配置生成/面板解压/API 探活。",
-         "platforms": [
-            "android"
-         ],
-         "abis": [
-            "arm64-v8a"
-         ]
-      },
-      {
-         "id": "docker-vm",
-         "name": "Docker 虚拟机（QEMU/arm64）",
-         "author": "hjdhnx",
-         "desc": "独立的 QEMU arm64 虚拟机，开箱即用完整 Docker（29.9）+ Docker Compose（5.6）+ Buildx 镜像构建：内置 daocloud 镜像加速，SSH(:9922)，端口转发。启动后是一个完整 Alpine Linux VM，可在内嵌终端跑 docker/compose/docker build。后台保活：VM 运行期间保持前台可见（悬浮圆点），不被 ROM 后台 CPU 限额压速。大体积包（约125MB）走 GitHub Release 资产分发，客户端经加速代理拉取后跳系统安装器安装。applicationId com.dsplayer.vm。",
-         "version": "1.1.1",
-         "type": "apk",
-         "category": "app",
-         "pkg": "com.dsplayer.vm",
-         "size": 131348314,
-         "url": "https://github.com/hjdhnx/dsplayer-plugin/releases/download/docker-vm-1.1.1/docker-vm-1.1.1.apk",
-         "icon": "icons/docker-vm.png",
-         "tags": [
-            "虚拟机",
-            "容器"
-         ],
-         "md5": "df415f73df2c3ee2d79e381718ae849e",
-         "changelog": "v1.1.1：内部打磨版，无功能变化——①悬浮保活圆点补启动/停止竞态守卫（极端快速启停时，异步弹点协程可能在 VM 已停止后才执行、残留无人回收的圆点，现在执行前先校验 VM 状态）；②点按圆点回应用路径空安全加固；③清理无用 lint 注解。v1.1.0：①后台 CPU 限额根修——部分 ROM（小米 MIUI/HyperOS 等）把不可见窗口的后台进程压到约 1/20 CPU，即使已豁免电池优化也会让后台 docker/SSH/端口转发不可达；现 VM 运行期间默认在屏幕边缘显示悬浮保活圆点（保持前台可见，从根上不落后台配额档），点按回应用、设置可关，首次启动引导授权。②恢复 docker buildx——修掉 1.0.x 裁剪 buildx 后 docker build 回退 legacy builder 对 BuildKit 语法（--mount/heredoc/syntax）报不兼容的问题。包体积 109.8MB→125.3MB（buildx 回归所致）。v1.0.1：后台保活修复——新增 WiFi 高能锁（WIFI_MODE_FULL_HIGH_PERF）防止息屏后网络休眠导致 SSH/docker/端口转发从外部连不上；首次启动主动请求忽略电池优化（Doze/App-Standby 豁免）。系统正常退出清理行为不变。",
-         "platforms": [
-            "android"
-         ],
-         "abis": [
-            "arm64-v8a"
-         ]
-      },
-      {
-         "id": "captcha-bypass",
-         "name": "验证码识别服务",
-         "author": "Hiram-Wong",
-         "desc": "OCR 验证码识别 HTTP 服务（上游 Hiram-Wong/captcha-bypass，Bun 打包 onnx 本地推理）：POST /detect /ocr /rotate /slide 四类验证码接口（内置 OpenAPI 文档），模型随包内置（detect/ocr_pp/ocr_dddd/rotate），默认端口 7788（PORT 环境变量可改）。供源脚本/外部工具识别验证码用。仅 arm64-v8a；包体 210.6MB 走 GitHub Release 资产分发。需本体 ≥1.0.6（bin/ 附属文件随包落位 + abis 安装期门配套）。",
-         "version": "1.0.0",
-         "type": "import",
-         "category": "env",
-         "size": 220810961,
-         "url": "https://github.com/hjdhnx/dsplayer-plugin/releases/download/captcha-bypass-1.0.0/captcha-bypass-1.0.0.zip",
-         "tags": [
-            "OCR",
-            "服务"
-         ],
-         "md5": "fcd643d0cc7aba4d8646b623a0456b20",
-         "minApp": "1.0.6",
-         "changelog": "首录 1.0.0：Bun 打包的 OCR 验证码服务（上游 Hiram-Wong/captcha-bypass），bin/models/ 四 onnx 模型随包落位；需本体 1.0.6 起（binary 插件附属文件随包安装 + abis 安装期校验）。",
-         "platforms": [
-            "android"
-         ],
-         "abis": [
-            "arm64-v8a"
-         ]
-      }
-   ]
+  "logo": "icons/market.png",
+  "name": "DsPlayer 官方插件市场",
+  "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
+  "updatedAt": "2026-11-09T18:42:06+08:00",
+  "plugins": [
+    {
+      "id": "mediaProxy",
+      "name": "媒体代理服务",
+      "author": "hjdhnx",
+      "desc": "Go 媒体代理服务（leader-follower 流式分段引擎，秒级起播，支持 Range/拖动）。以子进程方式运行，配置启动参数与环境变量后由宿主拉起。",
+      "version": "1.2.2",
+      "type": "import",
+      "size": 2034189,
+      "url": "packages/mediaProxy-1.2.2.zip",
+      "icon": "icons/mediaProxy.png",
+      "tags": [
+        "网络",
+        "服务"
+      ],
+      "changelog": "v1.2.2：单平台拆包——本条目改为只面向 Android，包内仅含 Android 二进制（与 1.2.1 完全相同，同源同 md5），瘦身约 2.4MB；Windows 用户请安装新条目「媒体代理服务（Windows）」（mediaProxy-win）。已装 1.2.1 的 Android 用户常规更新即可，二进制与行为零变化。",
+      "md5": "cd20bd32fb9e7b2c41cb6a82872fce7d",
+      "platforms": [
+        "android"
+      ],
+      "category": "env"
+    },
+    {
+      "id": "mediaProxy-win",
+      "name": "媒体代理服务（Windows）",
+      "author": "hjdhnx",
+      "desc": "Go 媒体代理服务（leader-follower 流式分段引擎，秒级起播，支持 Range/拖动）。以子进程方式运行，配置启动参数与环境变量后由宿主拉起。",
+      "version": "1.0.0",
+      "type": "import",
+      "size": 2384189,
+      "url": "packages/mediaProxy-win-1.0.0.zip",
+      "icon": "icons/mediaProxy.png",
+      "tags": [
+        "网络",
+        "服务"
+      ],
+      "changelog": "首发：从 mediaProxy 1.2.1 合包拆出的 Windows 独立条目——win 二进制与 1.2.1 完全相同（同源同 md5），包内不再携带 Android 二进制。此前在 PC 已装 1.2.1 合包的可继续使用（已装条目豁免显示），换装本条目与否自行决定，不做自动迁移。默认端口 5575（插件卡可改）。",
+      "md5": "ca204b4ae69bb9e66fd84d550a5fdb24",
+      "platforms": [
+        "win32"
+      ],
+      "minApp": "0.9.4",
+      "category": "env"
+    },
+    {
+      "id": "nodejs",
+      "name": "Node.js 运行时",
+      "author": "hjdhnx",
+      "desc": "Node.js 24 运行时（arm64 静态链接）。本身不启动服务，作为运行时供「服务」页引用：可同时拉起多个服务实例（如 drpy-node 源服务）。",
+      "version": "1.0.0",
+      "type": "import",
+      "size": 31400000,
+      "url": "packages/nodejs-1.0.0.zip",
+      "icon": "icons/nodejs.png",
+      "tags": [
+        "运行时",
+        "服务"
+      ],
+      "md5": "8eb71041327f883355a99e5c4a791388",
+      "platforms": [
+        "android"
+      ],
+      "category": "env"
+    },
+    {
+      "id": "proot",
+      "name": "Linux 沙盒运行时（PRoot）",
+      "author": "hjdhnx",
+      "desc": "Termux PRoot 5.1.107.92（arm64 四件套，免 root 用户态 Linux 沙盒）。安装后到「实验室 → Linux 沙盒」安装 Alpine/Ubuntu 完整环境，沙盒内自由装服务（apk add nodejs ffmpeg…）并注册为常驻服务。需本体 ≥ 0.9.10；仅 Android arm64 真机（部分模拟器内核禁 ptrace 不适用）。",
+      "version": "1.0.0",
+      "type": "import",
+      "size": 130666,
+      "url": "packages/proot-1.0.0.zip",
+      "icon": "icons/proot.png",
+      "tags": [
+        "运行时",
+        "沙盒"
+      ],
+      "changelog": "首发：Termux 官方池 pinned 二进制 proot 5.1.107.92（GPL-2.0+，以独立进程执行无许可传染），四件套 libproot_exec/loader + libtalloc/libandroid-shmem；配套本体实验室·Linux 沙盒模块（环境安装器/快速命令/服务注册）。",
+      "md5": "a1703e6d818c87f52bbfa2bd1907c9cc",
+      "platforms": [
+        "android"
+      ],
+      "minApp": "0.9.10",
+      "category": "env"
+    },
+    {
+      "id": "nodejs-win",
+      "name": "Node.js 运行时（Windows）",
+      "author": "hjdhnx",
+      "desc": "Node.js 24 运行时（Windows x64 官方发行版 v24.21.0 LTS，与 Android 侧 node24 同大版本，服务端行为一致）。本身不启动服务，作为运行时供「服务」页引用：drpys（drpyS 源服务）与编程调试 node 通道，可同时拉起多个服务实例。官方构建静态链接 CRT，无需 VC++ 运行库。",
+      "version": "1.0.0",
+      "type": "import",
+      "size": 39350476,
+      "url": "packages/nodejs-win-1.0.0.zip",
+      "icon": "icons/nodejs.png",
+      "tags": [
+        "运行时",
+        "服务"
+      ],
+      "changelog": "首发：Node.js v24.21.0 官方 win-x64 发行版整包（node.exe + npm），sha256 与官方 SHASUMS256.txt 对账一致。需 DsPlayer 0.9.4+（PC 插件中心 + win32 平台键）。",
+      "md5": "61ecd54e0c4780be37ec3530d278ccd0",
+      "platforms": [
+        "win32"
+      ],
+      "minApp": "0.9.4",
+      "category": "env"
+    },
+    {
+      "id": "php",
+      "name": "PHP 运行时",
+      "author": "hjdhnx",
+      "desc": "PHP 7 运行时（Android arm64 静态单文件，无动态库依赖）+ t4_demo 站点源种子（T4-PHP 预置导入时释放到 sdcard/dsplayer/server/php/t4_demo，docroot 指 sdcard 可加改源）。供「服务」页引用：drpys 的 php 桥（PHP_PATH）与 T4-PHP 站点服务均引用此包。1.3.2 起 t4_demo BaseSpider 内置源代理能力（getProxyUrl()/localProxy），php 源写法与其他引擎统一。覆盖安装替换旧 PHP 8 包，二者不共存。",
+      "version": "1.3.2",
+      "type": "import",
+      "size": 9733361,
+      "url": "packages/php-1.3.2.zip",
+      "icon": "icons/php.png",
+      "tags": [
+        "运行时",
+        "服务"
+      ],
+      "md5": "92a4157b9418a4bdf1c5e7bad2c3306b",
+      "changelog": "v1.3.2：t4_demo BaseSpider 代理统一——getProxyUrl() 拿本源代理基址（php -S 通道自感知自身脚本端点 ?do=proxy&，drpyS 桥通道接服务层注入）+ localProxy($params) 钩子与 do=proxy 分发（五元组契约直出，空图透明 GIF 兜底写法见壳内代理指南）。php 源代理写法从此与其他引擎统一。已装旧版的用户：服务页「示例」重释放 t4_demo 壳文件后重启 T4-PHP 服务生效（自身已改过的 lib/spider.php 不覆盖，需手工合并）。",
+      "platforms": [
+        "android"
+      ],
+      "category": "env"
+    },
+    {
+      "id": "php-win",
+      "name": "PHP 运行时（Windows）",
+      "author": "hjdhnx",
+      "desc": "PHP 8.5 运行时（Windows x64 官方 NTS 发行版，php -S 内置服务器场景无需线程安全版）：承载 T4-PHP 站点服务、drpys 的 php 桥（PHP_PATH）与网关 PHP 本地源（/php 路由）。1.0.2 起自带 php.ini 启用 curl/openssl/mbstring——此前无 ini 动态扩展不加载，php 源 fetch() 报 CURLOPT_POST 未定义。依赖 VC++ Redistributable（vs17）——未安装时 php.exe 无法启动，请先装 Microsoft Visual C++ Redistributable。",
+      "version": "1.0.2",
+      "type": "import",
+      "size": 37939635,
+      "url": "packages/php-win-1.0.2.zip",
+      "icon": "icons/php.png",
+      "tags": [
+        "运行时",
+        "服务"
+      ],
+      "changelog": "v1.0.2：补 bin/php.ini 启用 curl/openssl/mbstring 三扩展（按源生态用量最小集）——1.0.0/1.0.1 无 ini，官方包 ext/ 的 DLL 一个不加载，t4_demo 系源 fetch() 报「Undefined constant CURLOPT_POST」即此因；T4-PHP 服务、drpys 桥、网关 /php 本地源三条消费链同时受益。bin/ 其余内容与 1.0.1 逐字节一致（PHP 8.5.11 官方包）。已装旧版用户直接覆盖更新即可。",
+      "md5": "9b515d6bd2dea37288649f8c8cdc019b",
+      "platforms": [
+        "win32"
+      ],
+      "minApp": "0.9.4",
+      "category": "env"
+    },
+    {
+      "id": "python",
+      "name": "Python 运行时",
+      "author": "hjdhnx",
+      "desc": "Python 3.12 运行时（musl 链接，Android arm64 独立进程）：插件卡「依赖管理」支持 pip 安装/卸载，musllinux wheel 的 C 扩展包（lxml/numpy 等）可直接安装免编译；爬虫一键装九件套。「服务」页添加 Python T4 服务（Flask 或任意 pip 可装框架，fastapi 依赖 Rust 扩展无 musl wheel 不可用）。内置 DNS shim（毫秒级直连解析）、CA 证书与可写目录适配。示例源 examples/t4_demo.py。与「Python 爬虫引擎」APK 插件（id: py）互补：本包跑独立进程 HTTP 服务，APK 包做进程内爬虫源。",
+      "version": "1.0.3",
+      "type": "import",
+      "size": 23385608,
+      "url": "packages/python-1.0.3.zip",
+      "icon": "icons/python.png",
+      "tags": [
+        "运行时",
+        "服务"
+      ],
+      "md5": "40088e25287afff72f59d08e14ff0044",
+      "changelog": "v1.0.5：修复 1.0.4 的硬解实况误显示——IJK 实际硬解成功但面板显示软解（IjkMediaInfo.mVideoDecoder 硬解值为 \"MediaCodec\" 首字母大写，判等大小写不敏感归一 + 首帧渲染时点复核上报）；同时需新宿主包（宿主侧同步修复）。v1.0.4：解码器实况上报。v1.0.3：硬解根修 + bytevc2 软解。",
+      "platforms": [
+        "android"
+      ],
+      "category": "env"
+    },
+    {
+      "id": "python-win",
+      "name": "Python 运行时（Windows）",
+      "author": "hjdhnx",
+      "desc": "Python 3.12 运行时（Windows x64 官方 embeddable 发行版 3.12.10 + 预置 pip 与爬虫依赖 requests/lxml/pycryptodome/pyquery/bs4/jsonpath/json5/jinja2/cachetools）：PC 端 hipy/py 源本地执行引擎（常驻 worker 复用移动端同款引擎，init 带缓存），兼作 PyT4 服务、drpys 服务端（PYTHON_PATH）与编程调试通道。插件卡「依赖管理」支持 pip 安装/卸载（走 python -m pip）。",
+      "version": "1.2.1",
+      "type": "import",
+      "size": 27485544,
+      "url": "packages/python-win-1.2.1.zip",
+      "icon": "icons/python.png",
+      "tags": [
+        "运行时",
+        "服务"
+      ],
+      "changelog": "v1.2.1：引擎同步移动端 1.2.1 性能重构——读方法（home/category/search/detail）绕实例锁并发执行（切分类立即响应）；热路径零锁化（每调用 INFO 日志/实例键 sha256/全局锁×3/O(n) LRU 遍历全部消除）；PC 侧独有优化：worker 源文件三次 stat 探测改 dict 缓存、每请求 stdout 日志静音、Dart 端 HTTP keep-alive 连接复用（此前每调用新建 TCP）。v1.1.2：引擎同步 1.1.6——T3 桩代理地址跨源污染根修。v1.1.1：引擎同步 1.1.5——localProxy 槽文件大载荷直传根修；worker /ping 新增 engine_md5 引擎指纹（插件升级后残留旧 worker 不再被收养复用）。v1.1.0：新增 PC 端 py 源本地执行 worker。v1.0.0：首发。需 DsPlayer 0.9.4+（PC 插件中心 + win32 平台键）。",
+      "md5": "5a374fb26d4ad8cce16384c4a11d6c21",
+      "platforms": [
+        "win32"
+      ],
+      "minApp": "0.9.4",
+      "category": "env"
+    },
+    {
+      "id": "py",
+      "name": "Python 爬虫引擎",
+      "author": "hjdhnx",
+      "desc": "本地 Python 爬虫源执行引擎（Chaquopy）：type=3 的 .py 源自动进入点播源列表。运行时组件必须以 APK 形态安装，安装时跳转系统安装器并需「安装未知应用」授权。",
+      "version": "1.2.3",
+      "type": "apk",
+      "size": 17060080,
+      "url": "packages/DsPlayer-Python-plugin-1.2.3-arm64.apk",
+      "icon": "icons/py.png",
+      "tags": [
+        "引擎"
+      ],
+      "md5": "0e9a0f856d209d4729715a7ecccca402",
+      "changelog": "1.2.3 进程自报通道（配套宿主「进程」管理 Tab）：新增 AIDL stats()——插件进程向宿主自报 pid 与内存（VmRSS），补齐独立进程跨包不可见的观测盲区；宿主侧仅在装了进程管理器的新版本里调用，旧宿主不调此接口零影响（AIDL 只追加不改动，兼容 1.0 公开版与 2.x，可直接升级）。1.2.2 绑定方身份准入（2026-10-22 安全加固）：插件服务对外导出的绑定入口新增调用方身份校验——只接受本应用（release/debug 或自编译的同包名本体）连接，第三方应用无法再连上本插件进程执行代码。1.2.1 性能重构（「源忙」根除）：读方法绕实例锁并发执行、热路径零锁化、写敏感方法保持锁串行。1.1.6 T3 桩代理地址跨源污染根修。1.1.5 localProxy 大载荷槽文件直传根修。1.1.4 编程调试 execCode 通道。1.1.3 存储读权限修复。",
+      "category": "env",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "py-legacy",
+      "name": "Python 爬虫引擎（1.2.2 回滚备用）",
+      "author": "hjdhnx",
+      "desc": "上一版 Python 爬虫引擎（ChaQuopy）。仅作为 1.2.3 出问题时的回滚备用而保留，不在市场展示。1.2.3 与 1.0 公开版及 2.x 均兼容（接口未变），正常无需安装本包。",
+      "version": "1.2.2",
+      "type": "apk",
+      "size": 17039096,
+      "url": "packages/DsPlayer-Python-plugin-1.2.2-arm64.apk",
+      "icon": "icons/py.png",
+      "tags": [
+        "引擎"
+      ],
+      "md5": "b9cf13f4d3c97f0842c26dae4c705f59",
+      "changelog": "1.2.2 绑定方身份准入（2026-10-22 安全加固）：插件服务绑定入口新增调用方身份校验，第三方应用无法再连上本插件进程执行代码。保留本包用于回滚——1.2.3 已兼容 1.0 公开版与 2.x，正常无需安装。",
+      "category": "env",
+      "platforms": [
+        "android"
+      ],
+      "delisted": true,
+      "delistedNote": "回滚备用档：仅保留安装包不对外展示。1.2.3 与 1.0 公开版/2.x 均兼容（接口未变、调用方白名单含旧包名），正常升级即可；此包供 1.2.3 万一出问题时临时回退使用，去掉 delisted 标记即可恢复上架。"
+    },
+    {
+      "id": "mpv",
+      "name": "MPV 播放内核",
+      "author": "hjdhnx",
+      "desc": "提供全功能 MPV 内核（v1.2.6）：新增 DASH（MPD）原生播放支持、超分 shader、截图、广协议支持。导入后以应用内组件形态生效，可在「插件」页切换播放内核。",
+      "version": "1.0.4",
+      "type": "import",
+      "size": 16729627,
+      "url": "packages/mpv-1.0.4.apk",
+      "icon": "icons/mpv.png",
+      "tags": [
+        "内核"
+      ],
+      "md5": "d839ff4061e0424b2fda17a2c906ecf1",
+      "category": "env",
+      "changelog": "1.0.4 修复 1.0.3 的 bytevc2 私有 codec id 两雷：0x21002 撞官方 VNULL（连续枚举自动值）、desc 表按 id 升序 bsearch 下表尾插小值必失配——定稿 0x21004（ANULL 后空位）+ desc 表尾插入；真机 mpv 内核 Selected decoder: bytevc2 全片播放验证。1.0.3 首版接入 ByteVC2 软解。",
+      "abis": [
+        "arm64-v8a",
+        "x86_64"
+      ],
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "mpv-win",
+      "name": "MPV 内核（Windows）",
+      "author": "hjdhnx",
+      "desc": "libmpv-2.dll（Windows x64，mpv v0.41.0 + ffmpeg N-124868 + libplacebo v7.365）——PC 端 MPV 播放内核。自 0.9.5 起 release 本体不含 libmpv，按需安装本插件；缺省内核为 MDK（内置），MPV 为可选内核（画质增强/高级配置场景）。",
+      "version": "1.0.0",
+      "type": "import",
+      "size": 15497186,
+      "url": "packages/mpv-win-1.0.0.zip",
+      "icon": "icons/mpv.png",
+      "tags": [
+        "引擎",
+        "内核"
+      ],
+      "changelog": "首发：与历史内置 libmpv-2.dll 同源同字节（fork mpv-winbuild-cmake 20260607 构建，含 D3D11/NVDEC/Vulkan 硬解与 DASH/MPD 能力面）。需 DsPlayer 0.9.5+（native-lib 消费模式 + 延迟加载）。",
+      "md5": "f78d8e291750f3cc5b6da81bd95b1304",
+      "platforms": [
+        "win32"
+      ],
+      "minApp": "0.9.5",
+      "category": "env"
+    },
+    {
+      "id": "ijk",
+      "name": "IJK 播放内核",
+      "author": "hjdhnx",
+      "desc": "IJKPlayer 播放内核插件（CarGuo 修正版 ijkplayer，FFmpeg 全协议 + MediaCodec 硬解 + HTTPS/16K page size + bytevc2 私有编码软解）。安装后在设置「播放器内核」或播放器底栏切换 IJK；与 Exo/MPV 三内核任切。桥接式插件（必须 APK 安装，不支持 zip 导入）。",
+      "version": "1.0.6",
+      "type": "apk",
+      "size": 4231764,
+      "url": "packages/ijk-1.0.6.apk",
+      "icon": "icons/ijk.png",
+      "tags": [
+        "内核"
+      ],
+      "md5": "24038a94d1236305094110f515b34856",
+      "category": "env",
+      "changelog": "v1.0.6：桥协议扩展——options 新增 extraOptions 保留键（[{category,name,value}] 列表按 category 逐项 setOption），承接接口配置「ijk」选项层与全局附加选项（站点 ijk 层优先；需本体侧配套版本，旧宿主不带此键零影响，向后兼容）。v1.0.5：硬解实况误显示修复——首帧渲染时点复核上报（prepared 早报可能停在未协商初值）。v1.0.4：解码器实况上报——decoder 事件（vdec/vimpl），宿主三点面板「解码方式」显示硬解/软解实况（与 Exo/MPV 对齐）。v1.0.3：双修——①硬解恒软解根修：mediacodec-default_name 判定链首项显式设置 + mediacodec 系 option PLAYER/CODEC 双字典写（此前 720p 软解 CPU 102%，现 64%）；②自编 libijkffmpeg.so 带 bytevc2 软解（B 站 bv2C 私有编码，随包 libbyteVC2dec 0.9.7.1；openssl 静态内嵌直连原始链接）——真机播 bv2C 测试片出帧正常，logcat 铁证 VideoCodec: avcodec, bytevc2。v1.0.2：直播协议白名单修复（rtmp 系放行）。",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "qjs",
+      "name": "QJS 爬虫引擎",
+      "author": "hjdhnx",
+      "desc": "本地 JS 爬虫源执行引擎（自研 QuickJS + C 扩展核心）：drpy2（type=3 的 .js 源与 sdcard spider/js 本地源）与 drpy3 新源（声明式/wasm 形态，sdcard spider/dr3）统一由本插件执行——drpy3 源不再需要单独的 fjs 插件。",
+      "version": "1.0.6",
+      "type": "import",
+      "size": 3136982,
+      "url": "packages/qjs-1.0.6.apk",
+      "icon": "icons/qjs.png",
+      "tags": [
+        "引擎"
+      ],
+      "md5": "c9b2f2eb8a58229d67e397c98c89cd69",
+      "category": "env",
+      "changelog": "so 升级（qjs_ultra build-20261030-0eac497）：①setTimeout/setInterval 定时器回调与前台等待互锁——async 源里 await 链挂在定时器回调上不再永不 settle（drpy3 异步源实锤）；②cheerio 临时链式对象 UAF 修复（$(...).find(...).attr() 一类即用即弃链式写法随机崩溃/脏值）。ABI 零变化（67 导出闸门过，覆盖升级即得修复）。注：引擎同期新增的 JSON5 全局（官方完整 parse/stringify）为编译期可选模块，本包未启用，后续按需出包。",
+      "abis": [
+        "arm64-v8a"
+      ],
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "qjs-arm32",
+      "name": "QJS 爬虫引擎（32 位设备）",
+      "author": "hjdhnx",
+      "desc": "本地 JS 爬虫源执行引擎的 32 位（armeabi-v7a）构建，供 32 位安卓设备/老电视使用——drpy2 与 drpy3 源统一由本插件执行；64 位设备请装「QJS 爬虫引擎」。与 64 位包符号级 ABI 契约一致（67 导出全对齐），宿主侧含 NaN-boxing 值编组兼容。",
+      "version": "1.0.0",
+      "type": "import",
+      "size": 2703741,
+      "url": "packages/qjs-arm32-1.0.0.apk",
+      "icon": "icons/qjs.png",
+      "tags": [
+        "引擎"
+      ],
+      "md5": "6184819e6baea714b781cee8db467353",
+      "category": "env",
+      "changelog": "首版（arm32 架构补位包，版本独立线）：so 取 qjs_ultra CI build-20261010-e2cfa2d 的 armeabi-v7a 产物（sha256 67e520f2…，含 1.0.5 的 qjs_update_stack_top 与随后的后台泵栈基线刷新）。需 DsPlayer 0.9.10（重发版 build 93+，含 32 位壳架构门 + qjs 值编组位宽兼容）。",
+      "abis": [
+        "armeabi-v7a"
+      ],
+      "platforms": [
+        "android"
+      ],
+      "minApp": "0.9.10"
+    },
+    {
+      "id": "qjs-win",
+      "name": "QJS 爬虫引擎（Windows）",
+      "author": "hjdhnx",
+      "desc": "quickjs_bridge.dll（Windows x64）——驱动 drpy2/drpy3/cat 三类 JS 源与编程调试 js 通道。自 0.9.5 起 release 本体不再内置引擎 dll，按需安装本插件；dll 与本体 Dart FFI 紧耦合，加载报符号缺失时请升级本体后重装。",
+      "version": "1.0.6",
+      "type": "import",
+      "size": 2731604,
+      "url": "packages/qjs-win-1.0.6.zip",
+      "icon": "icons/qjs.png",
+      "tags": [
+        "引擎"
+      ],
+      "changelog": "Windows dll WebAssembly 根修（qjs_ultra build-20261010-e2cfa2d）：MinGW LTO 常量传播破坏 wasm3 错误码指针比较，最小 wasm 模块实例化即报 function lookup failed（PC 央视频等 wasm 解密源全灭，Android 正常）；另累计 1.0.3–1.0.5 三轮 so 修复（cheerio 补齐/模块装载 NUL 终结符/isolate 线程迁移假爆栈）。ABI 零变化，已装 1.0.0 直接覆盖升级即得全部修复。",
+      "md5": "bf6892bfdab973823d52494b956bcd4e",
+      "platforms": [
+        "win32"
+      ],
+      "minApp": "0.9.5",
+      "category": "env"
+    },
+    {
+      "id": "agent",
+      "name": "AI 助手界面",
+      "author": "hjdhnx",
+      "desc": "AI 助手对话界面（NextChat v2.15.8 静态包）：经本地网关托管，支持「写脚本→本地执行→自检修正」闭环与壳子自动化控制（换源/播放/切台等，MCP 同款工具）。1.1.0：升级 NextChat v2.12.4→v2.15.8；新增 injectCompat 注入兼容声明。需在设置「AI」页配置模型接口。",
+      "version": "1.1.0",
+      "type": "import",
+      "size": 3893291,
+      "url": "packages/agent-1.1.0.apk",
+      "icon": "icons/agent.png",
+      "tags": [
+        "界面",
+        "AI"
+      ],
+      "md5": "b64f152c2b1e5ff4e4813555e149bf1f",
+      "category": "env",
+      "abis": [],
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "bundle",
+      "name": "插件整合包",
+      "author": "hjdhnx",
+      "desc": "全家桶安装器（有桌面图标，一键安装）：内置 MPV/Python/QJS/Agent 四插件 APK + mediaProxy/php 运行时 zip。版本预检：设备已装版本 ≥ 内置版本则跳过，仅补缺口/升级落后项，可与单包共存。",
+      "version": "1.1.0",
+      "type": "apk",
+      "size": 56940233,
+      "url": "packages/bundle-1.1.0.apk",
+      "icon": "icons/bundle.png",
+      "tags": [
+        "安装器",
+        "整合包"
+      ],
+      "md5": "666f8affd6ffe1a156a55715a2a6ecac",
+      "changelog": "移除 fjs 子插件（drpy3 换核 qjs_ultra，qjs 子插件升 1.0.2 承接 drpy3 源）；全家桶现为 MPV/Python/QJS/Agent 四插件。",
+      "category": "app",
+      "platforms": [
+        "android"
+      ],
+      "delisted": true,
+      "delistedNote": "已下架：整合包内置子插件版本已落后市场单包（qjs 1.0.1 / 现 1.0.5、ijk 1.0.0 / 现 1.0.2、mediaProxy 1.1.0 / 现 1.2.2、php 1.3.1 / 现 1.3.2），建议直接从市场安装各插件单包。下架标记仅隐藏市场展示，条目与安装包保留在本仓库不删除（已装用户本地记录不受影响），可随时恢复上架。"
+    },
+    {
+      "id": "iptv-ccsh",
+      "name": "IPTV 直播源（CCSH 采集）",
+      "author": "CCSH/IPTV",
+      "desc": "CCSH/IPTV 仓库全自动采集的央卫视+地方台直播源（每日 04:00 更新，含台标）。数据来源：https://github.com/CCSH/IPTV （MIT）。安装后写入直播配置，切到直播页即生效；频道台标随 m3u tvg-logo 自动加载。直连不可达时包内已用 gh-proxy.com 代理地址，可在源管理编辑。",
+      "version": "1.1.0",
+      "type": "live",
+      "category": "app",
+      "url": "packages/iptv-ccsh-1.1.0.json",
+      "size": 385,
+      "md5": "3d94c518d4797b07bfcb362d17dfe072",
+      "changelog": "v1.1.0：GitHub 加速代理失效修复——ghfast.top 节点已不可用，全量/精简/EPG 三处地址切换为 gh-proxy.com（与客户端默认代理一致）。已装用户在插件市场点更新即可；手动装过旧版的可在源管理自行替换地址。",
+      "tags": [
+        "直播",
+        "应用"
+      ],
+      "icon": "icons/iptv2.png",
+      "platforms": [
+        "android",
+        "win32"
+      ],
+      "delisted": true,
+      "delistedNote": "直播源很卡，用户体验不好；推荐使用沙盒自建 ysp 直播服务（实验室 → Linux 沙盒）。下架标记仅隐藏市场展示，条目与安装包保留在本仓库，可随时恢复上架。"
+    },
+    {
+      "id": "lx-sync",
+      "name": "洛雪同步",
+      "author": "XCQ0607",
+      "desc": "洛雪音乐同步服务端 v2.1.0（来源 github.com/XCQ0607/lxserver releases，上游 lyswhut/lx-music-sync-server）：歌单/歌词多端同步 + Web 控制台。安装后解压至 sdcard/dsplayer/server/node/ 并自动创建「洛雪同步」服务（需先装 nodejs 运行时插件），启动后浏览器访问 http://<设备IP>:9527 进控制台（默认管理密码 123456，配置在 data/config.js 可改端口/用户）。已为 Android 打补丁：音乐标签写入依赖的桌面预编译库降级为占位实现，不影响同步核心。",
+      "version": "2.1.2",
+      "type": "server",
+      "category": "app",
+      "url": "packages/lx-sync-2.1.2.zip",
+      "size": 25286914,
+      "md5": "caaa2aa3c8e13d1bd27f55093d64d61c",
+      "changelog": "v2.1.2：真机启动修复——archiver v8 为 ESM 包，在 node24 require(esm) 链上基类 undefined 致启动崩溃，降级为 CJS stub（WebDAV 备份/文件管理器打包下载不可用，同步核心不受影响）。",
+      "tags": [
+        "服务",
+        "应用"
+      ],
+      "icon": "icons/lxmusic.png",
+      "platforms": [
+        "android",
+        "win32"
+      ]
+    },
+    {
+      "id": "danmu-api",
+      "name": "弹幕 API 服务",
+      "author": "huangxd-",
+      "desc": "LogVar 弹幕 API 服务端 v1.0.1（来源 github.com/huangxd-/danmu_api commit 4c86579，2026-11-07）：兼容弹弹play 协议的弹幕聚合接口，直连爱优腾芒哔咪等平台取弹幕。本版为单文件 bundle 形态（零 node_modules）：真机启动 3.0~3.6s → ~2.0s，包体 6.6MB → 0.77MB。安装后自动创建「弹幕 API」服务（需 nodejs 运行时插件），启动后在 设置→播放器 把弹幕接口改为 http://127.0.0.1:9321 即可自动匹配弹幕；浏览器访问 http://<设备IP>:9321 可搜索调试。另监听 5321 代理端口；配置热重载在 Android 上不可用。",
+      "version": "1.0.1",
+      "type": "server",
+      "category": "app",
+      "url": "packages/danmu-1.0.1.zip",
+      "size": 774058,
+      "md5": "0e311779a068353b2a248dc8097c9e56",
+      "changelog": "同步上游 55 commits（红果全集合并取弹幕修复、AI 空响应识别与自适应重试、远程季映射加固等）+ 单文件 bundle 形态（rolldown minify 2.3MB，esm-shim 在 node24 豁免、chokidar/redis 维持裁剪）：真机启动 3.0~3.6s→~2.0s，zip 6.6MB→0.77MB，零 node_modules。",
+      "tags": [
+        "服务",
+        "应用"
+      ],
+      "icon": "icons/danmu.png",
+      "platforms": [
+        "android",
+        "win32"
+      ]
+    },
+    {
+      "id": "epg-tool",
+      "name": "EPG 节目单服务",
+      "author": "taksssss / DsPlayer",
+      "desc": "自建 EPG 节目单服务（来源 github.com/taksssss/iptv-tool 裁剪版，GPL-2.0 原许可随包）：抓取 51zmt 全量节目单入本地 SQLite，提供 DIYP/XMLTV 查询接口（兼容 TVBox 生态 /index.php?ch={name}&date={date} 形态）。安装后自动创建「EPG 节目单服务」（需先装 php 运行时插件）并自动启动，直播页 设置 → EPG 设置 选「本机自建服务」即接入；数据 6 小时自动刷新，首次请求触发后台抓取约 1 分钟出数据。本地缓存不依赖外部站点实时可用性，适合追求稳定 EPG 的用户。Linux 沙盒/iOS 暂不支持。",
+      "version": "1.0.0",
+      "type": "server",
+      "category": "app",
+      "url": "packages/epg-tool-1.0.0.zip",
+      "size": 1460325,
+      "md5": "2bf1438c427dcde9677e377b2df6e33b",
+      "changelog": "首个版本：iptv-tool epg/ 核心裁剪（20MB→1.4MB；裁管理页/tinyfilemanager/phpliteadmin/Parsedown，保留 index/public/update/scraper/proxy/check + opencc），新增 router.php 引导层（建表/短路由/数据新鲜度自愈替代 crond 常驻循环），预置 51zmt 数据源；当贝 MAX1 真机全链验收（安装→服务自启→首抓 97 频道→DIYP 查询 35 档/日→直播页 EPG 显示）。",
+      "tags": [
+        "服务",
+        "直播",
+        "EPG"
+      ],
+      "icon": "icons/epg-tool.png",
+      "platforms": [
+        "android"
+      ],
+      "minApp": "0.9.11"
+    },
+    {
+      "id": "demo-sources",
+      "name": "演示源包",
+      "author": "hjdhnx",
+      "desc": "本地源码集合包（应用类）：整包按 DsPlayer 目录树解压——源文件落 sdcard/dsplayer/spider/。含 dr2/dr3/hipy/js 四类引擎源、html 四形态 Web 源（bilibili 完整版 / Web源演示教学 / 歪比巴卜页面增强器 booster——wbbb1.web.json+wbbb1.js 成对分发 / fm 桥自验探针——fm-selftest.html 与 GM 包装层探针 gm-probe.web.json+gm-probe.js 成对）共 21 个文件。",
+      "version": "1.2.8",
+      "type": "source",
+      "category": "app",
+      "url": "packages/demo-sources-1.2.8.zip",
+      "size": 1183579,
+      "md5": "c7ecce3a2c2f3f6f8c51107cc727a3c8",
+      "changelog": "1.2.8：百忙无果d3 详情页标题恒为「还没有收到任」根修——mgtv 改版后 HTML 选择器失效（.vt-txt 无匹配 → 标题抓空 → 兜底把页面模板文案 p:eq(0) 前 6 字当标题）；detail 改全 JSON 接口（episode/list + video/info）取值，不再依赖页面结构。1.2.7：央视频d3 代理播放提速——TS 段 base64 编码改走 qjs_ultra C 层 Uint8Array.toBase64（三级回退 toBase64→Buffer→纯 JS，逐字符一致），每段 370-520ms → 2-10ms，起播约省 1-2s（续播段数越多省得越多）；作为「源内重活先查宿主 C 能力」典型案例。1.2.6：新增 fm 桥自验探针——fm-selftest.html（打开自动跑 28 项 fm/ds API 自检表，结果打 console/logcat；group B 手点导航/播放类）+ gm-probe.web.json/.js（booster 语境 GM 包装层 8 项探针，与自验页同页合一）。配套本体 v0.9.9+ 的 fm 全量兼容（webhtv WebHome 对标：fm.vod/stat/ctrl/device/site/config/history/pan 降级/GM 包装层）。GM 探针源 api 为 Android 绝对路径 /storage/emulated/0/…（桌面端可按需手改）。",
+      "tags": [
+        "本地源",
+        "应用"
+      ],
+      "icon": "icons/demo-sources.png",
+      "platforms": [
+        "android",
+        "win32"
+      ]
+    },
+    {
+      "id": "ffmpeg",
+      "name": "FFmpeg 软解",
+      "author": "hjdhnx",
+      "desc": "Exo 内核的 FFmpeg 音视频软解兜底（FongMi media3 fork 版 decoder_ffmpeg：libffmpegJNI + FFmpeg 9.0）：AC3/EAC3/DTS 全家/TrueHD/Atmos 音轨、AV1/AVS2/AVS3/Dolby Vision 视频等硬解不支持的格式自动回落软解，硬解支持仍走硬解。安装后播放自动生效，可在插件页停用。需本体 v0.6.2+（media3 切换 fork 版后生效），apk 直装。",
+      "version": "1.0.2",
+      "type": "apk",
+      "size": 13025897,
+      "url": "packages/ffmpeg-1.0.2.apk",
+      "icon": "icons/ffmpeg.png",
+      "tags": [
+        "解码"
+      ],
+      "md5": "3090df5f17641ff30d0f35e59fb51a2d",
+      "category": "env",
+      "changelog": "1.0.2 修复软解画面纯色闪烁（Flutter SurfaceProducer 尺寸协商，需搭配最新本体 debug 包）；1.0.1 补载 libc++_shared.so 修复加载失败；1.0.0 首版。",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "bytevc2",
+      "name": "ByteVC2 软解",
+      "author": "hjdhnx",
+      "desc": "Exo 内核的 ByteVC2（B 站 bv2C 私有编码）视频软解兜底：普通设备 MediaCodec 不识别该编码，播放 B 站 bv2C 封装直链自动软解，其余内容零影响仍走硬解。libbyteVC2dec 0.9.7.1（字节系私有解码库，非开源，分发风险自负）。仅支持 arm64 设备，apk 直装。",
+      "version": "1.0.1",
+      "type": "apk",
+      "size": 923690,
+      "url": "packages/bytevc2-1.0.1.apk",
+      "icon": "icons/bytevc2.png",
+      "tags": [
+        "解码"
+      ],
+      "md5": "f73be2c91c65181d9f4db2446f0624f8",
+      "category": "env",
+      "changelog": "v1.0.1：整合上游 Java 层双修复（随宿主包生效，本包为配套版本元数据；so 经真机定责维持原版）——①快速切集/切清晰度崩溃根修：decode/flush/release 串行化 + flush 后等关键帧重建参考基线（mc_dec reference index abort）；②画面缩小居中四周黑边根修：GL viewport 改用 EGL surface 实际尺寸。需重出宿主包配合。",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "idmplus",
+      "name": "IDM+ 下载器（1DM+）",
+      "author": "inventiv",
+      "desc": "Android 多线程下载管理器（1DM+/IDM+ 18.2 CN 汉化版，独立桌面应用）：多线程分段加速、断点续传、剪贴板/浏览器嗅探抓取媒体直链，适合大文件与视频下载。与 DsPlayer 无进程耦合，纯第三方应用直装（声明 pkg 包名，可感知系统侧卸载）。大体积包走 GitHub Release 资产分发，客户端经加速代理拉取后跳系统安装器安装。",
+      "version": "18.2",
+      "type": "apk",
+      "category": "app",
+      "pkg": "idm.internet.download.manager.plus",
+      "size": 56815021,
+      "url": "https://github.com/hjdhnx/dsplayer-plugin/releases/download/idmplus-18.2/idmplus-18.2-CN.apk",
+      "icon": "icons/idmplus.png",
+      "tags": [
+        "下载",
+        "应用"
+      ],
+      "md5": "eaa6a2e119ffb38acb4ff44e4e92247e",
+      "changelog": "首录：IDM+ 18.2（versionCode 30249）CN 汉化版。包体 54MB，超出 packages/ 常规体量，首个走 GitHub Release 分发的条目（绝对 URL 直链，客户端 GitHub 加速代理兼容已验证）。",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "catlib",
+      "name": "catLib 引擎库包",
+      "author": "hjdhnx",
+      "desc": "qjs 引擎 assets:// 库目录协议的库文件（应用类源码包）：cat 生态源 import 'assets://js/lib/<file>' 的库目录分发（cat.js/cheerio/crypto-js/mod/sortName/similarity/http/spider 共 8 文件，上游 hjdhnx/drpy-node spider/catLib）。安装后落 sdcard/dsplayer/catLib/，qjs 引擎自动识别 assets:// 导入并实时加载，装完即生效无需重启。不打进 APK/插件包（零壳子体积），需新版 DsPlayer 本体（60377e6 起）配合。",
+      "version": "1.0.0",
+      "type": "source",
+      "category": "app",
+      "url": "packages/catlib-1.0.0.zip",
+      "size": 303536,
+      "md5": "56c71207b80b44b675644e04bb88058a",
+      "changelog": "1.0.0：首发——qjs 引擎 assets:// 库目录协议配套库包（cat 生态 catLib 8 文件），源 import assets://js/lib/<file> 由引擎映射到 dsplayer/catLib/<file> 实时加载；bytecode 缓存自动生效。需新版 DsPlayer 本体配合（旧版本体装本包无副作用但引擎不识别 assets://）。",
+      "tags": [
+        "引擎库",
+        "应用"
+      ],
+      "icon": "icons/catlib.png",
+      "platforms": [
+        "android",
+        "win32"
+      ]
+    },
+    {
+      "id": "mtmanager",
+      "name": "MT管理器",
+      "author": "Bin",
+      "desc": "Android 强大的文件管理器 / APK 编辑器（2.14.5 克隆版，独立桌面应用）：文件与压缩包双向操作、APK 反编译编辑与签名、Dex/Arsc 编辑、XML 反编译、字体预览等。与 DsPlayer 无进程耦合，纯第三方应用直装（声明 pkg 包名，可感知系统侧卸载）。包名 bin.mt.plus.canary（克隆版），可与 MT 管理器官方正式版（bin.mt.plus）共存互不干扰。",
+      "version": "2.14.5",
+      "type": "apk",
+      "category": "app",
+      "pkg": "bin.mt.plus.canary",
+      "size": 26548891,
+      "url": "packages/mtmanager-2.14.5.apk",
+      "icon": "icons/mtmanager.png",
+      "tags": [
+        "工具",
+        "应用"
+      ],
+      "md5": "2503056464d8651e15e04ef6c58eabd1",
+      "changelog": "首录：MT 管理器 2.14.5（versionCode 24011893，versionName 2.14.5-clone 克隆版，包名 bin.mt.plus.canary）。全 ABI（arm64-v8a/armeabi-v7a/x86/x86_64），包体 26.5MB 走 packages/ 常规分发。",
+      "platforms": [
+        "android"
+      ],
+      "delisted": true,
+      "delistedNote": "转发专有第三方应用（MT管理器）无再分发授权，下架停止分发。条目与安装包保留在本仓库不删除（已装用户本地记录不受影响），如需恢复仅需去除本条标记。"
+    },
+    {
+      "id": "aigw",
+      "name": "AI 聚合网关",
+      "author": "custom",
+      "desc": "本地 AI 聚合网关（独立桌面应用）：在本机监听端口，把多家 AI 服务聚合成 OpenAI 兼容 API，DsPlayer AI 助手（agent 插件）或局域网内其他应用填入其接口地址即可使用；前台服务保活，锁屏后客户端仍能调用。与 DsPlayer 无进程耦合，纯第三方应用直装（声明 pkg 包名，可感知系统侧卸载）。",
+      "version": "2.2.0",
+      "type": "apk",
+      "category": "app",
+      "pkg": "dev.aigw.app",
+      "size": 1608166,
+      "url": "packages/aigw-2.2.0.apk",
+      "icon": "icons/aigw.png",
+      "tags": [
+        "AI",
+        "应用"
+      ],
+      "md5": "c114127a9c0798fcf313e739f238a5e4",
+      "changelog": "首录：AI 聚合网关 2.2.0（versionCode 121，包名 dev.aigw.app）。本地 OpenAI 兼容聚合网关，SPECIAL_USE FGS 后台保活。全 ABI（arm64-v8a/armeabi-v7a/x86/x86_64），包体 1.6MB 走 packages/ 常规分发。",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "raccoon",
+      "name": "小浣熊",
+      "author": "custom",
+      "desc": "本地 OpenAI 兼容 API 网关（独立桌面应用）：绑定 127.0.0.1 监听端口，把外部 AI 能力以 OpenAI 兼容接口暴露给本机/局域网应用统一接入。与 DsPlayer 无进程耦合，纯第三方应用直装（声明 pkg 包名，可感知系统侧卸载）。",
+      "version": "1.29",
+      "type": "apk",
+      "category": "app",
+      "pkg": "dev.raccoon2api",
+      "size": 733693,
+      "url": "packages/raccoon-1.29.apk",
+      "icon": "icons/raccoon.png",
+      "tags": [
+        "AI",
+        "应用"
+      ],
+      "md5": "c3453ae5be68595913a688db077d67af",
+      "changelog": "首录：小浣熊 1.29（versionCode 30，包名 dev.raccoon2api）。本地 OpenAI 兼容 API 网关（绑定 127.0.0.1），SPECIAL_USE FGS 后台保活。包体 0.7MB 走 packages/ 常规分发。",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "zhipu-gw",
+      "name": "智谱清言网关",
+      "author": "custom",
+      "desc": "智谱清言本地网关（独立桌面应用）：在本机监听端口并转发请求到智谱清言，把智谱清言能力以 OpenAI 兼容 API 暴露给局域网内应用（DsPlayer AI 助手等）。与 DsPlayer 无进程耦合，纯第三方应用直装（声明 pkg 包名，可感知系统侧卸载）。",
+      "version": "1.5.10",
+      "type": "apk",
+      "category": "app",
+      "pkg": "dev.agentmore2api",
+      "size": 190022,
+      "url": "packages/zhipu-gw-1.5.10.apk",
+      "icon": "icons/zhipu-gw.png",
+      "tags": [
+        "AI",
+        "应用"
+      ],
+      "md5": "ee30d8a1ffce5bd87666f4c57dd278be",
+      "changelog": "首录：智谱清言网关 1.5.10（versionCode 17，包名 dev.agentmore2api）。本地 OpenAI 兼容网关：本机监听端口并转发请求到智谱清言。包体 0.2MB 走 packages/ 常规分发。",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "go-music-dl",
+      "name": "Go Music DL 音乐下载",
+      "author": "guohuiyuan",
+      "desc": "音乐搜索、试听和下载服务（Go 单文件二进制，runtime=binary 以子进程方式由宿主拉起）：默认参数 web --port 37777 --no-browser，启动后浏览器访问 http://127.0.0.1:37777 搜索/试听/下载音乐；健康检查 /music/healthz，内置国内 DNS 白名单修复 Android 环境 DNS 解析。上游 github.com/guohuiyuan/go-music-dl。",
+      "version": "1.1.1",
+      "type": "import",
+      "category": "app",
+      "size": 10931895,
+      "url": "packages/go-music-dl-1.1.1.zip",
+      "icon": "icons/go-music-dl.png",
+      "tags": [
+        "音乐",
+        "服务"
+      ],
+      "md5": "c399daf9fdfae6275b2f025699091ced",
+      "changelog": "首录 1.1.1：市场上架重打包——包内 plugin.json 的 binaries.android 由 bin/music-dl-android 修正为纯文件名 music-dl-android（binaries 铁律：本体按 bin/<声明值> 落盘，带 bin/ 前缀拼成 bin/bin/ 死路径），二进制与上游分发包逐字节一致。",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "OpenList",
+      "name": "OpenList 网盘服务",
+      "author": "OpenListTeam",
+      "desc": "OpenList 网盘挂载服务（Go 单文件二进制，runtime=binary 以子进程方式由宿主拉起）：监听 0.0.0.0:5244，数据目录 /storage/emulated/0/dsplayer/server/openlist；默认账号 admin / 密码 123456（首次登录后请及时修改）。启动后浏览器访问 http://<设备IP>:5244 管理与挂载网盘。上游 github.com/OpenListTeam/OpenList，本包内置国内 DNS 白名单修复 Android 环境 Go 程序 DNS 解析异常。",
+      "version": "1.3.0",
+      "type": "import",
+      "category": "app",
+      "size": 48252153,
+      "url": "packages/OpenList-1.3.0.zip",
+      "icon": "icons/openlist.png",
+      "tags": [
+        "网盘",
+        "服务"
+      ],
+      "md5": "6be482dbf1fb48f7a7146410e87d7805",
+      "changelog": "首录 1.3.0（打包版本号，引擎为 OpenList 官方 arm64 发行版）：二进制 144MB（zip 48.2MB，低于 50MB Release 阈值）走 packages/ 常规分发；env 注入 CNB2API_DNS 国内 DNS 白名单修复 Android 环境 Go 程序 DNS 解析异常。默认账号 admin/123456。",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "frp",
+      "name": "frp 内网穿透客户端",
+      "author": "fatedier",
+      "desc": "fatedier/frp 客户端 frpc v0.71.0（Go 单文件二进制，runtime=binary 以子进程方式由宿主拉起）：把本机或局域网服务通过 frps 服务器穿透到公网访问，典型搭配 DsPlayer 内的 OpenList 网盘、洛雪同步等服务。内置 Android DNS 修复（net.DefaultResolver 公共 DNS 直连回退，juku-lite/guoapi 同款真机验证方案）与配置模板自动生成——首次启动在 /sdcard/dsplayer/server/frpc/frpc.toml 生成带注释模板，改完 serverAddr/auth.token 后热重载或重启服务；管理面板 http://127.0.0.1:7400（admin/admin，精简版：重载/状态），/healthz 兼作服务健康检查。上游 github.com/fatedier/frp。",
+      "version": "0.71.0",
+      "type": "import",
+      "category": "app",
+      "size": 3773335,
+      "url": "packages/frp-0.71.0.zip",
+      "icon": "icons/frp.png",
+      "tags": [
+        "网络",
+        "服务"
+      ],
+      "md5": "cfcc8011c112f4623d115c80fda828db",
+      "changelog": "首录 frpc v0.71.0：构建自官方 tag tarball（GOOS=linux/arm64 静态编译 + UPX 压至 3.77MB），注入 Android 适配——公共 DNS 直连修复插件环境系统 resolver 失效；配置文件缺失自动生成带注释 TOML 模板（含 webServer 管理面板与示例代理，健康检查依赖 webServer.port 7400）；管理面板为免 npm 构建的精简 HTML（重载/状态按钮），后端 /healthz 与 /api/* 接口全量可用。",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "filebrowser",
+      "name": "FileBrowser 文件管理器",
+      "author": "filebrowser",
+      "desc": "filebrowser 网页文件管理器（Go 单文件二进制，runtime=binary 以子进程方式由宿主拉起）：启动后浏览器访问 http://<设备IP>:8080 即可浏览/上传/下载/编辑设备文件（根目录 /storage/emulated/0），电视盒子装它就能用电脑/手机管理盒子文件。默认账号 admin / 密码 admin，默认中文界面（构建期注入 quick setup 默认 locale=zh-cn 补丁）；登录后「设置 → 个人资料」可改密码与切换其它语言。数据库随插件目录存放（Android 11+ 的 sdcard 是 FUSE 文件系统，不支持 bbolt 所需的 mmap，实测报 function not implemented）；可在 /storage/emulated/0/dsplayer/server/filebrowser/ 放 .filebrowser.toml 自定义配置。若目录显示为空，请在插件页授予「所有文件访问」存储权限。上游 github.com/filebrowser/filebrowser（项目 2026-09-01 已归档，v2.63.23 为最终版；本包 2.63.25 = 上游末版 + 中文默认补丁 + UPX 体积压缩）。",
+      "version": "2.63.25",
+      "type": "import",
+      "category": "app",
+      "size": 11018779,
+      "url": "packages/filebrowser-2.63.25.zip",
+      "icon": "icons/filebrowser.png",
+      "tags": [
+        "文件",
+        "服务"
+      ],
+      "md5": "c8b6c1410509a95775871a8427be2192",
+      "changelog": "2.63.25 体积优化（本包 10.5MB，上版 13.9MB，省 24%）：构建链补上 UPX --best --lzma 极致压缩（与仓库其它插件统一的三件套 -trimpath + -s -w + UPX），二进制本体 33MB → 10.5MB。功能与上版完全一致（同源码、同中文默认补丁、同 version 标记 2.63.23-dsplayer1），仅体积变化。真机验证：CM311（armeabi-v7a/Android 9）压缩后二进制可直接执行、服务起后 8080 监听正常、/health 返回 200、登录 JWT 中 locale=zh-cn。⚠️ 更新前请先停止插件（运行中覆盖安装报 Text file busy/ETXTBSY）。",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "filebrowser-arm32",
+      "name": "FileBrowser 文件管理器（32 位设备）",
+      "author": "filebrowser",
+      "desc": "filebrowser 网页文件管理器的 32 位（armeabi-v7a）构建，供 32 位安卓设备/老电视盒子使用——64 位设备请装「FileBrowser 文件管理器」。Go 单文件二进制（runtime=binary 以子进程方式由宿主拉起）：启动后浏览器访问 http://<设备IP>:8080 即可浏览/上传/下载/编辑设备文件（根目录 /storage/emulated/0），电视盒子装它就能用电脑/手机管理盒子文件。默认账号 admin / 密码 admin，默认中文界面（构建期注入 quick setup 默认 locale=zh-cn 补丁）；登录后「设置 → 个人资料」可改密码与切换其它语言。配置数据库随插件目录存放（Android 11+ 的 sdcard 是 FUSE 文件系统，不支持 bbolt 所需的 mmap，实测报 function not implemented）；可在 /storage/emulated/0/dsplayer/server/filebrowser/ 放 .filebrowser.toml 自定义配置。若目录显示为空，请在插件页授予「所有文件访问」存储权限。上游 github.com/filebrowser/filebrowser（项目 2026-09-01 已归档，v2.63.23 为最终版；本包 2.63.25 = 上游末版 + 中文默认补丁 + UPX 体积压缩）。",
+      "version": "2.63.25",
+      "type": "import",
+      "category": "app",
+      "size": 10907101,
+      "url": "packages/filebrowser-arm32-2.63.25.zip",
+      "icon": "icons/filebrowser.png",
+      "tags": [
+        "文件",
+        "服务"
+      ],
+      "md5": "146e4db4fda0dd57567e4c634cbc6543",
+      "changelog": "2.63.25 体积优化（本包 10.4MB，上版 14.2MB，省 27%）：与 64 位包同款——构建链补上 UPX --best --lzma（-trimpath + -s -w + UPX 三件套），二进制 35MB → 10.4MB。功能与上版完全一致，仅体积变化。本版在 CM311（armeabi-v7a/Android 9，即该包的目标设备）真机验证：压缩后二进制直接执行成功、服务 8080 监听、health 200、登录 locale=zh-cn。⚠️ 更新前请先停止插件（ETXTBSY）。",
+      "abis": [
+        "armeabi-v7a"
+      ],
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "clash-meta",
+      "name": "Clash Meta 代理内核",
+      "author": "MetaCubeX",
+      "desc": "MetaCubeX/mihomo v1.19.32 代理内核（Go 单文件二进制，runtime=binary 以子进程方式由宿主拉起）：提供本地 HTTP/SOCKS 混合代理端口（127.0.0.1:7890）与完整 RESTful 控制接口，支持 VMess / VLESS / Shadowsocks / Trojan / Hysteria / TUIC / Snell 等协议，内置规则分流、DNS 与远程订阅 provider。内置 metacubexd 网页面板（插件启动即解压到插件私有目录，浏览器开 http://127.0.0.1:9090/ui 即可导入订阅、切节点、看连接与日志）；GeoIP / GeoSite 数据已随包内置，首启不联网下载；首次启动在 /storage/emulated/0/dsplayer/server/clash-meta/config.yaml 生成带注释模板，直接编辑该文件后到插件页停止→启动即生效。注意：本插件只提供本地代理端口，DsPlayer 本体的网络请求不会自动走它——需要在支持代理设置的 App / 浏览器里填 127.0.0.1:7890；无 root 设备不使用 TUN 全局模式（该能力需系统安装型 App）。上游 github.com/MetaCubeX/mihomo（GPL-3.0，对应源码与修改说明见包内 SOURCE-NOTICE.txt）。",
+      "version": "1.19.32",
+      "type": "import",
+      "category": "app",
+      "size": 19284186,
+      "url": "packages/clash-meta-1.19.32.zip",
+      "icon": "icons/clash-meta.png",
+      "tags": [
+        "网络",
+        "服务",
+        "代理"
+      ],
+      "md5": "f8abed45dea0077a736226050c275cc4",
+      "changelog": "首录 mihomo v1.19.32（MetaCubeX 官方 tag 源码构建，GOOS=android GOARCH=arm64 CGO_ENABLED=0 纯静态交叉编译 + -trimpath/-s -w + UPX，19.3MB）。注入单点适配补丁 dsplayer.go：①home 目录落插件私有目录（cache.db 的 bbolt 写 mmap 在 Android 11+ 的 sdcard FUSE 上会报 function not implemented，同 filebrowser 踩坑）；②配置留 sdcard 可编辑，未授权存储时自动回落私有目录；③内嵌 metacubexd 面板（gh-pages 28a9589f，MIT）启动释放到 <home>/ui；④内嵌 GeoIP/GeoSite（meta-rules-dat）避免首条 GEOIP 规则触发 GitHub 下载失败导致内核 fatal。健康检查走面板 /version（命令行强制覆盖 127.0.0.1:9090，用户换订阅不会打挂探活）。验收：雷电模拟器（x86_64 宿主进程）走完整宿主链路——插件中心导入 installed=1、binplug start 后 status=running port=9090、面板 /ui/ 返回 200、经 7890 真实转发 generate_204 返回 204、出口 IP 生效、停止后进程与端口均释放；同源 Windows 产物冒烟覆盖配置生成/面板解压/API 探活。",
+      "platforms": [
+        "android"
+      ],
+      "abis": [
+        "arm64-v8a"
+      ]
+    },
+    {
+      "id": "docker-vm",
+      "name": "Docker 虚拟机（QEMU/arm64）",
+      "author": "hjdhnx",
+      "desc": "独立的 QEMU arm64 虚拟机，开箱即用完整 Docker（29.9）+ Docker Compose（5.6）+ Buildx 镜像构建：内置 daocloud 镜像加速，SSH(:9922)，端口转发。启动后是一个完整 Alpine Linux VM，可在内嵌终端跑 docker/compose/docker build。后台保活：VM 运行期间保持前台可见（悬浮圆点），不被 ROM 后台 CPU 限额压速。大体积包（约125MB）走 GitHub Release 资产分发，客户端经加速代理拉取后跳系统安装器安装。applicationId com.dsplayer.vm。",
+      "version": "1.1.1",
+      "type": "apk",
+      "category": "app",
+      "pkg": "com.dsplayer.vm",
+      "size": 131348314,
+      "url": "https://github.com/hjdhnx/dsplayer-plugin/releases/download/docker-vm-1.1.1/docker-vm-1.1.1.apk",
+      "icon": "icons/docker-vm.png",
+      "tags": [
+        "虚拟机",
+        "容器"
+      ],
+      "md5": "df415f73df2c3ee2d79e381718ae849e",
+      "changelog": "v1.1.1：内部打磨版，无功能变化——①悬浮保活圆点补启动/停止竞态守卫（极端快速启停时，异步弹点协程可能在 VM 已停止后才执行、残留无人回收的圆点，现在执行前先校验 VM 状态）；②点按圆点回应用路径空安全加固；③清理无用 lint 注解。v1.1.0：①后台 CPU 限额根修——部分 ROM（小米 MIUI/HyperOS 等）把不可见窗口的后台进程压到约 1/20 CPU，即使已豁免电池优化也会让后台 docker/SSH/端口转发不可达；现 VM 运行期间默认在屏幕边缘显示悬浮保活圆点（保持前台可见，从根上不落后台配额档），点按回应用、设置可关，首次启动引导授权。②恢复 docker buildx——修掉 1.0.x 裁剪 buildx 后 docker build 回退 legacy builder 对 BuildKit 语法（--mount/heredoc/syntax）报不兼容的问题。包体积 109.8MB→125.3MB（buildx 回归所致）。v1.0.1：后台保活修复——新增 WiFi 高能锁（WIFI_MODE_FULL_HIGH_PERF）防止息屏后网络休眠导致 SSH/docker/端口转发从外部连不上；首次启动主动请求忽略电池优化（Doze/App-Standby 豁免）。系统正常退出清理行为不变。",
+      "platforms": [
+        "android"
+      ],
+      "abis": [
+        "arm64-v8a"
+      ]
+    },
+    {
+      "id": "captcha-bypass",
+      "name": "验证码识别服务",
+      "author": "Hiram-Wong",
+      "desc": "OCR 验证码识别 HTTP 服务（上游 Hiram-Wong/captcha-bypass，Bun 打包 onnx 本地推理）：POST /detect /ocr /rotate /slide 四类验证码接口（内置 OpenAPI 文档），模型随包内置（detect/ocr_pp/ocr_dddd/rotate），默认端口 7788（PORT 环境变量可改）。供源脚本/外部工具识别验证码用。仅 arm64-v8a；包体 210.6MB 走 GitHub Release 资产分发。需本体 ≥1.0.6（bin/ 附属文件随包落位 + abis 安装期门配套）。",
+      "version": "1.0.0",
+      "type": "import",
+      "category": "env",
+      "size": 220810961,
+      "url": "https://github.com/hjdhnx/dsplayer-plugin/releases/download/captcha-bypass-1.0.0/captcha-bypass-1.0.0.zip",
+      "tags": [
+        "OCR",
+        "服务"
+      ],
+      "md5": "fcd643d0cc7aba4d8646b623a0456b20",
+      "minApp": "1.0.6",
+      "changelog": "首录 1.0.0：Bun 打包的 OCR 验证码服务（上游 Hiram-Wong/captcha-bypass），bin/models/ 四 onnx 模型随包落位；需本体 1.0.6 起（binary 插件附属文件随包安装 + abis 安装期校验）。",
+      "platforms": [
+        "android"
+      ],
+      "abis": [
+        "arm64-v8a"
+      ]
+    }
+  ]
 }
