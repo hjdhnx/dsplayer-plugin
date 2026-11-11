@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-11-09T18:42:06+08:00",
+  "updatedAt": "2026-11-11T21:53:33+08:00",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -866,24 +866,45 @@
       "id": "captcha-bypass",
       "name": "验证码识别服务",
       "author": "Hiram-Wong",
-      "desc": "OCR 验证码识别 HTTP 服务（上游 Hiram-Wong/captcha-bypass，Bun 打包 onnx 本地推理）：POST /detect /ocr /rotate /slide 四类验证码接口（内置 OpenAPI 文档），模型随包内置（detect/ocr_pp/ocr_dddd/rotate），默认端口 7788（PORT 环境变量可改）。供源脚本/外部工具识别验证码用。仅 arm64-v8a；包体 210.6MB 走 GitHub Release 资产分发。需本体 ≥1.0.6（bin/ 附属文件随包落位 + abis 安装期门配套）。",
-      "version": "1.0.0",
+      "desc": "OCR 验证码识别 HTTP 服务（上游 Hiram-Wong/captcha-bypass，Rust 重写 + onnx 本地推理）：POST /detect /ocr /rotate /slide 四类验证码接口（内置 OpenAPI 文档），模型随包内置（detect/ocr_pp/ocr_dddd/rotate），默认端口 7788（PORT 环境变量可改）。仅供 Android arm64；Windows 端用独立条目 captcha-bypass-win。包体 157.5MB 走 GitHub Release 资产分发。需本体 ≥1.0.6（bin/ 附属文件随包落位 + abis 安装期门配套）。",
+      "version": "1.1.2",
       "type": "import",
       "category": "env",
-      "size": 220810961,
-      "url": "https://github.com/hjdhnx/dsplayer-plugin/releases/download/captcha-bypass-1.0.0/captcha-bypass-1.0.0.zip",
+      "size": 165187149,
+      "url": "https://github.com/hjdhnx/dsplayer-plugin/releases/download/captcha-bypass-1.1.2/captcha-bypass-1.1.2.zip",
       "tags": [
         "OCR",
         "服务"
       ],
-      "md5": "fcd643d0cc7aba4d8646b623a0456b20",
+      "md5": "755c8147e3662cf3e3d3678302531712",
       "minApp": "1.0.6",
-      "changelog": "首录 1.0.0：Bun 打包的 OCR 验证码服务（上游 Hiram-Wong/captcha-bypass），bin/models/ 四 onnx 模型随包落位；需本体 1.0.6 起（binary 插件附属文件随包安装 + abis 安装期校验）。",
+      "changelog": "v1.1.2：上游 Rust 重写 + 优化版 arm64 二进制替换（原 Bun 打包），接口/模型布局不变得益于健康检查升级为 /health；新二进制模型从可执行文件旁 models/ 读取，与既有落盘布局兼容，无需改参数。",
       "platforms": [
         "android"
       ],
       "abis": [
         "arm64-v8a"
+      ]
+    },
+    {
+      "id": "captcha-bypass-win",
+      "name": "验证码识别服务（Windows）",
+      "author": "hjdhnx",
+      "desc": "OCR 验证码识别 HTTP 服务（上游 Hiram-Wong/captcha-bypass，Rust 重写 + onnx 本地推理，Windows x64）：POST /detect /ocr /rotate /slide 四类验证码接口（内置 OpenAPI 文档），模型随包内置（detect/ocr_pp/ocr_dddd/rotate），默认端口 7788（PORT 环境变量可改）。供源脚本/外部工具识别验证码用。包体 157.2MB 走 GitHub Release 资产分发。需本体 ≥0.9.4（win32 平台键）。",
+      "version": "1.1.2",
+      "type": "import",
+      "category": "env",
+      "size": 164825119,
+      "url": "https://github.com/hjdhnx/dsplayer-plugin/releases/download/captcha-bypass-win-1.1.2/captcha-bypass-win-1.1.2.zip",
+      "tags": [
+        "OCR",
+        "服务"
+      ],
+      "md5": "cb877748f9140e32b90ba4994e18015c",
+      "minApp": "0.9.4",
+      "changelog": "首发 1.1.2：Windows x64 版 OCR 验证码服务（与 arm64 版同上游同版本）。需 DsPlayer 0.9.4+（PC 插件中心 + win32 平台键）。",
+      "platforms": [
+        "win32"
       ]
     }
   ]
