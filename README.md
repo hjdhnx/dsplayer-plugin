@@ -46,7 +46,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | 洛雪同步 | `lx-sync` | 2.1.2 | **server**（服务包；platforms=android+win32） | `packages/lx-sync-2.1.2.zip` |
 | 弹幕 API 服务 | `danmu-api` | 1.0.1 | **server**（服务包；platforms=android+win32） | `packages/danmu-1.0.1.zip` |
 | EPG 节目单服务 | `epg-tool` | 1.0.0 | **server**（服务包；runtime=php，需先装 php 运行时插件；platforms=android） | `packages/epg-tool-1.0.0.zip` |
-| 演示源包 | `demo-sources` | 1.2.8 | **source**（源码包；platforms=android+win32；html/ 含 bilibili 完整源 + Web 源演示 + 歪比巴卜 booster + fm 桥自验探针（fm-selftest.html / gm-probe.web.json+js）——需本体 ≥0.9.7） | `packages/demo-sources-1.2.8.zip` |
+| 演示源包 | `demo-sources` | 1.2.9 | **source**（源码包；platforms=android+win32；html/ 含 bilibili 完整源 + Web 源演示 + 独狼影视聚合（6 站聚合便携 WebHome 应用）+ 歪比巴卜 booster + fm 桥自验探针（fm-selftest.html / gm-probe.web.json+js）——需本体 ≥0.9.7） | `packages/demo-sources-1.2.9.zip` |
 | catLib 引擎库包 | `catlib` | 1.0.0 | **source**（源码包；引擎库；platforms=android+win32） | `packages/catlib-1.0.0.zip` |
 | IDM+ 下载器（1DM+） | `idmplus` | 18.2 | **apk**（系统安装；Release 分发；platforms=android） | `idmplus-18.2-CN.apk` |
 | ~~MT管理器~~ | `mtmanager` | 2.14.5 | **apk**（系统安装；platforms=android）**⚠️ 已下架**（`delisted: true`——转发专有第三方应用无再分发授权，停止分发；条目与安装包保留在仓库不删除，去标记即可恢复上架） | `packages/mtmanager-2.14.5.apk` |

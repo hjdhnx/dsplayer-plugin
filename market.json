@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-11-11T21:53:33+08:00",
+  "updatedAt": "2026-11-15T22:09:11+08:00",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -512,14 +512,14 @@
       "id": "demo-sources",
       "name": "演示源包",
       "author": "hjdhnx",
-      "desc": "本地源码集合包（应用类）：整包按 DsPlayer 目录树解压——源文件落 sdcard/dsplayer/spider/。含 dr2/dr3/hipy/js 四类引擎源、html 四形态 Web 源（bilibili 完整版 / Web源演示教学 / 歪比巴卜页面增强器 booster——wbbb1.web.json+wbbb1.js 成对分发 / fm 桥自验探针——fm-selftest.html 与 GM 包装层探针 gm-probe.web.json+gm-probe.js 成对）共 21 个文件。",
-      "version": "1.2.8",
+      "desc": "本地源码集合包（应用类）：整包按 DsPlayer 目录树解压——源文件落 sdcard/dsplayer/spider/。含 dr2/dr3/hipy/js 四类引擎源、html 五形态 Web 源（bilibili 完整版 / Web源演示教学 / 独狼影视聚合——6 站聚合的便携 WebHome 应用 / 歪比巴卜页面增强器 booster——wbbb1.web.json+wbbb1.js 成对分发 / fm 桥自验探针——fm-selftest.html 与 GM 包装层探针 gm-probe.web.json+gm-probe.js 成对）共 22 个文件。",
+      "version": "1.2.9",
       "type": "source",
       "category": "app",
-      "url": "packages/demo-sources-1.2.8.zip",
-      "size": 1183579,
-      "md5": "c7ecce3a2c2f3f6f8c51107cc727a3c8",
-      "changelog": "1.2.8：百忙无果d3 详情页标题恒为「还没有收到任」根修——mgtv 改版后 HTML 选择器失效（.vt-txt 无匹配 → 标题抓空 → 兜底把页面模板文案 p:eq(0) 前 6 字当标题）；detail 改全 JSON 接口（episode/list + video/info）取值，不再依赖页面结构。1.2.7：央视频d3 代理播放提速——TS 段 base64 编码改走 qjs_ultra C 层 Uint8Array.toBase64（三级回退 toBase64→Buffer→纯 JS，逐字符一致），每段 370-520ms → 2-10ms，起播约省 1-2s（续播段数越多省得越多）；作为「源内重活先查宿主 C 能力」典型案例。1.2.6：新增 fm 桥自验探针——fm-selftest.html（打开自动跑 28 项 fm/ds API 自检表，结果打 console/logcat；group B 手点导航/播放类）+ gm-probe.web.json/.js（booster 语境 GM 包装层 8 项探针，与自验页同页合一）。配套本体 v0.9.9+ 的 fm 全量兼容（webhtv WebHome 对标：fm.vod/stat/ctrl/device/site/config/history/pan 降级/GM 包装层）。GM 探针源 api 为 Android 绝对路径 /storage/emulated/0/…（桌面端可按需手改）。",
+      "url": "packages/demo-sources-1.2.9.zip",
+      "size": 1212369,
+      "md5": "d1cde6f68018d6cf87e4dcc10a57daac",
+      "changelog": "1.2.9：新增「独狼影视聚合」WEB 源——独播库/剧下饭/热播/TVB云播/pomo/喜马拉雅 6 站聚合的便携 WebHome 应用（页面自带搜索/详情/选集/听书播放）；配套本体 resolver 双契约（ep 对象 / URL 串入参、裸 URL 返回）后可在壳子详情页整表连播（独播库 HLS 与 TVB 线路真机验收）。pomo 为磁力，点集走下载器/剪贴板。1.2.8：百忙无果d3 详情页标题恒为「还没有收到任」根修——mgtv 改版后 HTML 选择器失效（.vt-txt 无匹配 → 标题抓空 → 兜底把页面模板文案 p:eq(0) 前 6 字当标题）；detail 改全 JSON 接口（episode/list + video/info）取值，不再依赖页面结构。1.2.7：央视频d3 代理播放提速——TS 段 base64 编码改走 qjs_ultra C 层 Uint8Array.toBase64（三级回退 toBase64→Buffer→纯 JS，逐字符一致），每段 370-520ms → 2-10ms，起播约省 1-2s（续播段数越多省得越多）；作为「源内重活先查宿主 C 能力」典型案例。1.2.6：新增 fm 桥自验探针——fm-selftest.html（打开自动跑 28 项 fm/ds API 自检表，结果打 console/logcat；group B 手点导航/播放类）+ gm-probe.web.json/.js（booster 语境 GM 包装层 8 项探针，与自验页同页合一）。配套本体 v0.9.9+ 的 fm 全量兼容（webhtv WebHome 对标：fm.vod/stat/ctrl/device/site/config/history/pan 降级/GM 包装层）。GM 探针源 api 为 Android 绝对路径 /storage/emulated/0/…（桌面端可按需手改）。",
       "tags": [
         "本地源",
         "应用"
