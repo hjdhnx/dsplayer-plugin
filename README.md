@@ -2,7 +2,7 @@
 
 DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装入口），`packages/` 存放插件包，`icons/` 存放条目图标。
 
-## 当前收录（42 个条目 = 环境 23 + 应用 19）
+## 当前收录（43 个条目 = 环境 24 + 应用 19）
 
 条目带 `category` 字段（2026-09-20 起）：`env`=环境（引擎/运行时，给壳子供能力，默认归类）；`app`=应用（面向完整使用场景：整合包、直播源包、服务包）。市场内按类别过滤，默认展示「环境」。
 
@@ -34,6 +34,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | QJS 爬虫引擎（32 位设备） | `qjs-arm32` | 1.0.0 | import（platforms=android；abis=armeabi-v7a，独立版本线，minApp 0.9.10） | `packages/qjs-arm32-1.0.0.apk` |
 | QJS 爬虫引擎（Windows） | `qjs-win` | 1.0.6 | import（zip；platforms=win32，minApp 0.9.5） | `packages/qjs-win-1.0.6.zip` |
 | JAR 爬虫引擎（TVBox jar 源） | `jar` | 1.0.0 | import（zip，dex 载体；应用内一键直装免系统安装；全 ABI（`abis: []`）；minApp 1.1.5） | `packages/jar-1.0.0.zip` |
+| 磁力播放插件 | `magnet` | 1.0.0 | import（zip；纯 so 边下边播；应用内解压免系统安装；platforms=android，abis=arm64-v8a+armeabi-v7a） | `packages/magnet-1.0.0.zip` |
 | AI 助手界面 | `agent` | 1.1.0 | import（platforms=android） | `packages/agent-1.1.0.apk` |
 | 验证码识别服务 | `captcha-bypass` | 1.1.2 | import（zip；binary 运行时服务；platforms=android，abis=arm64-v8a，minApp 1.0.6）**大体积走 GitHub Release 分发** | `captcha-bypass-1.1.2.zip`（[Release](https://github.com/hjdhnx/dsplayer-plugin/releases/download/captcha-bypass-1.1.2/captcha-bypass-1.1.2.zip)） |
 | 验证码识别服务（Windows） | `captcha-bypass-win` | 1.1.2 | import（zip；binary 运行时服务；platforms=win32，minApp 0.9.4）**大体积走 GitHub Release 分发** | `captcha-bypass-win-1.1.2.zip`（[Release](https://github.com/hjdhnx/dsplayer-plugin/releases/download/captcha-bypass-win-1.1.2/captcha-bypass-win-1.1.2.zip)） |
@@ -47,7 +48,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | 洛雪同步 | `lx-sync` | 2.1.2 | **server**（服务包；platforms=android+win32） | `packages/lx-sync-2.1.2.zip` |
 | 弹幕 API 服务 | `danmu-api` | 1.0.1 | **server**（服务包；platforms=android+win32） | `packages/danmu-1.0.1.zip` |
 | EPG 节目单服务 | `epg-tool` | 1.0.0 | **server**（服务包；runtime=php，需先装 php 运行时插件；platforms=android） | `packages/epg-tool-1.0.0.zip` |
-| 演示源包 | `demo-sources` | 1.2.9 | **source**（源码包；platforms=android+win32；html/ 含 bilibili 完整源 + Web 源演示 + 独狼影视聚合（6 站聚合便携 WebHome 应用）+ 歪比巴卜 booster + fm 桥自验探针（fm-selftest.html / gm-probe.web.json+js）——需本体 ≥0.9.7） | `packages/demo-sources-1.2.9.zip` |
+| 演示源包 | `demo-sources` | 1.2.10 | **source**（源码包；platforms=android+win32；html/ 含 bilibili 完整源 + Web 源演示 + 独狼影视聚合（6 站聚合便携 WebHome 应用，装磁力插件后磁力集推壳播放）+ 歪比巴卜 booster + fm 桥自验探针（fm-selftest.html / gm-probe.web.json+js）——需本体 ≥0.9.7） | `packages/demo-sources-1.2.10.zip` |
 | catLib 引擎库包 | `catlib` | 1.0.0 | **source**（源码包；引擎库；platforms=android+win32） | `packages/catlib-1.0.0.zip` |
 | IDM+ 下载器（1DM+） | `idmplus` | 18.2 | **apk**（系统安装；Release 分发；platforms=android） | `idmplus-18.2-CN.apk` |
 | ~~MT管理器~~ | `mtmanager` | 2.14.5 | **apk**（系统安装；platforms=android）**⚠️ 已下架**（`delisted: true`——转发专有第三方应用无再分发授权，停止分发；条目与安装包保留在仓库不删除，去标记即可恢复上架） | `packages/mtmanager-2.14.5.apk` |

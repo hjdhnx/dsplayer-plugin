@@ -512,14 +512,14 @@
       "id": "demo-sources",
       "name": "演示源包",
       "author": "hjdhnx",
-      "desc": "本地源码集合包（应用类）：整包按 DsPlayer 目录树解压——源文件落 sdcard/dsplayer/spider/。含 dr2/dr3/hipy/js 四类引擎源、html 五形态 Web 源（bilibili 完整版 / Web源演示教学 / 独狼影视聚合——6 站聚合的便携 WebHome 应用 / 歪比巴卜页面增强器 booster——wbbb1.web.json+wbbb1.js 成对分发 / fm 桥自验探针——fm-selftest.html 与 GM 包装层探针 gm-probe.web.json+gm-probe.js 成对）共 22 个文件。",
-      "version": "1.2.9",
+      "desc": "本地源码集合包（应用类）：整包按 DsPlayer 目录树解压——源文件落 sdcard/dsplayer/spider/。含 dr2/dr3/hipy/js 四类引擎源、html 五形态 Web 源（bilibili 完整版 / Web源演示教学 / 独狼影视聚合——6 站聚合的便携 WebHome 应用 / 歪比巴卜页面增强器 booster——wbbb1.web.json+wbbb1.js 成对分发 / fm 桥自验探针——fm-selftest.html 与 GM 包装层探针 gm-probe.web.json+gm-probe.js 成对）共 22 个文件；独狼源磁力集在安装「磁力播放」插件后推壳整表播放。",
+      "version": "1.2.10",
       "type": "source",
       "category": "app",
-      "url": "packages/demo-sources-1.2.9.zip",
-      "size": 1212369,
-      "md5": "d1cde6f68018d6cf87e4dcc10a57daac",
-      "changelog": "1.2.9：新增「独狼影视聚合」WEB 源——独播库/剧下饭/热播/TVB云播/pomo/喜马拉雅 6 站聚合的便携 WebHome 应用（页面自带搜索/详情/选集/听书播放）；配套本体 resolver 双契约（ep 对象 / URL 串入参、裸 URL 返回）后可在壳子详情页整表连播（独播库 HLS 与 TVB 线路真机验收）。pomo 为磁力，点集走下载器/剪贴板。1.2.8：百忙无果d3 详情页标题恒为「还没有收到任」根修——mgtv 改版后 HTML 选择器失效（.vt-txt 无匹配 → 标题抓空 → 兜底把页面模板文案 p:eq(0) 前 6 字当标题）；detail 改全 JSON 接口（episode/list + video/info）取值，不再依赖页面结构。1.2.7：央视频d3 代理播放提速——TS 段 base64 编码改走 qjs_ultra C 层 Uint8Array.toBase64（三级回退 toBase64→Buffer→纯 JS，逐字符一致），每段 370-520ms → 2-10ms，起播约省 1-2s（续播段数越多省得越多）；作为「源内重活先查宿主 C 能力」典型案例。1.2.6：新增 fm 桥自验探针——fm-selftest.html（打开自动跑 28 项 fm/ds API 自检表，结果打 console/logcat；group B 手点导航/播放类）+ gm-probe.web.json/.js（booster 语境 GM 包装层 8 项探针，与自验页同页合一）。配套本体 v0.9.9+ 的 fm 全量兼容（webhtv WebHome 对标：fm.vod/stat/ctrl/device/site/config/history/pan 降级/GM 包装层）。GM 探针源 api 为 Android 绝对路径 /storage/emulated/0/…（桌面端可按需手改）。",
+      "url": "packages/demo-sources-1.2.10.zip",
+      "size": 1212585,
+      "md5": "6f5020bd1ac8b1c6f46767c15ff50335",
+      "changelog": "1.2.10：独狼聚合源磁力推送放开——壳子装了「磁力播放」插件（fm.magnetReady / ds.env.magnet）时磁力集推壳子详情页整表播放（种子文件列表 / 边下边播），未装回落 fm.pan.play（IDM+）/剪贴板；夸克网盘恒复制链接。1.2.9：新增「独狼影视聚合」WEB 源——独播库/剧下饭/热播/TVB云播/pomo/喜马拉雅 6 站聚合的便携 WebHome 应用（页面自带搜索/详情/选集/听书播放）；配套本体 resolver 双契约（ep 对象 / URL 串入参、裸 URL 返回）后可在壳子详情页整表连播（独播库 HLS 与 TVB 线路真机验收）。pomo 为磁力，点集走下载器/剪贴板。1.2.8：百忙无果d3 详情页标题恒为「还没有收到任」根修——mgtv 改版后 HTML 选择器失效（.vt-txt 无匹配 → 标题抓空 → 兜底把页面模板文案 p:eq(0) 前 6 字当标题）；detail 改全 JSON 接口（episode/list + video/info）取值，不再依赖页面结构。1.2.7：央视频d3 代理播放提速——TS 段 base64 编码改走 qjs_ultra C 层 Uint8Array.toBase64（三级回退 toBase64→Buffer→纯 JS，逐字符一致），每段 370-520ms → 2-10ms，起播约省 1-2s（续播段数越多省得越多）；作为「源内重活先查宿主 C 能力」典型案例。1.2.6：新增 fm 桥自验探针——fm-selftest.html（打开自动跑 28 项 fm/ds API 自检表，结果打 console/logcat；group B 手点导航/播放类）+ gm-probe.web.json/.js（booster 语境 GM 包装层 8 项探针，与自验页同页合一）。配套本体 v0.9.9+ 的 fm 全量兼容（webhtv WebHome 对标：fm.vod/stat/ctrl/device/site/config/history/pan 降级/GM 包装层）。GM 探针源 api 为 Android 绝对路径 /storage/emulated/0/…（桌面端可按需手改）。",
       "tags": [
         "本地源",
         "应用"
@@ -528,6 +528,31 @@
       "platforms": [
         "android",
         "win32"
+      ]
+    },
+    {
+      "id": "magnet",
+      "name": "磁力播放",
+      "author": "hjdhnx",
+      "desc": "BitTorrent 边下边播插件（纯 so，应用内解压，免系统安装）：安装后详情页磁力集自动展开种子内文件列表，点集即边下边播、可拖动已下载区间；未安装时磁力集仅支持复制链接/IDM+。引擎 anacrolix/torrent v1.53.3（MPL-2.0），支持 arm64-v8a / armeabi-v7a。",
+      "version": "1.0.0",
+      "type": "import",
+      "category": "env",
+      "url": "packages/magnet-1.0.0.zip",
+      "size": 10045772,
+      "md5": "864ccd9d15861f40fd1da704ddee0a23",
+      "changelog": "1.0.0：首发。详情期磁力→种子文件列表（元数据 30s 上限，详情 8s 提前放弃保留原集）；播放期本机 HTTP 流（Range/206，边下边播，seek 已下载区间）；停止删媒体留 .torrent；单任务串行；未装插件不可播（明错 + 市场安装入口）；独狼 pomo 磁力集验收通过后发布。",
+      "tags": [
+        "磁力",
+        "播放"
+      ],
+      "icon": "icons/magnet.png",
+      "platforms": [
+        "android"
+      ],
+      "abis": [
+        "arm64-v8a",
+        "armeabi-v7a"
       ]
     },
     {
