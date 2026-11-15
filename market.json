@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-11-15T22:09:11+08:00",
+  "updatedAt": "2026-11-16T00:48:30+08:00",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -566,6 +566,29 @@
       "md5": "f73be2c91c65181d9f4db2446f0624f8",
       "category": "env",
       "changelog": "v1.0.1：整合上游 Java 层双修复（随宿主包生效，本包为配套版本元数据；so 经真机定责维持原版）——①快速切集/切清晰度崩溃根修：decode/flush/release 串行化 + flush 后等关键帧重建参考基线（mc_dec reference index abort）；②画面缩小居中四周黑边根修：GL viewport 改用 EGL surface 实际尺寸。需重出宿主包配合。",
+      "platforms": [
+        "android"
+      ]
+    },
+    {
+      "id": "jar",
+      "name": "JAR 爬虫引擎",
+      "author": "hjdhnx",
+      "desc": "执行 TVBox 生态的 jar 爬虫源（接口配置顶层 spider 指向 jar、站点 api 形如 csp_类名）：插件提供 Spider 接口面与 okhttp/gson 等运行时，用户 jar 在首次进入源时按配置下载并缓存，首页/分类/详情/搜索/播放六方法在应用进程内由 DexClassLoader 执行，播放代理经本地网关处理。dex 载体 zip，应用内一键直装（不跳系统安装器）。",
+      "version": "1.0.0",
+      "type": "import",
+      "size": 1082608,
+      "url": "packages/jar-1.0.0.zip",
+      "icon": "icons/jar.png",
+      "tags": [
+        "引擎",
+        "源"
+      ],
+      "md5": "2fbc3cd05d7ca7b1bf7dd5addae8dedd",
+      "category": "env",
+      "minApp": "1.1.5",
+      "abis": [],
+      "changelog": "v1.0.0 首版：自写 Spider/SpiderDebug 接口面 + okhttp 4.12/gson 运行时 + DexClassLoader 桥；小米真机实测通过（fish 配置 111 个 csp_ 源：一键直装 / jar 下载 md5 校验 / home / category / detail / search / play 真实播放出画面与弹幕 / 超时兜底）；jar 按内容魔数判 ZIP（兼容 .jpg 伪装）+ 失败回落旧缓存。",
       "platforms": [
         "android"
       ]
