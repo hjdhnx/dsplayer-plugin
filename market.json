@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-11-16T07:31:00+08:00",
+  "updatedAt": "2026-11-16T07:42:00+08:00",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -525,6 +525,29 @@
         "应用"
       ],
       "icon": "icons/demo-sources.png",
+      "platforms": [
+        "android",
+        "win32"
+      ]
+    },
+    {
+      "id": "web-rules",
+      "name": "Web 规则源包",
+      "author": "hjdhnx",
+      "desc": "本地 Web 源集合包（应用类）：整包按 DsPlayer 目录树解压到 sdcard/dsplayer/spider/html/。含 10 个单文件 Web 源（TG短剧 / 宝宝在线 / 玩偶盘搜[盘] / 网抑[听] / 网页游[游戏] / 苹果音乐[听] / 豆瓣盘搜[听] / 连连看[游戏] / 酷我[听] / 音乐合集[听]）+ ui/ 目录包源（23 套全源浏览皮肤 + 音乐播放器内嵌页，入口 index.html 为皮肤选择界面）共 36 个文件。目录含 index.html 即自动成源，不需要 .web.json 或 UI.json 清单。注意：皮肤数据由页面直连本机网关 /mcp（list_sites/site_home/site_category/site_search/site_detail），首次进入需粘贴 MCP token（插件页 → 本地网关 → 「复制 Claude 配置 JSON」整段粘入即可）；皮肤页 Vue3/FontAwesome 走 CDN，离线环境为空白。",
+      "version": "1.0.0",
+      "type": "source",
+      "category": "app",
+      "url": "packages/web-rules-1.0.0.zip",
+      "size": 1407499,
+      "md5": "2011d7de58402675c36ffb38aa647109",
+      "changelog": "1.0.0：首发——Web 源规则包。10 个单文件 Web 源（短剧 / 盘搜 / 音乐 / 小游戏）+ ui 目录包源（23 套全源浏览皮肤 + 音乐播放器，index.html 选择界面）；spider/html/ 直落位，装完重进点播页自动入库（旧版本体装本包无副作用）；ui 目录包天然成源，无需 UI.json/清单（清单只用于无自有 html 的注入型源）。皮肤依赖本机网关 /mcp 与手贴 MCP token；筛选参数为 drpyS 形态，在 DsPlayer 内静默不生效。",
+      "tags": [
+        "本地源",
+        "Web源",
+        "应用"
+      ],
+      "icon": "icons/web-rules.png",
       "platforms": [
         "android",
         "win32"

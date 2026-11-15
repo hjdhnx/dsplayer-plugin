@@ -2,7 +2,7 @@
 
 DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装入口），`packages/` 存放插件包，`icons/` 存放条目图标。
 
-## 当前收录（43 个条目 = 环境 24 + 应用 19）
+## 当前收录（44 个条目 = 环境 24 + 应用 20）
 
 条目带 `category` 字段（2026-09-20 起）：`env`=环境（引擎/运行时，给壳子供能力，默认归类）；`app`=应用（面向完整使用场景：整合包、直播源包、服务包）。市场内按类别过滤，默认展示「环境」。
 
@@ -49,6 +49,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | 弹幕 API 服务 | `danmu-api` | 1.0.1 | **server**（服务包；platforms=android+win32） | `packages/danmu-1.0.1.zip` |
 | EPG 节目单服务 | `epg-tool` | 1.0.0 | **server**（服务包；runtime=php，需先装 php 运行时插件；platforms=android） | `packages/epg-tool-1.0.0.zip` |
 | 演示源包 | `demo-sources` | 1.2.11 | **source**（源码包；platforms=android+win32；html/ 含 bilibili 完整源 + Web 源演示 + 配置助手（壳内接口配置一键管理，需本体 ds.profiles 桥）+ 独狼影视聚合（6 站聚合便携 WebHome 应用，装磁力插件后磁力集推壳播放）+ 歪比巴卜 booster + fm 桥自验探针（fm-selftest.html / gm-probe.web.json+js）——需本体 ≥0.9.7） | `packages/demo-sources-1.2.11.zip` |
+| Web 规则源包 | `web-rules` | 1.0.0 | **source**（源码包；platforms=android+win32；`spider/html/` 10 个单文件 Web 源 + `ui/` 目录包源（23 套全源浏览皮肤 + 音乐播放器，入口 index.html 选择界面；目录含 index.html 自动成源、无需 UI.json；皮肤首次进入手贴 MCP token） | `packages/web-rules-1.0.0.zip` |
 | catLib 引擎库包 | `catlib` | 1.0.0 | **source**（源码包；引擎库；platforms=android+win32） | `packages/catlib-1.0.0.zip` |
 | IDM+ 下载器（1DM+） | `idmplus` | 18.2 | **apk**（系统安装；Release 分发；platforms=android） | `idmplus-18.2-CN.apk` |
 | ~~MT管理器~~ | `mtmanager` | 2.14.5 | **apk**（系统安装；platforms=android）**⚠️ 已下架**（`delisted: true`——转发专有第三方应用无再分发授权，停止分发；条目与安装包保留在仓库不删除，去标记即可恢复上架） | `packages/mtmanager-2.14.5.apk` |
