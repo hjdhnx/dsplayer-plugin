@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-11-16T00:48:30+08:00",
+  "updatedAt": "2026-11-16T01:05:20+08:00",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -577,14 +577,14 @@
       "desc": "执行 TVBox 生态的 jar 爬虫源（接口配置顶层 spider 指向 jar、站点 api 形如 csp_类名）：插件提供 Spider 接口面与 okhttp/gson 等运行时，用户 jar 在首次进入源时按配置下载并缓存，首页/分类/详情/搜索/播放六方法在应用进程内由 DexClassLoader 执行，播放代理经本地网关处理。dex 载体 zip，应用内一键直装（不跳系统安装器）。",
       "version": "1.0.0",
       "type": "import",
-      "size": 1082608,
+      "size": 1082482,
       "url": "packages/jar-1.0.0.zip",
       "icon": "icons/jar.png",
       "tags": [
         "引擎",
         "源"
       ],
-      "md5": "2fbc3cd05d7ca7b1bf7dd5addae8dedd",
+      "md5": "20e3d6d9bd2453b5d5fd064c59c113c9",
       "category": "env",
       "minApp": "1.1.5",
       "abis": [],
