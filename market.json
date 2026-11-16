@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-11-16T09:11:00+08:00",
+  "updatedAt": "2026-11-16T12:40:00+08:00",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -622,21 +622,21 @@
       "id": "jar",
       "name": "JAR 爬虫引擎",
       "author": "hjdhnx",
-      "desc": "执行 TVBox 生态的 jar 爬虫源（接口配置顶层 spider 指向 jar、站点 api 形如 csp_类名）：插件在应用进程内用 DexClassLoader 加载用户 jar（在线下载或本地包 file://），首页/分类/详情/搜索/播放六方法由桥反射执行，播放代理经本地网关处理。dex 载体 zip，应用内一键直装（不跳系统安装器）。支持本地配置包（如小虎斑包：tvbox.json + custom_spider_cat.jar + lib/ 相对路径）与加固 CAT jar。",
-      "version": "1.0.1",
+      "desc": "执行 TVBox 生态的 jar 爬虫源（接口配置顶层 spider 指向 jar、站点 api 形如 csp_类名）：插件在应用进程内用 DexClassLoader 加载用户 jar（在线下载或本地包 file://），首页/分类/详情/搜索/播放六方法由桥反射执行，播放代理经本地网关处理。dex 载体 zip，应用内一键直装（不跳系统安装器）。1.1.0 起内置 zxing/sardine/slf4j/quickjs 依赖（含各 ABI so），支持二维码登录、WebDAV、源内 JS；支持本地配置包与加固 CAT/wexguard jar。",
+      "version": "1.1.0",
       "type": "import",
-      "size": 1082448,
-      "url": "packages/jar-1.0.1.zip",
+      "size": 3855509,
+      "url": "packages/jar-1.1.0.zip",
       "icon": "icons/jar.png",
       "tags": [
         "引擎",
         "源"
       ],
-      "md5": "9b8ca82bb7705eca77bfb23cd3897984",
+      "md5": "f35ad2c7879b5b501c9bbd647c4f8161",
       "category": "env",
-      "minApp": "1.1.5",
+      "minApp": "1.1.6",
       "abis": [],
-      "changelog": "v1.0.1：支持本地 jar 源包（tvbox.json 相对 spider/ext 归一 file://；本地 jar 直接加载不复制缓存；本机 sdcard 任意路径）与加固 CAT jar（Spider/SpiderDebug/okhttp/gson 移到宿主 CL，桥改纯反射——payload loader parent=Application CL 的硬约束）。小米真机：小虎斑包 117 源添加成功，加固 jar payload boot/home/category/detail/play 出画面+弹幕，在线 fish 配置无回归。v1.0.0：首版 Six-method 桥 + 下载缓存 + 一键直装。",
+      "changelog": "v1.1.0：P1 依赖全部移入插件（zxing 二维码/sardine WebDAV/slf4j/quickjs），zip 携带 lib/<abi>/quickjs so，本体守住 <20MB；宿主 DexClassLoader 支持任意段 classes*.dex，安装链把 so 按宿主 ABI 落到 plugins/jar/libs/。修复 release 加固 jar 因宿主 R8 裁掉 okhttp/okio/gson 导致的 NoClassDefFoundError（需本体 1.1.6 keep）。v1.0.1：本地 jar 源包 + 加固 CAT jar + 桥反射。v1.0.0：首版六方法桥 + 下载缓存 + 一键直装。",
       "platforms": [
         "android"
       ]
