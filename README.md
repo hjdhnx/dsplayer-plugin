@@ -153,3 +153,15 @@ GitHub 直连不畅时，任选其一（DsPlayer 内「管理市场 → GitHub �
 ## 自建市场
 
 任意能放静态文件的地址（GitHub 仓库 / 对象存储 / 本地 sdcard）都可作市场：一份索引 JSON + 包文件即可。第三方条目的 `id` 须与包内 `plugin.json` 身份一致（`live`/`server` 条目除外：`live` 无插件身份，`server` 以 manifest 建服务），否则已装判定不闭环。
+
+## 做一个 DsPlayer 插件（作者入口）
+
+**零门槛路径：拿 [DsPlayer 主仓的 `docs/plugin-build.md`](https://github.com/hjdhnx/DsPlayerOpen/blob/main/docs/plugin-build.md) 整份丢给任意 AI**，填上你的项目地址即可——那是与当前代码逐项核对过的提示词模板，覆盖：八种形态判定、每种形态的包结构与 manifest 真实 schema（含 2026-11-16 起的 format:2 双字段清单）、编译与打包纪律（Python zipfile 固定时间戳）、市场条目与上架流程、真机验证清单。
+
+速记（细节以 plugin-build.md 为准）：
+
+1. 判形态：独立二进制服务→binary；解释器→binary-runtime；Node/PHP Web 服务→server；影视/音乐源→source；电视源→live JSON；必须系统安装的→apk；TVBox jar 爬虫引擎→jar（dex 载体 zip）；纯 so/dll→so。
+2. 写 manifest：新插件推荐 format:2 双字段（旧字段全保留 + `artifacts`/`provides`/`platforms` 声明，样例 = 本仓 `packages/jar-1.2.0.zip` / `packages/magnet-1.0.2.zip`）；只写旧字段同样可用（永久兼容）。
+3. 打包：Python zipfile、固定时间戳（同内容同 md5）、manifest 在 zip 根部、二进制 ELF/PE 魔数真实。
+4. 上架：包入 `packages/`（文件名带版本、同名不重传、旧版删除）→ `market.json` 条目（version/size/md5/changelog 同步 + 刷 `updatedAt`）→ README 条目表 → `python check_market.py` 八项全 PASS → 提 PR 或 issue 附包。
+
