@@ -6,7 +6,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 
 条目带 `category` 字段（2026-09-20 起）：`env`=环境（引擎/运行时，给壳子供能力，默认归类）；`app`=应用（面向完整使用场景：整合包、直播源包、服务包）。市场内按类别过滤，默认展示「环境」。
 
-**platforms 规范（2026-10-10 起，官方仓铁律，check_market.py 闸门强制）**：全量条目显式声明 `platforms`，零缺省（缺省=不限平台的语义仅为三方市场兼容保留）。词表 `android`/`win32`（预留 `linux`）。二进制形态条目（import/apk）**恰好一个平台词**——一个条目一个平台、包内只含该平台二进制（禁多合一合包，跨平台插件拆 `-win` 独立条目、版本独立线）；数据类条目（live/server/source）无二进制，标全平台组合 `["android","win32"]`，新平台加入时按此账本补标。win32 条目必须设 `minApp`（承载 PC 插件支持的最低本体版本）。包内适配以 plugin.json 的 binaries 平台键终判。发版前先跑 `python check_market.py`，七项全 PASS 才允许 commit（README 条目表↔market.json↔packages/ 一致性由它保证，不靠人肉）。
+**platforms 规范（2026-10-10 起，官方仓铁律，check_market.py 闸门强制）**：全量条目显式声明 `platforms`，零缺省（缺省=不限平台的语义仅为三方市场兼容保留）。词表 `android`/`win32`（预留 `linux`）。二进制形态条目（import/apk）**恰好一个平台词**——一个条目一个平台、包内只含该平台二进制（禁多合一合包，跨平台插件拆 `-win` 独立条目、版本独立线）；数据类条目（live/server/source）无二进制，标全平台组合 `["android","win32"]`，新平台加入时按此账本补标。win32 条目必须设 `minApp`（承载 PC 插件支持的最低本体版本）。包内适配以 plugin.json 的 binaries 平台键终判。发版前先跑 `python check_market.py`，**八项全 PASS** 才允许 commit（README 条目表↔market.json↔packages/↔icons/ 一致性由它保证，不靠人肉）。
 
 **abis 规范（2026-10-14 起，MARKET-ABI-ADAPT-DESIGN）**：二进制形态条目（import/apk）可选声明 `abis`（词表 `arm64-v8a`/`armeabi-v7a`/`x86_64`/`x86`，多值允许）。**缺省（未声明）= `["arm64-v8a"]`**——历史存量条目零改动即适用；纯资源形态（agent）显式 `[]` = 不限；32 位补位包声明 `["armeabi-v7a"]`（如 qjs-arm32，版本独立线）。客户端判定基准 = 宿主**进程 ABI**（非设备 abilist）：不匹配的条目在列表默认隐藏（「全部架构」开关可浏览，仍置灰禁装），安装入口硬拦截，包内 plugin.json 的 `abis` 声明为终判。
 
@@ -144,7 +144,7 @@ GitHub 直连不畅时，任选其一（DsPlayer 内「管理市场 → GitHub �
 
 ## 发布约定（2026-09-20 起执行）
 
-0. **发版闸门**：commit 前先跑 `python check_market.py`，七项全 PASS 才允许发布（退出码非零=拒绝）；红项即待修清单。
+0. **发版闸门**：commit 前先跑 `python check_market.py`，八项全 PASS 才允许发布（退出码非零=拒绝；含 icon 文件存在项）；红项即待修清单。
 1. **同名包绝不重传**：内容有任何变化一律升版本号并换新文件名（如 `lx-sync-2.1.2.zip`），代理/CDN 层对同名文件的缓存会导致客户端「md5 校验不符」假失败（lx-sync 实锤）。旧版本包删除（git 历史留档）。
 2. `md5` / `size` / `version` / `changelog` 与包严格同步；顶层 `updatedAt` 每次发布刷新。
 3. `server` 条目包内 `server.json` 为安装指令，DsPlayer 安装时跳过落盘；`live` 条目包体即数据。

@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-11-16T08:40:00+08:00",
+  "updatedAt": "2026-11-16T09:11:00+08:00",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -943,6 +943,7 @@
       "category": "env",
       "size": 165187149,
       "url": "https://github.com/hjdhnx/dsplayer-plugin/releases/download/captcha-bypass-1.1.2/captcha-bypass-1.1.2.zip",
+      "icon": "icons/captcha-bypass.png",
       "tags": [
         "OCR",
         "服务"
@@ -967,6 +968,7 @@
       "category": "env",
       "size": 164825119,
       "url": "https://github.com/hjdhnx/dsplayer-plugin/releases/download/captcha-bypass-win-1.1.2/captcha-bypass-win-1.1.2.zip",
+      "icon": "icons/captcha-bypass.png",
       "tags": [
         "OCR",
         "服务"

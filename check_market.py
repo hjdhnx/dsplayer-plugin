@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """DsPlayer 官方插件市场对账闸门（MARKET-PLATFORM-ADAPT-DESIGN §七）。
 
-发版前必跑；退出码非零 = 拒绝发布。七项校验（R1-R6 + abis 词法 + 完整性）：
+发版前必跑；退出码非零 = 拒绝发布。八项校验（R1-R6 + abis 词法 + 完整性 + icon）：
   1. market.json 可解析、条目 id 唯一、四要素（id/name/version/url）齐全
   2. 相对 url 指向的包存在于 packages/；packages/ 无孤儿文件（绝对 URL
      条目走 Release 分发，只查 md5 已声明，不查本地）
@@ -12,6 +12,7 @@
      （MARKET-ABI-ADAPT-DESIGN §六，2026-10-14）
   6. README 条目表：行数 == 条目数；头部计数行（N = 环境 X + 应用 Y）；逐行 id/版本/包名与 market.json 一致
   7. 顶层 updatedAt 存在且 ISO8601 格式合法
+  8. 每条目 icon 已声明且文件存在于 icons/（防市场卡片空白图）
 
 用法：python check_market.py   （在仓库根目录执行）
 """
@@ -261,6 +262,21 @@ def main():
     except ValueError:
         ok6, line6 = (upd != ''), f'updatedAt 非法：{upd!r}（期望 ISO8601，如 2026-10-09T09:54:39Z）'
     rpt.check('7. 顶层 updatedAt 存在且 ISO8601 合法', ok6, [line6])
+
+    # ---- 8. icon 全量声明且文件存在（市场卡片不空白）----
+    no_icon = [str(e['id']) for e in plugins if not e.get('icon')]
+    missing_icon = []
+    for e in plugins:
+        icon = e.get('icon')
+        if icon and not os.path.isfile(os.path.join(HERE, icon)):
+            missing_icon.append(f"#{e['id']} -> {icon}")
+    lines = []
+    if no_icon:
+        lines.append(f'未声明 icon：{no_icon}')
+    if missing_icon:
+        lines.append(f'icon 文件不存在：{missing_icon}')
+    rpt.check('8. icon 全量声明且文件存在', not lines,
+              lines or [f'{len({e.get("icon") for e in plugins})} 个图标文件覆盖全部条目'])
 
     # ---- 总结 ----
     print(f'\n== 总结：{len(plugins)} 条目 · {len(local_urls)} 本地包 · '
