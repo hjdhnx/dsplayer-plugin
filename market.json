@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-11-16T18:20:00+08:00",
+  "updatedAt": "2026-11-17",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -979,6 +979,50 @@
       "platforms": [
         "win32"
       ]
+    },
+    {
+      "id": "jar-win",
+      "name": "JAR 爬虫运行时（Windows）",
+      "author": "hjdhnx",
+      "desc": "Windows 端 JAR 爬虫源运行环境：jlink 裁剪 JRE 17（43MB，含 zipfs/desktop/sql 等 unidbg 依赖模块）+ dex2jar 2.4 转换器 + Maven 依赖库 + JVM 兼容层 9 jar（Android 桩/壳影子类/SpiderHost 进程运行器，源自 Win-box/MisaTV @ f91cc41，GPL-3.0，随包 LICENSES/ 与 UPSTREAMS.md 声明）。本身不启动服务——JAR 源调用时由宿主拉起 SpiderHost JVM（stdin/stdout JSON 行协议），serve 池空闲 45s 自动回收。加固壳源（FishGuard/wexGuard/*Amns）需另装 jar-guard。需 DsPlayer 1.1.8+（PC 端 JAR 分派）。",
+      "version": "1.0.0",
+      "type": "import",
+      "size": 70723184,
+      "url": "packages/jar-win-1.0.0.zip",
+      "icon": "icons/jar.png",
+      "tags": [
+        "运行时",
+        "引擎"
+      ],
+      "changelog": "首发：Windows JAR 爬虫全链路（dex2jar 转换→DexJarRepair→assets 合并→SpiderHost serve 池）。实测摸鱼（FishNative 型 native serve）home/category/detail/search/play 全通，唐三（wexGuard）unidbg 首解 52s→payload 快路径 2.4s。",
+      "md5": "d693eafb8f5eb1d9f7f13a21ea8ee6c0",
+      "platforms": [
+        "win32"
+      ],
+      "minApp": "1.1.8",
+      "category": "env"
+    },
+    {
+      "id": "jar-guard",
+      "name": "JAR 加固壳支持（Windows）",
+      "author": "hjdhnx",
+      "desc": "加固壳 JAR 源的首次解包支持（Windows）：unidbg 0.9.9 ARM 仿真全家桶 18 jar（dynarmic JIT 后端）+ AwInit 垫片。遇加固壳（*Guard/*Amns/CAT/DexNative）且无 payload 缓存时由 jar-win 传输层在全局闸门内拉起一次性模拟器 JVM 解包（20~60s），产物缓存后日常调用不再需要模拟器。unidbg Apache-2.0（随包 LICENSES/）。依赖 jar-win。",
+      "version": "1.0.0",
+      "type": "import",
+      "size": 39560459,
+      "url": "packages/jar-guard-1.0.0.zip",
+      "icon": "icons/jar.png",
+      "tags": [
+        "运行时",
+        "引擎"
+      ],
+      "changelog": "首发：unidbg 0.9.9 依赖树 18 jar（版本经 MisaTV arm_bridge_runtime 清单核对）+ AwInit.java 垫片（libdecjni JNI_OnLoad 反射依赖）+ Apache-2.0/GPL 归属登记。实测唐三 wexguard_v8 首解成功、嗷呜 Amns 载荷解包成功。",
+      "md5": "9bbef09c22da691dd855f733799fd243",
+      "platforms": [
+        "win32"
+      ],
+      "minApp": "1.1.8",
+      "category": "env"
     }
   ]
 }

@@ -2,7 +2,7 @@
 
 DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装入口），`packages/` 存放插件包，`icons/` 存放条目图标。
 
-## 当前收录（44 个条目 = 环境 24 + 应用 20）
+## 当前收录（46 个条目 = 环境 26 + 应用 20）
 
 条目带 `category` 字段（2026-09-20 起）：`env`=环境（引擎/运行时，给壳子供能力，默认归类）；`app`=应用（面向完整使用场景：整合包、直播源包、服务包）。市场内按类别过滤，默认展示「环境」。
 
@@ -34,6 +34,8 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | QJS 爬虫引擎（32 位设备） | `qjs-arm32` | 1.0.0 | import（platforms=android；abis=armeabi-v7a，独立版本线，minApp 0.9.10） | `packages/qjs-arm32-1.0.0.apk` |
 | QJS 爬虫引擎（Windows） | `qjs-win` | 1.0.6 | import（zip；platforms=win32，minApp 0.9.5） | `packages/qjs-win-1.0.6.zip` |
 | JAR 爬虫引擎（TVBox jar 源） | `jar` | 1.2.0 | import（zip，dex+快速 so 载体；应用内一键直装免系统安装；内置 zxing/sardine/slf4j/quickjs P1 依赖，支持本地 jar 源包/加固 CAT/wexguard jar；全 ABI（`abis: []`，quickjs so 四 ABI 全带）；minApp 1.1.6；1.2.0 起 plugin.json 携 format:2 双字段块，旧宿主兼容） | `packages/jar-1.2.0.zip` |
+| JAR 爬虫运行时（Windows） | `jar-win` | 1.0.0 | import（zip；platforms=win32，minApp 1.1.8；jlink 裁剪 JRE 17 + dex2jar 2.4 + Maven 依赖库 + JVM 兼容层 9 jar（Win-box/MisaTV @ f91cc41，GPL-3.0，随包 LICENSES/ 与 UPSTREAMS.md）；binary-runtime 整包落位，SpiderHost serve 池空闲 45s 自动回收；加固壳源需另装 jar-guard） | `packages/jar-win-1.0.0.zip` |
+| JAR 加固壳支持（Windows） | `jar-guard` | 1.0.0 | import（zip；platforms=win32，minApp 1.1.8；unidbg 0.9.9 ARM 仿真 18 jar（dynarmic）+ AwInit 垫片，binary-libs 纯库集整包落位、无 exe；遇加固壳且无 payload 缓存时一次性解包（20~60s），产物缓存后不再需要模拟器；依赖 jar-win） | `packages/jar-guard-1.0.0.zip` |
 | 磁力播放插件 | `magnet` | 1.0.2 | import（zip；纯 so 边下边播；应用内解压免系统安装；platforms=android，abis=arm64-v8a+armeabi-v7a；1.0.2 起 plugin.json 携 format:2 双字段块，旧宿主兼容） | `packages/magnet-1.0.2.zip` |
 | AI 助手界面 | `agent` | 1.1.0 | import（platforms=android） | `packages/agent-1.1.0.apk` |
 | 验证码识别服务 | `captcha-bypass` | 1.1.2 | import（zip；binary 运行时服务；platforms=android，abis=arm64-v8a，minApp 1.0.6）**大体积走 GitHub Release 分发** | `captcha-bypass-1.1.2.zip`（[Release](https://github.com/hjdhnx/dsplayer-plugin/releases/download/captcha-bypass-1.1.2/captcha-bypass-1.1.2.zip)） |
