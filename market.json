@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-11-17",
+  "updatedAt": "2026-11-18",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -215,6 +215,32 @@
       "category": "env",
       "platforms": [
         "android"
+      ],
+      "abis": [
+        "arm64-v8a"
+      ]
+    },
+    {
+      "id": "py-arm32",
+      "name": "Python 爬虫引擎（32 位设备）",
+      "author": "hjdhnx",
+      "desc": "本地 Python 爬虫源执行引擎的 32 位（armeabi-v7a）构建，供 32 位安卓设备/老电视使用——type=3 的 .py 源自动进入点播源列表。运行时组件必须以 APK 形态安装，安装时跳转系统安装器并需「安装未知应用」授权。64 位设备请装「Python 爬虫引擎」。",
+      "version": "1.0.0",
+      "type": "apk",
+      "size": 16592222,
+      "url": "packages/DsPlayer-Python-plugin-1.0.0-arm32.apk",
+      "icon": "icons/py.png",
+      "tags": [
+        "引擎"
+      ],
+      "md5": "620b361f67135726f0f858efbbfc0517",
+      "changelog": "首版（arm32 架构补位包，版本独立线，Python 3.11.14）：Chaquopy 17.0.0 + Python 3.11 构建（3.12+ 无 32 位 target），预装依赖与 64 位线一致（requests/lxml 5.3.0/pycryptodome 3.21.0/pyquery/bs4/jsonpath/json5/jinja2/cachetools）。宿主侧配套（2026-11-18 cbf76e5）：Python 插件 ABI 矩阵开放 armeabi-v7a + pyc magic 3.11/3.12 双认；旧宿主仍可安装并使用明文 .py 源。64 位设备请用 py。",
+      "category": "env",
+      "platforms": [
+        "android"
+      ],
+      "abis": [
+        "armeabi-v7a"
       ]
     },
     {
