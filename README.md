@@ -55,7 +55,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | 洛雪同步 | `lx-sync` | 2.1.2 | **server**（服务包；platforms=android+win32） | `packages/lx-sync-2.1.2.zip` |
 | 弹幕 API 服务 | `danmu-api` | 1.0.1 | **server**（服务包；platforms=android+win32） | `packages/danmu-1.0.1.zip` |
 | EPG 节目单服务 | `epg-tool` | 1.0.0 | **server**（服务包；runtime=php，需先装 php 运行时插件；platforms=android） | `packages/epg-tool-1.0.0.zip` |
-| Edge 朗读 TTS 服务 | `ra-tts` | 0.1.0 | **server**（服务包；需先装 nodejs 运行时插件（Windows 侧 nodejs-win）；微软 318 音色，端口 38080，供阅读网络朗读音色包消费；platforms=android+win32） | `packages/ra-tts-0.1.0.zip` |
+| Edge 朗读 TTS 服务 | `ra-tts` | 0.1.1 | **server**（服务包；需先装 nodejs 运行时插件（Windows 侧 nodejs-win）；微软 318 音色，端口 38080，供阅读网络朗读音色包消费；platforms=android+win32） | `packages/ra-tts-0.1.1.zip` |
 | 演示源包 | `demo-sources` | 1.2.13 | **source**（源码包；platforms=android+win32；html/ 含 bilibili 完整源 + Web 源演示 + 配置助手（壳内接口配置一键管理，内置清单新增嗷呜 jar 线路，需本体 ds.profiles 桥）+ 独狼影视聚合（6 站聚合便携 WebHome 应用，装磁力插件后磁力集推壳播放）+ 歪比巴卜 booster + fm 桥自验探针（fm-selftest.html / gm-probe.web.json+js）+ 五子棋宝典（先手必胜冲四套娃修炼，纯前端，双击即玩）——需本体 ≥0.9.7） | `packages/demo-sources-1.2.13.zip` |
 | Web 规则源包 | `web-rules` | 1.0.0 | **source**（源码包；platforms=android+win32；`spider/html/` 10 个单文件 Web 源 + `ui/` 目录包源（23 套全源浏览皮肤 + 音乐播放器，入口 index.html 选择界面；目录含 index.html 自动成源、无需 UI.json；皮肤首次进入手贴 MCP token） | `packages/web-rules-1.0.0.zip` |
 | catLib 引擎库包 | `catlib` | 1.0.0 | **source**（源码包；引擎库；platforms=android+win32） | `packages/catlib-1.0.0.zip` |
