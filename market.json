@@ -587,13 +587,13 @@
       "name": "Edge 朗读 TTS 服务",
       "author": "wxxxcxx / hjdhnx",
       "desc": "微软 Edge 朗读 TTS 转发服务（来源 github.com/wxxxcxx/ms-ra-forwarder，fork server/ 核心单文件抽取版，零 node_modules）：微软神经网络音色 318 个（zh-CN-XiaoxiaoNeural 等），提供 /api/text-to-speech 与 /api/ra（旧版 ms-ra-forwarder 兼容）双端点。安装后自动创建「Edge 朗读 TTS」服务（需先装 nodejs 运行时插件，Windows 侧为 nodejs-win），默认端口 38080。启动后 DsPlayer 阅读 → 设置 → 朗读引擎切「网络」并导入音色包，URL 填 http://127.0.0.1:38080/api/text-to-speech?voice=zh-CN-XiaoxiaoNeural&rate=0&volume=100&pitch=0&text={{speakText}}（voice 可换 /api/voices 列表内任意音色；网络朗读引擎随新版本体提供）。仅供学习参考，请勿商用。",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "type": "server",
       "category": "app",
-      "url": "packages/ra-tts-0.1.1.zip",
-      "size": 104285,
-      "md5": "45e7f83c5a8ba824c8d036a052c2571d",
-      "changelog": "0.1.1：修包内目录层级——zip 产物须落在 workDir 同名目录（ra-tts/ra-server.cjs），0.1.0 平铺在根部导致安装后「工作目录不存在」；包内附 README.txt（端点/鉴权/音色包模板速查）。",
+      "url": "packages/ra-tts-0.1.2.zip",
+      "size": 104295,
+      "md5": "db054589aff89a5c0b45a19f9089986c",
+      "changelog": "0.1.2：/api/voices 补 shortName 字段——壳子管理页「快捷添加」可拉全量 318 音色自选生成。",
       "tags": [
         "服务",
         "朗读"
