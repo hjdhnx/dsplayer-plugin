@@ -109,7 +109,7 @@ Edge 朗读 TTS 服务配套用法：服务启动后，DsPlayer 阅读 → 设�
 | `import` | zip / apk | 应用内静默导入（组件落应用内目录） | 引擎/运行时类 |
 | `apk` | apk | 跳系统安装器直装 | py、bundle、ijk、ffmpeg、bytevc2、idmplus、mtmanager |
 | `live` | JSON（`{"lives":[{name,url,ua,epg}]}`） | 写入直播配置并启用，切直播页生效；**订阅制**（内容指向外部地址时随源自动更新） | iptv-ccsh |
-| `server` | zip（根部须有 `server.json` manifest：`serviceName/workDir/entry/port/healthType/desc`） | 解压到 `sdcard/dsplayer/server/node/`（覆盖式，数据目录保留）+ **自动创建服务配置**（nodejs 运行时启动；服务 id 约定 `svc-mkt-<条目id>`，已存在跳过） | lx-sync、danmu-api、ra-tts |
+| `server` | zip（根部须有 `server.json` manifest：`serviceName/workDir/entry/port/healthType/desc`；**包内产物必须落在 workDir 同名目录下**——安装器解压根 = server/node/，ra-tts 0.1.0 曾平铺根部致「工作目录不存在」） | 解压到 `sdcard/dsplayer/server/node/`（覆盖式，数据目录保留）+ **自动创建服务配置**（nodejs 运行时启动；服务 id 约定 `svc-mkt-<条目id>`，已存在跳过） | lx-sync、danmu-api、ra-tts |
 | `source` | zip（根部可选 `source.json` manifest：`{"dirs":["dr3","js"]}` 目录白名单缺省全解压；`{"target":"dsplayer"}` = 包内路径即 dsplayer 目录树整体解压，`spider/`、`server/` 等可共存） | 缺省解压到 `sdcard/dsplayer/spider/`（顶层目录与本地源扫描目录 `dr2`/`dr3`/`hipy`/`js` 同名直落位）；target=dsplayer 按包内路径落 `sdcard/dsplayer/` 树。覆盖式不影响包外文件；进对应本地源页自动扫描入库；已装态存 App 安装记录（更新 = 市场版本对比后重装）。**zip 文件名必须 UTF-8 编码**（7-Zip 默认按本地代码页打包中文名会乱码，用 Python zipfile/UTF-8 工具打包） | demo-sources |
 
 `server` 包要求设备已装 `nodejs` 运行时插件；manifest 字段由 DsPlayer 市场安装器消费（见 DsPlayer 仓库 `MarketManager.installServerPackage`）。
