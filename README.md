@@ -2,7 +2,7 @@
 
 DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装入口），`packages/` 存放插件包，`icons/` 存放条目图标。
 
-## 当前收录（49 个条目 = 环境 29 + 应用 20）
+## 当前收录（50 个条目 = 环境 29 + 应用 21）
 
 条目带 `category` 字段（2026-09-20 起）：`env`=环境（引擎/运行时，给壳子供能力，默认归类）；`app`=应用（面向完整使用场景：整合包、直播源包、服务包）。市场内按类别过滤，默认展示「环境」。
 
@@ -55,6 +55,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | 洛雪同步 | `lx-sync` | 2.1.2 | **server**（服务包；platforms=android+win32） | `packages/lx-sync-2.1.2.zip` |
 | 弹幕 API 服务 | `danmu-api` | 1.0.1 | **server**（服务包；platforms=android+win32） | `packages/danmu-1.0.1.zip` |
 | EPG 节目单服务 | `epg-tool` | 1.0.0 | **server**（服务包；runtime=php，需先装 php 运行时插件；platforms=android） | `packages/epg-tool-1.0.0.zip` |
+| Edge 朗读 TTS 服务 | `ra-tts` | 0.1.0 | **server**（服务包；需先装 nodejs 运行时插件（Windows 侧 nodejs-win）；微软 318 音色，端口 38080，供阅读网络朗读音色包消费；platforms=android+win32） | `packages/ra-tts-0.1.0.zip` |
 | 演示源包 | `demo-sources` | 1.2.13 | **source**（源码包；platforms=android+win32；html/ 含 bilibili 完整源 + Web 源演示 + 配置助手（壳内接口配置一键管理，内置清单新增嗷呜 jar 线路，需本体 ds.profiles 桥）+ 独狼影视聚合（6 站聚合便携 WebHome 应用，装磁力插件后磁力集推壳播放）+ 歪比巴卜 booster + fm 桥自验探针（fm-selftest.html / gm-probe.web.json+js）+ 五子棋宝典（先手必胜冲四套娃修炼，纯前端，双击即玩）——需本体 ≥0.9.7） | `packages/demo-sources-1.2.13.zip` |
 | Web 规则源包 | `web-rules` | 1.0.0 | **source**（源码包；platforms=android+win32；`spider/html/` 10 个单文件 Web 源 + `ui/` 目录包源（23 套全源浏览皮肤 + 音乐播放器，入口 index.html 选择界面；目录含 index.html 自动成源、无需 UI.json；皮肤首次进入手贴 MCP token） | `packages/web-rules-1.0.0.zip` |
 | catLib 引擎库包 | `catlib` | 1.0.0 | **source**（源码包；引擎库；platforms=android+win32） | `packages/catlib-1.0.0.zip` |
@@ -99,6 +100,8 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 
 弹幕 API 服务配套用法：服务启动后，DsPlayer 设置 → 播放器 → 弹幕接口 填 `http://127.0.0.1:9321`，播放无自带弹幕的影片即自动按标题匹配（兼容弹弹play 协议）。
 
+Edge 朗读 TTS 服务配套用法：服务启动后，DsPlayer 阅读 → 设置 → 朗读引擎切「网络」导入音色包，URL 填 `http://127.0.0.1:38080/api/text-to-speech?voice=zh-CN-XiaoxiaoNeural&rate=0&volume=100&pitch=0&text={{speakText}}`（voice 可换 `/api/voices` 列表内任意音色；网络朗读引擎随新版本体提供）。
+
 ## 条目形态（type）与安装语义
 
 | type | 包体 | 安装动作 | 典型条目 |
@@ -106,7 +109,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | `import` | zip / apk | 应用内静默导入（组件落应用内目录） | 引擎/运行时类 |
 | `apk` | apk | 跳系统安装器直装 | py、bundle、ijk、ffmpeg、bytevc2、idmplus、mtmanager |
 | `live` | JSON（`{"lives":[{name,url,ua,epg}]}`） | 写入直播配置并启用，切直播页生效；**订阅制**（内容指向外部地址时随源自动更新） | iptv-ccsh |
-| `server` | zip（根部须有 `server.json` manifest：`serviceName/workDir/entry/port/healthType/desc`） | 解压到 `sdcard/dsplayer/server/node/`（覆盖式，数据目录保留）+ **自动创建服务配置**（nodejs 运行时启动；服务 id 约定 `svc-mkt-<条目id>`，已存在跳过） | lx-sync、danmu-api |
+| `server` | zip（根部须有 `server.json` manifest：`serviceName/workDir/entry/port/healthType/desc`） | 解压到 `sdcard/dsplayer/server/node/`（覆盖式，数据目录保留）+ **自动创建服务配置**（nodejs 运行时启动；服务 id 约定 `svc-mkt-<条目id>`，已存在跳过） | lx-sync、danmu-api、ra-tts |
 | `source` | zip（根部可选 `source.json` manifest：`{"dirs":["dr3","js"]}` 目录白名单缺省全解压；`{"target":"dsplayer"}` = 包内路径即 dsplayer 目录树整体解压，`spider/`、`server/` 等可共存） | 缺省解压到 `sdcard/dsplayer/spider/`（顶层目录与本地源扫描目录 `dr2`/`dr3`/`hipy`/`js` 同名直落位）；target=dsplayer 按包内路径落 `sdcard/dsplayer/` 树。覆盖式不影响包外文件；进对应本地源页自动扫描入库；已装态存 App 安装记录（更新 = 市场版本对比后重装）。**zip 文件名必须 UTF-8 编码**（7-Zip 默认按本地代码页打包中文名会乱码，用 Python zipfile/UTF-8 工具打包） | demo-sources |
 
 `server` 包要求设备已装 `nodejs` 运行时插件；manifest 字段由 DsPlayer 市场安装器消费（见 DsPlayer 仓库 `MarketManager.installServerPackage`）。
