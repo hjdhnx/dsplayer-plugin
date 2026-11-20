@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-11-19",
+  "updatedAt": "2026-11-20",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -65,6 +65,30 @@
       "platforms": [
         "android"
       ],
+      "category": "env"
+    },
+    {
+      "id": "nodejs-arm32",
+      "name": "Node.js 运行时（32 位设备）",
+      "author": "hjdhnx",
+      "desc": "Node.js 24 运行时的 32 位（armeabi-v7a）构建，供 32 位安卓设备/老电视使用——本身不启动服务，作为运行时供「服务」页引用（drpyS 源服务等）。与 64 位线同版本 v24.12.0，落盘目录与 64 位包同名（nodejs），服务引用零改动；64 位设备请装「Node.js 运行时」。",
+      "version": "1.0.0",
+      "type": "import",
+      "size": 30909747,
+      "url": "packages/nodejs-arm32-1.0.0.zip",
+      "icon": "icons/nodejs.png",
+      "tags": [
+        "运行时",
+        "服务"
+      ],
+      "md5": "15858ed3a3ad52ac61403f77d66e66f7",
+      "platforms": [
+        "android"
+      ],
+      "abis": [
+        "armeabi-v7a"
+      ],
+      "minApp": "1.1.11",
       "category": "env"
     },
     {

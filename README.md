@@ -2,7 +2,7 @@
 
 DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装入口），`packages/` 存放插件包，`icons/` 存放条目图标。
 
-## 当前收录（50 个条目 = 环境 29 + 应用 21）
+## 当前收录（51 个条目 = 环境 30 + 应用 21）
 
 条目带 `category` 字段（2026-09-20 起）：`env`=环境（引擎/运行时，给壳子供能力，默认归类）；`app`=应用（面向完整使用场景：整合包、直播源包、服务包）。市场内按类别过滤，默认展示「环境」。
 
@@ -17,6 +17,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | 媒体代理服务 | `mediaProxy` | 1.2.2 | import（zip；platforms=android） | `packages/mediaProxy-1.2.2.zip` |
 | 媒体代理服务（Windows） | `mediaProxy-win` | 1.0.0 | import（zip；platforms=win32，minApp 0.9.4） | `packages/mediaProxy-win-1.0.0.zip` |
 | Node.js 运行时 | `nodejs` | 1.0.0 | import（zip；platforms=android） | `packages/nodejs-1.0.0.zip` |
+| Node.js 运行时（32 位设备） | `nodejs-arm32` | 1.0.0 | import（zip；abis=armeabi-v7a 补位包，minApp 1.1.11；platforms=android） | `packages/nodejs-arm32-1.0.0.zip` |
 | Node.js 运行时（Windows） | `nodejs-win` | 1.0.0 | import（zip；platforms=win32，minApp 0.9.4） | `packages/nodejs-win-1.0.0.zip` |
 | Linux 沙盒运行时（PRoot） | `proot` | 1.0.0 | import（zip；binary-runtime；platforms=android，minApp 0.9.10） | `packages/proot-1.0.0.zip` |
 | PHP 运行时 | `php` | 1.3.2 | import（zip；platforms=android） | `packages/php-1.3.2.zip` |
