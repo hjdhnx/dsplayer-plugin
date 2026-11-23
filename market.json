@@ -366,13 +366,13 @@
       "desc": "IJKPlayer 播放内核插件（CarGuo 修正版 ijkplayer，FFmpeg 全协议 + MediaCodec 硬解 + HTTPS/16K page size + bytevc2 私有编码软解）。安装后在设置「播放器内核」或播放器底栏切换 IJK；与 Exo/MPV 三内核任切。v1.1.0 起支持刷剧无缝切集（双播放器预载，需 DsPlayer 1.2.1+）。桥接式插件（必须 APK 安装，不支持 zip 导入）。",
       "version": "1.1.0",
       "type": "apk",
-      "size": 4233216,
+      "size": 4233188,
       "url": "packages/ijk-1.1.0.apk",
       "icon": "icons/ijk.png",
       "tags": [
         "内核"
       ],
-      "md5": "6862c85f1af4daec73c6c6fe48cf2e0f",
+      "md5": "ba46bd2ea46c6108d6bd28d71e18f30c",
       "category": "env",
       "changelog": "v1.1.0：无缝换集（2026-11-23）——IKernelBridge 接口增 prepareNext/commitPrepared/releasePrepared 三方法（只增不改）：备用 IjkMediaPlayer + 备用 Surface 静音预热首帧后暂停，commit 时与主实例对调，刷剧上下滑换集不再重建解码器（无黑窗/无转圈）。旧宿主不调新方法完全兼容；旧插件无新方法时新宿主经反射探测自动降级（无缝开关不显示）。无缝能力需 DsPlayer 1.2.2+（1.2.1 及更早装本插件仅常规播放，无副作用）。v1.0.6：桥协议扩展——options 新增 extraOptions 保留键（[{category,name,value}] 列表按 category 逐项 setOption），承接接口配置「ijk」选项层与全局附加选项（站点 ijk 层优先；需本体侧配套版本，旧宿主不带此键零影响，向后兼容）。v1.0.5：硬解实况误显示修复——首帧渲染时点复核上报（prepared 早报可能停在未协商初值）。v1.0.4：解码器实况上报——decoder 事件（vdec/vimpl），宿主三点面板「解码方式」显示硬解/软解实况（与 Exo/MPV 对齐）。v1.0.3：双修——①硬解恒软解根修：mediacodec-default_name 判定链首项显式设置 + mediacodec 系 option PLAYER/CODEC 双字典写（此前 720p 软解 CPU 102%，现 64%）；②自编 libijkffmpeg.so 带 bytevc2 软解（B 站 bv2C 私有编码，随包 libbyteVC2dec 0.9.7.1；openssl 静态内嵌直连原始链接）——真机播 bv2C 测试片出帧正常，logcat 铁证 VideoCodec: avcodec, bytevc2。v1.0.2：直播协议白名单修复（rtmp 系放行）。",
       "platforms": [
@@ -386,13 +386,13 @@
       "desc": "IJKPlayer 播放内核的 32 位（armeabi-v7a）构建（CarGuo 修正版，FFmpeg 全协议 + MediaCodec 硬解）。安装后在设置「播放器内核」或播放器底栏切换 IJK；与 Exo/MPV 三内核任切。v1.1.0 起支持刷剧无缝切集（代码与 64 位线同源同能力，需 DsPlayer 1.2.2+）。桥接式插件必须 APK 安装，不支持 zip 导入。64 位设备请装「IJK 播放内核」。不含 bv2C 软解（32 位无该解码库）。",
       "version": "1.1.0",
       "type": "apk",
-      "size": 4102830,
+      "size": 4102802,
       "url": "packages/ijk-arm32-1.1.0.apk",
       "icon": "icons/ijk.png",
       "tags": [
         "内核"
       ],
-      "md5": "de3968a84f9e2524d460fbf86f878f22",
+      "md5": "9cc2a3bcb72e452d7ae0cd7df99d4386",
       "category": "env",
       "changelog": "v1.1.0：与主线同版本（32 位补位线首次对齐）——含无缝换集（双播放器预载，需 DsPlayer 1.2.2+；旧宿主/旧插件均自动降级）与 1.0.6 起全部能力。首版（1.0.0，arm32 补位包）：v7a 三 so 取 gsyvideoplayer-ex_so 13.2.1 官方 AAR 自带 armeabi-v7a（无 bv2C 软解）；需 DsPlayer 1.1.10+（插件中心 ABI 矩阵开放 v7a）。",
       "abis": [
