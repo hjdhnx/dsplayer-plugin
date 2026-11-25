@@ -2,7 +2,7 @@
   "logo": "icons/market.png",
   "name": "DsPlayer 官方插件市场",
   "desc": "官方维护的插件分发索引（docs/plugin/PLUGIN-MARKET-DESIGN.md §二 schema）",
-  "updatedAt": "2026-11-23",
+  "updatedAt": "2026-11-25",
   "plugins": [
     {
       "id": "mediaProxy",
@@ -788,13 +788,13 @@
       "name": "catLib 引擎库包",
       "author": "hjdhnx",
       "desc": "qjs 引擎 assets:// 库目录协议的库文件（应用类源码包）：cat 生态源 import 'assets://js/lib/<file>' 的库目录分发（cat.js/cheerio/crypto-js/mod/sortName/similarity/http/spider 共 8 文件，上游 hjdhnx/drpy-node spider/catLib）。安装后落 sdcard/dsplayer/catLib/，qjs 引擎自动识别 assets:// 导入并实时加载，装完即生效无需重启。不打进 APK/插件包（零壳子体积），需新版 DsPlayer 本体（60377e6 起）配合。",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "type": "source",
       "category": "app",
-      "url": "packages/catlib-1.0.0.zip",
-      "size": 303536,
-      "md5": "56c71207b80b44b675644e04bb88058a",
-      "changelog": "1.0.0：首发——qjs 引擎 assets:// 库目录协议配套库包（cat 生态 catLib 8 文件），源 import assets://js/lib/<file> 由引擎映射到 dsplayer/catLib/<file> 实时加载；bytecode 缓存自动生效。需新版 DsPlayer 本体配合（旧版本体装本包无副作用但引擎不识别 assets://）。",
+      "url": "packages/catlib-1.0.1.zip",
+      "size": 303660,
+      "md5": "230bb916281be3e351a263c93cda9ba8",
+      "changelog": "1.0.1：修复打包脚本 zip 条目多带 payload/ 前缀（1.0.0 安装后库文件落 sdplayer/payload/catLib/，引擎只认 sdplayer/catLib/，新装用户 crypto 报缺失）；1.0.0：首发——qjs 引擎 assets:// 库目录协议配套库包（cat 生态 catLib 8 文件），源 import assets://js/lib/<file> 由引擎映射到 dsplayer/catLib/<file> 实时加载；bytecode 缓存自动生效。",
       "tags": [
         "引擎库",
         "应用"
