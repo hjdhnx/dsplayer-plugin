@@ -57,7 +57,7 @@ DsPlayer 插件官方市场仓库：`market.json` 为市场索引（在线安装
 | 弹幕 API 服务 | `danmu-api` | 1.0.1 | **server**（服务包；platforms=android+win32） | `packages/danmu-1.0.1.zip` |
 | EPG 节目单服务 | `epg-tool` | 1.0.0 | **server**（服务包；runtime=php，需先装 php 运行时插件；platforms=android） | `packages/epg-tool-1.0.0.zip` |
 | Edge 朗读 TTS 服务 | `ra-tts` | 0.1.3 | **server**（服务包；需先装 nodejs 运行时插件（Windows 侧 nodejs-win）；微软 318 音色，端口 38080，供阅读网络朗读音色包消费；platforms=android+win32） | `packages/ra-tts-0.1.3.zip` |
-| 演示源包 | `demo-sources` | 1.2.13 | **source**（源码包；platforms=android+win32；html/ 含 bilibili 完整源 + Web 源演示 + 配置助手（壳内接口配置一键管理，内置清单新增嗷呜 jar 线路，需本体 ds.profiles 桥）+ 独狼影视聚合（6 站聚合便携 WebHome 应用，装磁力插件后磁力集推壳播放）+ 歪比巴卜 booster + fm 桥自验探针（fm-selftest.html / gm-probe.web.json+js）+ 五子棋宝典（先手必胜冲四套娃修炼，纯前端，双击即玩）——需本体 ≥0.9.7） | `packages/demo-sources-1.2.13.zip` |
+| 演示源包 | `demo-sources` | 1.2.14 | **source**（源码包；platforms=android+win32；js/ 新增「牛牛视频」——**动态筛选示例源**：home 不带静态筛选、分类第 1 页响应下发 filters，进分类后筛选面板即时补齐（需支持该特性的新版本体，旧版本体可正常播放仅无动态面板）；html/ 含 bilibili 完整源 + Web 源演示 + 配置助手（壳内接口配置一键管理，内置清单新增嗷呜 jar 线路，需本体 ds.profiles 桥）+ 独狼影视聚合（6 站聚合便携 WebHome 应用，装磁力插件后磁力集推壳播放）+ 歪比巴卜 booster + fm 桥自验探针（fm-selftest.html / gm-probe.web.json+js）+ 五子棋宝典（先手必胜冲四套娃修炼，纯前端，双击即玩）——需本体 ≥0.9.7） | `packages/demo-sources-1.2.14.zip` |
 | Web 规则源包 | `web-rules` | 1.0.0 | **source**（源码包；platforms=android+win32；`spider/html/` 10 个单文件 Web 源 + `ui/` 目录包源（23 套全源浏览皮肤 + 音乐播放器，入口 index.html 选择界面；目录含 index.html 自动成源、无需 UI.json；皮肤首次进入手贴 MCP token） | `packages/web-rules-1.0.0.zip` |
 | catLib 引擎库包 | `catlib` | 1.0.1 | **source**（源码包；引擎库；platforms=android+win32；1.0.1 修复 zip 条目多带 payload/ 前缀致库文件落错目录） | `packages/catlib-1.0.1.zip` |
 | IDM+ 下载器（1DM+） | `idmplus` | 18.2 | **apk**（系统安装；Release 分发；platforms=android） | `idmplus-18.2-CN.apk` |
